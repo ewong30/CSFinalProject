@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 void setup() {
   size(800, 800);
   MODE = 2;
@@ -15,3 +16,6 @@ void draw() {
     avatarPoke(mouseX, mouseY);
   }
 }
+=======
+//testing branch kate!!!
+>>>>>>> 0c764fead76d3b59b35c48cca1cb5667591663de
