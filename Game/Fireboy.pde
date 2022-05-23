@@ -1,8 +1,11 @@
-int x,y;
-
-void avatar(int x, int y) {
-  //your code here
-  noStroke();
-  fill(255,73,73);
-  circle(x, y, 75);
+public class Fireboy extends Character {
+  Fireboy (int x, int y) {
+    super(x,y);
+  }
+    
+  void avatar() {
+    noStroke();
+    fill(200,0,0);
+    circle(x, y, 75);
+  }
 }
