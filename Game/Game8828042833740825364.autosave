@@ -7,4 +7,3 @@ void draw() {
   background(255);
   avatar(x, y);
 }
-//testing branch kate!!!
