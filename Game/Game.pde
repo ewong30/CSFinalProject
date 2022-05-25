@@ -1,7 +1,6 @@
 void setup() {
   size(900, 700);
   backdrop();
-  
 }
 
 
