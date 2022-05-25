@@ -1,11 +1,15 @@
 void setup() {
-  size(1000, 800);
+  size(900, 700);
+  backdrop();
+  
 }
+
+
 void draw() {
-  background(255);
+  
   Character test = new Character(width/2, height/2);
-  Fireboy testFire = new Fireboy(width / 2 - 100,height/2);
-  Watergirl testWater = new Watergirl(width / 2 + 100,height/2);
+  Fireboy testFire = new Fireboy(width / 2 - 100, height/2);
+  Watergirl testWater = new Watergirl(width / 2 + 100, height/2);
   test.avatar();
   testFire.avatar();
   testWater.avatar();
@@ -14,29 +18,28 @@ void draw() {
 
 //movement:
 void keyPressed() {
-  if(key == 'w') {
+  if (key == 'w') {
     text("w", 20, 20);
   }
-  if(key == 's') {
+  if (key == 's') {
     text("s", 20, 40);
   }
-  if(key == 'a') {
+  if (key == 'a') {
     text("a", 20, 60);
   }
-  if(key == 'd') {
+  if (key == 'd') {
     text("w", 20, 80);
   }
-  if(keyCode == UP) {
+  if (keyCode == UP) {
     text("up", 20, 20);
   }
-  if(keyCode == DOWN) {
+  if (keyCode == DOWN) {
     text("down", 20, 40);
   }
-  if(keyCode == LEFT) {
+  if (keyCode == LEFT) {
     text("left", 20, 60);
   }
-  if(keyCode == RIGHT) {
+  if (keyCode == RIGHT) {
     text("right", 20, 80);
   }
-  
 }
