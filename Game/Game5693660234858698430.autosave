@@ -1,5 +1,5 @@
 void setup() {
-  size(1000, 800);
+  size(900, 700);
   backdrop();
 }
 
@@ -7,9 +7,8 @@ Character test = new Character(width/2, height/2);
 Fireboy testFire = new Fireboy(width / 2 - 100, height/2);
 Watergirl testWater = new Watergirl(width / 2 + 100, height/2);
 
-
 void draw() {
-  
+  background(255);
   test.avatar();
   testFire.avatar();
   testWater.avatar();
@@ -67,6 +66,5 @@ void keyReleased() {
   }
   if (keyCode == RIGHT) {
     testWater.moveL(false);
-    text("left", 20, 60);
   }
 }

@@ -16,10 +16,18 @@ public class Character {
   
   void moveL(boolean move) {
     if(move) {
+      isMoving = true;
+    }
+    if(!move) isMoving = false;
+    while(isMoving) {
       x-=5;
     }
   }
-  void moveR() {
+  void moveR(boolean move) {
+    if(move) {
+      isMoving = true;
+    }
+    if(!move) isMoving = false;
     while(isMoving) {
       x+=5;
     }
