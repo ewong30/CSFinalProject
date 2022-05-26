@@ -7,7 +7,7 @@ void setup() {
 void draw() {
   
   Character test = new Character(width/2, height/2);
-  Fireboy testFire = new Fireboy(width / 2 - 100, height/2);
+  Fireboy testFire = new Fireboy(75, 675);
   Watergirl testWater = new Watergirl(width / 2 + 100, height/2);
   test.avatar();
   testFire.avatar();
