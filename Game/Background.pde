@@ -1,4 +1,4 @@
-checkArrayList <Integer[]> horLines = new ArrayList<Integer[]>();
+ArrayList <Integer[]> horLines = new ArrayList<Integer[]>();
 ArrayList <ArrayList<Integer[]>> vertLines = new ArrayList<ArrayList<Integer[]>>();
 
 void backdrop() {
