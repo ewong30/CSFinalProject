@@ -5,10 +5,7 @@ public class Fireboy extends Character {
 
   void avatar() {
     noStroke();
-<<<<<<< HEAD
-    fill(200, 0, 0);
-    circle(x, y, 75);
-=======
+
     fill(200,0,0);
     //head of boy
     circle(x, y - 45, 30);
@@ -18,7 +15,7 @@ public class Fireboy extends Character {
     rect(x+6,y-7, 5,15);
     triangle(x-10,y - 30, x -5,y-30,x - 17,y - 10);
     triangle(x+10,y - 30, x +5,y-30,x+17,y - 10);
->>>>>>> cc829ac13d9e6cc8937d05094bf89a1abc3e6a8f
+
   }
   void fMove(boolean mov, int mType) {
     if (mov) {
