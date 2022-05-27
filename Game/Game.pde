@@ -1,25 +1,25 @@
 void setup() {
   size(900, 700);
-  backdrop();
+  background= loadImage("background.png");
 }
-
+PImage background;
 Character test = new Character(width/2, height/2);
 Fireboy testFire = new Fireboy(width / 2 - 100, height/2);
 Watergirl testWater = new Watergirl(width / 2 + 100, height/2);
 
 
 void draw() {
-  
+  image(background, 0, 0, 900, 700);
 
   Character test = new Character(width/2, height/2);
   Fireboy testFire = new Fireboy(75, 675);
   Watergirl testWater = new Watergirl(width / 2 + 100, height/2);
 
-/*
+  /*
   test.avatar();
-  testFire.avatar();
-  testWater.avatar();
-  */
+   testFire.avatar();
+   testWater.avatar();
+   */
 }
 //testing branch kate!!!
 

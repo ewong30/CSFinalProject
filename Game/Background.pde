@@ -6,5 +6,5 @@ void backdrop() {
   stroke(#272C08);
   fill(#272C08);
   rect(25, 25, 850, 650);
-  brick();
+
 }
