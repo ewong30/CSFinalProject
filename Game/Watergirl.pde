@@ -22,14 +22,4 @@ public class Watergirl extends Character {
     triangle(x+10,y - 40, x +5,y-40,x+17,y - 20);
   }
   
-  void wMove(boolean mov, int mType) {
-      if (mov) {
-      if (mType == 1) {
-        x -= 5;
-      }  
-      if (mType == 2) {
-        x += 5;
-      }
-    }
-  }
 }
