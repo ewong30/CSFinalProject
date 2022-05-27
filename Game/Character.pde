@@ -6,10 +6,7 @@ public class Character {
     this.y = y;
   }  
 
-  boolean up, down, left, right;
-  
-  boolean isMoving;
-  
+
   void avatar() {
     //your code here
     noStroke();
@@ -17,24 +14,11 @@ public class Character {
     circle(x, y, 75);
   }
   //mType is move type, move given the type of move
-
-  
-  void moveL(boolean move) {
-    if(move) {
-      isMoving = true;
-    }
-    if(!move) isMoving = false;
-    while(isMoving) {
-      x-=5;
-    }
+  boolean detectBorders() {
+    if (x <= 20 || x >= width - 20) 
+      return false;
+    if (y <= 20 || y >= height - 20)
+      return false;
+    else
+      return true;
   }
-  void moveR(boolean move) {
-    if(move) {
-      isMoving = true;
-    }
-    if(!move) isMoving = false;
-    while(isMoving) {
-      x+=5;
-    }
-  }
-}
