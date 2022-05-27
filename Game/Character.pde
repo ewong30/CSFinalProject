@@ -16,25 +16,5 @@ public class Character {
     fill(0, 0, 0);
     circle(x, y, 75);
   }
-  //mType is move type, move given the type of move
 
-  
-  void moveL(boolean move) {
-    if(move) {
-      isMoving = true;
-    }
-    if(!move) isMoving = false;
-    while(isMoving) {
-      x-=5;
-    }
-  }
-  void moveR(boolean move) {
-    if(move) {
-      isMoving = true;
-    }
-    if(!move) isMoving = false;
-    while(isMoving) {
-      x+=5;
-    }
-  }
 }
