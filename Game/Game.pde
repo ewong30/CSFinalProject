@@ -1,5 +1,6 @@
 void setup() {
-  size(1000, 800);
+  size(900, 700);
+  keyboardInput = new Controller();
   backdrop();
 }
 
@@ -9,63 +10,34 @@ Watergirl testWater = new Watergirl(width / 2 + 100, height/2);
 
 
 void draw() {
+  backdrop();
   test.avatar();
   testFire.avatar();
   testWater.avatar();
+
+  if (keyboardInput.isPressed(Controller.P1_LEFT)) {
+    testFire.x -= 5;
+  }
+  //check if the button P1_RIGHT is being pressed:
+  if (keyboardInput.isPressed(Controller.P1_RIGHT)) {
+    testFire.x += 5;
+  }
+  if (keyboardInput.isPressed(Controller.P2_LEFT)) {
+    testWater.x -= 5;
+  }
+  //check if the button P1_RIGHT is being pressed:
+  if (keyboardInput.isPressed(Controller.P2_RIGHT)) {
+    testWater.x += 5;
+  }
 }
 //testing branch kate!!!
 
-//movement:
+Controller keyboardInput;
+
 void keyPressed() {
-  if (key == 'w') {
-    text("w", 20, 20);
-  }
-  if (key == 's') {
-    text("s", 20, 40);
-  }
-  if (key == 'a') {
-    text("a", 20, 60);
-  }
-  if (key == 'd') {
-    text("w", 20, 80);
-  }
-  if (keyCode == UP) {
-  }
-  if (keyCode == DOWN) {
-    text("down", 20, 40);
-  }
-  if (keyCode == LEFT) {
-    testWater.moveL(true);
-  }
-  if (keyCode == RIGHT) {
-    testWater.moveR(true);
-  }
+  keyboardInput.press(keyCode);
 }
 
 void keyReleased() {
-  if (key == 'w') {
-    text("w", 20, 20);
-  }
-  if (key == 's') {
-    text("s", 20, 40);
-  }
-  if (key == 'a') {
-    text("a", 20, 60);
-  }
-  if (key == 'd') {
-    text("w", 20, 80);
-  }
-  if (keyCode == UP) {
-    text("up", 20, 20);
-  }
-  if (keyCode == DOWN) {
-    text("down", 20, 40);
-  }
-  if (keyCode == LEFT) {
-    testWater.moveL(false);
-  }
-  if (keyCode == RIGHT) {
-    testWater.moveL(false);
-    text("left", 20, 60);
-  }
+  keyboardInput.release(keyCode);
 }
