@@ -6,7 +6,6 @@ public class Fireboy extends Character {
   void avatar() {
     noStroke();
     fill(200, 0, 0);
-    circle(x, y, 75);
 
     fill(200,0,0);
     //head of boy
@@ -19,17 +18,10 @@ public class Fireboy extends Character {
     //legs
     rect(x-6,y-7, 5,15);
     rect(x+6,y-7, 5,15);
-<<<<<<< HEAD
-    triangle(x-10,y - 30, x -5,y-30,x - 17,y - 10);
-    triangle(x+10,y - 30, x +5,y-30,x+17,y - 10);
-=======
-
     
     //arms
     triangle(x-10,y - 40, x -5,y-40,x - 17,y - 20);
     triangle(x+10,y - 40, x +5,y-40,x+17,y - 20);
-
->>>>>>> cc5be5012045d567091250794337e2eae841c003
   }
     void fMove(boolean mov, int mType) {
     if (mov) {
@@ -40,5 +32,6 @@ public class Fireboy extends Character {
           x += 5;
         }
       
+    }
     }
 }

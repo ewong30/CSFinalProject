@@ -1,39 +1,27 @@
 void setup() {
   size(900, 700);
-<<<<<<< HEAD
   keyboardInput = new Controller();
   backdrop();
-=======
   background= loadImage("background.png");
->>>>>>> 5d899902e728e1047bdc826160e13623487351ab
 }
+
 PImage background;
-Character test = new Character(width/2, height/2);
-Fireboy testFire = new Fireboy(width / 2 - 100, height/2);
-Watergirl testWater = new Watergirl(width / 2 + 100, height/2);
+Character test = new Character(width/2, height/2 - 200);
+Fireboy testFire = new Fireboy(width / 2 - 100, height/2 + 200);
+Watergirl testWater = new Watergirl(width / 2 + 100, height/2 + 200);
 
 
 void draw() {
-<<<<<<< HEAD
-  backdrop();
   test.avatar();
   testFire.avatar();
   testWater.avatar();
-=======
   image(background, 0, 0, 900, 700);
 
-  Character test = new Character(width/2, height/2);
-  Fireboy testFire = new Fireboy(75, 675);
-  Watergirl testWater = new Watergirl(width / 2 + 100, height/2);
 
-  /*
   test.avatar();
-   testFire.avatar();
-   testWater.avatar();
-   */
-}
-//testing branch kate!!!
->>>>>>> 5d899902e728e1047bdc826160e13623487351ab
+  testFire.avatar();
+  testWater.avatar();
+  //testing branch kate!!!
 
   if (keyboardInput.isPressed(Controller.P1_LEFT)) {
     testFire.x -= 5;
@@ -50,6 +38,7 @@ void draw() {
     testWater.x += 5;
   }
 }
+
 //testing branch kate!!!
 
 Controller keyboardInput;
