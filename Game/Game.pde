@@ -9,13 +9,6 @@ Watergirl testWater = new Watergirl(width / 2 + 100, height/2);
 
 
 void draw() {
-  
-<<<<<<< HEAD
-=======
-  Character test = new Character(width/2, height/2);
-  Fireboy testFire = new Fireboy(75, 675);
-  Watergirl testWater = new Watergirl(width / 2 + 100, height/2);
->>>>>>> cc829ac13d9e6cc8937d05094bf89a1abc3e6a8f
   test.avatar();
   testFire.avatar();
   testWater.avatar();
