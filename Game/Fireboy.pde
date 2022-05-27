@@ -7,12 +7,18 @@ public class Fireboy extends Character {
     noStroke();
     fill(200,0,0);
     //head of boy
-    circle(x, y - 45, 30);
+    circle(x, y - 55, 28);
+
     rectMode(CENTER);
-    rect(x, y - 20, 20, 20);
+    //body
+    rect(x, y - 28, 20, 25);
+    
+    //legs
     rect(x-6,y-7, 5,15);
     rect(x+6,y-7, 5,15);
-    triangle(x-10,y - 30, x -5,y-30,x - 17,y - 10);
-    triangle(x+10,y - 30, x +5,y-30,x+17,y - 10);
+    
+    //arms
+    triangle(x-10,y - 40, x -5,y-40,x - 17,y - 20);
+    triangle(x+10,y - 40, x +5,y-40,x+17,y - 20);
   }
 }
