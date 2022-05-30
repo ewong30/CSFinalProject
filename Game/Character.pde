@@ -17,13 +17,13 @@ public class Character {
   }
 
   boolean detectBordersL() {
-    if (x <= 40) 
+    if (x <= 42) 
       return false;
     else
       return true;
   }
   boolean detectBordersR() {
-    if (x >= width - 40) 
+    if (x >= width - 42) 
       return false;
     else
       return true;
@@ -34,6 +34,8 @@ public class Character {
     else
       return true;
   }
+  
+  //detectBordersD isn't used 
   boolean detectBordersD() {
     if (y >= height - 40) 
       return false;
