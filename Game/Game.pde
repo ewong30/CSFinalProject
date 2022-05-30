@@ -12,7 +12,7 @@ void setup() {
 
 void draw() {
   image(background, 0, 0, 900, 700);
-  //testWater.avatar();
+  testWater.avatar();
   testFire.avatar();
   
   // fire jump
@@ -20,7 +20,7 @@ void draw() {
     testFire.dy += 1;
   } else {
     testFire.dy = 0;
-    if (keyboardInput.isPressed(Controller.P1_UP) && testFire.canJump) {
+    if (keyboardInput.isPressed(Controller.P1_UP)) {
       testFire.dy = -12;
     }
   }
@@ -36,16 +36,29 @@ void draw() {
     if(testFire.detectBordersL())
     testFire.x -= 5;
   }
-  //check if the button P1_RIGHT is being pressed:
+
   if (keyboardInput.isPressed(Controller.P1_RIGHT) && testFire.x <= 875) {
     if(testFire.detectBordersR())
     testFire.x += 5;
   } 
   
   
+  // water jump
+  if (testWater.y < 675) {
+    testWater.dy += 1;
+  } else {
+    testWater.dy = 0;
+    if (keyboardInput.isPressed(Controller.P2_UP)) {
+      testWater.dy = -12;
+    }
+  }
   
-  //water left and right
-  /*
+  testWater.y += testWater.dy;
+  
+  while (testWater.y > 675) {
+    testWater.y -= 1;
+  }
+  
   if (keyboardInput.isPressed(Controller.P2_LEFT)) {
     if(testWater.detectBordersL())
     testWater.x -= 5;
@@ -54,22 +67,7 @@ void draw() {
     if(testWater.detectBordersR())
     testWater.x += 5;
   }
-  */
 
-  
-
-
-  
-  //water jump
-  /*
-  if (keyboardInput.isPressed(Controller.P2_UP) && testWater.canJump) {
-    testWater.jumpCount += 8;
-  }
-   if (testWater.jumpCount > 0) {
-    testWater.y -= JUMP_HEIGHT;
-    testWater.jumpCount -= 1;
-  }  
-  */
 }
 
 
