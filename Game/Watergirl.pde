@@ -10,28 +10,28 @@ public class Watergirl extends Character {
   }
 
   void xMove() {
-    if (keyboardInput.isPressed(Controller.WATER_LEFT) && water.detectBordersL()) {
-      water.x -= 5;
+    if (keyboardInput.isPressed(Controller.WATER_LEFT) && detectBordersL()) {
+      x -= 5;
     }
-    if (keyboardInput.isPressed(Controller.WATER_RIGHT) && water.detectBordersR()) {
-      water.x += 5;
+    if (keyboardInput.isPressed(Controller.WATER_RIGHT) && detectBordersR()) {
+      x += 5;
     }
   }
 
   void jump() {
-    if (water.y < 675) {
-      water.dy += 1;
-    } else {
-      water.dy = 0;
+    if (y >= 675 || isOnPlat) {
+      dy = 0; //can jump when on floor
       if (keyboardInput.isPressed(Controller.WATER_UP)) {
-        water.dy = -12;
+        dy = -12;
       }
+    } else {
+      dy += 1; //gravity when not on floor
     }
 
-    water.y += water.dy;
+    y += dy;
 
-    while (water.y > 675) {
-      water.y -= 1;
+    while (y > 675) {
+      y -= 1;
     }
   }
 }

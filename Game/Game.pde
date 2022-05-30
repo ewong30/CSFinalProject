@@ -20,12 +20,12 @@ void draw() {
   fire.jump();
   fire.xMove();
 
-  //water.avatar();
-  //water.jump();
-  //water.xMove();
+  water.avatar();
+  water.jump();
+  water.xMove();
 
   fire.isOnPlat = plat1.activate(fire);
-  println(fire.isOnPlat);
+  water.isOnPlat = plat1.activate(water);
 
 }
 

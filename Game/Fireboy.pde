@@ -10,11 +10,11 @@ public class Fireboy extends Character {
   }
 
   void xMove() {
-    if (keyboardInput.isPressed(Controller.FIRE_LEFT) && fire.detectBordersL()) {
+    if (keyboardInput.isPressed(Controller.FIRE_LEFT) && detectBordersL()) {
       x -= 5;
     }
 
-    if (keyboardInput.isPressed(Controller.FIRE_RIGHT) && fire.detectBordersR()) {
+    if (keyboardInput.isPressed(Controller.FIRE_RIGHT) && detectBordersR()) {
       x += 5;
     }
   }
