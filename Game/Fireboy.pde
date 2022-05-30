@@ -11,28 +11,30 @@ public class Fireboy extends Character {
 
   void xMove() {
     if (keyboardInput.isPressed(Controller.FIRE_LEFT) && fire.detectBordersL()) {
-      fire.x -= 5;
+      x -= 5;
     }
 
     if (keyboardInput.isPressed(Controller.FIRE_RIGHT) && fire.detectBordersR()) {
-      fire.x += 5;
+      x += 5;
     }
   }
 
   void jump() {
-    if (fire.y < 675) {
-      fire.dy += 1; //gravity when jumping
-    } else {
-      fire.dy = 0;
+    if (y >= 675 || isOnPlat) {
+      dy = 0; //can jump when on floor
       if (keyboardInput.isPressed(Controller.FIRE_UP)) {
-        fire.dy = -12;
+        dy = -12;
       }
+    } else {
+      dy += 1; //gravity when not on floor
     }
+    
+    y += dy;
 
-    fire.y += fire.dy;
-
-    while (fire.y > 675) {
-      fire.y -= 1; //stabilize to floor
+    
+    while (y > 675) {
+      y -= 1; //stabilize to floor
     }
+    
   }
 }
