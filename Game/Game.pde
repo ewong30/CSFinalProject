@@ -1,6 +1,6 @@
 PImage background;
-Fireboy testFire = new Fireboy(width / 2 - 100, height/2 + 200);
-Watergirl testWater = new Watergirl(width / 2 + 100, height/2 + 200);
+Fireboy testFire = new Fireboy(100, 675);
+Watergirl testWater = new Watergirl(60, 675);
 
 void setup() {
   size(900, 700);
@@ -16,12 +16,26 @@ void draw() {
 
   testFire.avatar();
   testWater.avatar();
-
-  if (keyboardInput.isPressed(Controller.P1_LEFT)) {
+  
+  if (testFire.y < 675) {
+    testFire.gravity();
+    testFire.canJump = false;
+  } else {
+    testFire.canJump = true;
+  }
+  
+  if (testWater.y < 675) {
+    testWater.gravity();
+    testWater.canJump = false;
+  } else {
+    testWater.canJump = true;
+  }
+  
+  if (keyboardInput.isPressed(Controller.P1_LEFT) && testFire.x >= 25) {
     testFire.x -= 5;
   }
   //check if the button P1_RIGHT is being pressed:
-  if (keyboardInput.isPressed(Controller.P1_RIGHT)) {
+  if (keyboardInput.isPressed(Controller.P1_RIGHT) && testFire.x <= 875) {
     testFire.x += 5;
   }
   if (keyboardInput.isPressed(Controller.P2_LEFT)) {
@@ -31,15 +45,25 @@ void draw() {
   if (keyboardInput.isPressed(Controller.P2_RIGHT)) {
     testWater.x += 5;
   }
-  if (keyboardInput.isPressed(Controller.P1_UP)) {
-    testWater.y -= 5;
-  }
-  if (keyboardInput.isPressed(Controller.P2_UP)) {
-    testFire.y -= 5;
-  }
-}
 
-//testing branch kate!!!
+  if (keyboardInput.isPressed(Controller.P1_UP) && testFire.canJump) {
+    testFire.jumpCount += 8;
+  }
+  if (testFire.jumpCount > 0) {
+    testFire.y -= 20;
+    testFire.jumpCount -= 1;
+  }  
+  
+  if (keyboardInput.isPressed(Controller.P2_UP) && testWater.canJump) {
+    testWater.jumpCount += 8;
+  }
+   if (testWater.jumpCount > 0) {
+    testWater.y -= 20;
+    testWater.jumpCount -= 1;
+  }  
+
+  
+}
 
 Controller keyboardInput;
 

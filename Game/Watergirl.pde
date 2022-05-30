@@ -1,11 +1,11 @@
 public class Watergirl extends Character {
-  Watergirl (int x, int y) {
+  Watergirl (float x, float y) {
     super(x,y);
   }
   
   void avatar() {
     noStroke();
-    fill(0,0,200);
+    fill(#31BFFF);
     //head of boy
     circle(x, y - 55, 28);
 

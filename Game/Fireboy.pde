@@ -1,13 +1,12 @@
 public class Fireboy extends Character {
-  Fireboy (int x, int y) {
+  Fireboy (float x, float y) {
     super(x, y);
   }
 
   void avatar() {
     noStroke();
-    fill(200, 0, 0);
+    fill(#FF3705);
 
-    fill(200, 0, 0);
     //head of boy
     circle(x, y - 55, 28);
 
