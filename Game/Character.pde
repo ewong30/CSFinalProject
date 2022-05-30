@@ -14,10 +14,9 @@ public class Character {
 
 
   void avatar() {
-    //your code here
-    noStroke();
-    fill(0, 0, 0);
-    circle(x, y, 75);
+    circle(x, y - 25, 28);
+    rectMode(CORNERS);
+    rect(x-8, y-25, x+8, y);
   }
   
   //mType is move type, move given the type of move
