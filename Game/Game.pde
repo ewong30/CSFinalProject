@@ -1,6 +1,7 @@
 PImage background;
-Fireboy testFire = new Fireboy(100, 675);
+Fireboy testFire = new Fireboy(100, 595);
 Watergirl testWater = new Watergirl(60, 675);
+static final int JUMP_HEIGHT = 16;
 
 void setup() {
   size(900, 700);
@@ -10,60 +11,62 @@ void setup() {
 
 
 void draw() {
-  testFire.avatar();
-  testWater.avatar();
   image(background, 0, 0, 900, 700);
-
+  //testWater.avatar();
   testFire.avatar();
-  testWater.avatar();
   
+  // fire jump
   if (testFire.y < 675) {
-    testFire.gravity();
-    testFire.canJump = false;
+    testFire.dy += 1;
   } else {
-    testFire.canJump = true;
+    testFire.dy = 0;
+    if (keyboardInput.isPressed(Controller.P1_UP) && testFire.canJump) {
+      testFire.dy = -12;
+    }
   }
   
-  if (testWater.y < 675) {
-    testWater.gravity();
-    testWater.canJump = false;
-  } else {
-    testWater.canJump = true;
+  testFire.y += testFire.dy;
+  
+  while (testFire.y > 675) {
+    testFire.y -= 1;
   }
   
+  //fire left and right
   if (keyboardInput.isPressed(Controller.P1_LEFT) && testFire.x >= 25) {
     testFire.x -= 5;
-  }
-  //check if the button P1_RIGHT is being pressed:
-  if (keyboardInput.isPressed(Controller.P1_RIGHT) && testFire.x <= 875) {
+  } 
+  if (keyboardInput.isPressed(Controller.P1_RIGHT) && testFire.x >= 25) {
     testFire.x += 5;
-  }
+  } 
+  
+  
+  
+  //water left and right
+  /*
   if (keyboardInput.isPressed(Controller.P2_LEFT)) {
     testWater.x -= 5;
   }
-  //check if the button P1_RIGHT is being pressed:
   if (keyboardInput.isPressed(Controller.P2_RIGHT)) {
     testWater.x += 5;
   }
+  */
 
-  if (keyboardInput.isPressed(Controller.P1_UP) && testFire.canJump) {
-    testFire.jumpCount += 8;
-  }
-  if (testFire.jumpCount > 0) {
-    testFire.y -= 20;
-    testFire.jumpCount -= 1;
-  }  
   
+
+
+  
+  //water jump
+  /*
   if (keyboardInput.isPressed(Controller.P2_UP) && testWater.canJump) {
     testWater.jumpCount += 8;
   }
    if (testWater.jumpCount > 0) {
-    testWater.y -= 20;
+    testWater.y -= JUMP_HEIGHT;
     testWater.jumpCount -= 1;
   }  
-
-  
+  */
 }
+
 
 Controller keyboardInput;
 

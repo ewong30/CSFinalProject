@@ -6,10 +6,6 @@ public class Fireboy extends Character {
   void avatar() {
     noStroke();
     fill(#FF3705);
-
     super.avatar();
-
   }
-
-  
 }

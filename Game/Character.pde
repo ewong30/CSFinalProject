@@ -1,15 +1,12 @@
 public class Character {
   float x, y;
+  float dy = 0;
   boolean canJump  = true;
   int jumpCount = 0;
 
   Character (float x, float y) {
     this.x = x;
     this.y = y;
-  }
-  
-  void gravity() {
-    y += 10; 
   }
 
 
@@ -28,5 +25,4 @@ public class Character {
     else
       return true;
   }
-
 }
