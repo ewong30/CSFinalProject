@@ -7,7 +7,7 @@ public class Character {
   }
   
   void gravity() {
-    y += 9; 
+    y += 10; 
   }
 
 

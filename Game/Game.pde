@@ -37,13 +37,8 @@ void draw() {
   }
   
   if (keyboardInput.isPressed(Controller.P1_UP)) {
-    if (p1UpCounter == 0) {
-      p1UpCounter += 5;
-    }
-    if (p1UpCounter <= 5) {
       testFire.y -= 20;
-    }
-    
+
   }
   if (keyboardInput.isPressed(Controller.P2_UP)) {
     testWater.y -= 20;
