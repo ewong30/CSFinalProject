@@ -15,12 +15,28 @@ public class Character {
     rectMode(CORNERS);
     rect(x-8, y-25, x+8, y);
   }
-  
+
   //mType is move type, move given the type of move
-  boolean detectBorders() {
-    if (x <= 25 || x >= width - 25) 
+  boolean detectBordersL() {
+    if (x <= 40) 
       return false;
-    if (y <= 25 || y >= height - 25)
+    else
+      return true;
+  }
+   boolean detectBordersR() {
+    if (x >= width - 40) 
+      return false;
+    else
+      return true;
+  }
+   boolean detectBordersU() {
+    if (y <= 40) 
+      return false;
+    else
+      return true;
+  }
+   boolean detectBordersD() {
+    if (y >= height - 40) 
       return false;
     else
       return true;

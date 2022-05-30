@@ -33,9 +33,12 @@ void draw() {
   
   //fire left and right
   if (keyboardInput.isPressed(Controller.P1_LEFT) && testFire.x >= 25) {
+    if(testFire.detectBordersL())
     testFire.x -= 5;
-  } 
-  if (keyboardInput.isPressed(Controller.P1_RIGHT) && testFire.x >= 25) {
+  }
+  //check if the button P1_RIGHT is being pressed:
+  if (keyboardInput.isPressed(Controller.P1_RIGHT) && testFire.x <= 875) {
+    if(testFire.detectBordersR())
     testFire.x += 5;
   } 
   
@@ -44,9 +47,11 @@ void draw() {
   //water left and right
   /*
   if (keyboardInput.isPressed(Controller.P2_LEFT)) {
+    if(testWater.detectBordersL())
     testWater.x -= 5;
   }
   if (keyboardInput.isPressed(Controller.P2_RIGHT)) {
+    if(testWater.detectBordersR())
     testWater.x += 5;
   }
   */
