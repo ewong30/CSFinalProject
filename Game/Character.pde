@@ -1,5 +1,7 @@
 public class Character {
   float x, y;
+  boolean canJump  = true;
+  int jumpCount = 0;
 
   Character (float x, float y) {
     this.x = x;
