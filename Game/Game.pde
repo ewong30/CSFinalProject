@@ -15,7 +15,7 @@ void draw() {
   image(background, 0, 0, 900, 700);
 
   testFire.avatar();
-  //testWater.avatar();
+  testWater.avatar();
 
   if (keyboardInput.isPressed(Controller.P1_LEFT) && testFire.x >= 25) {
       testFire.x -= 5;
@@ -40,7 +40,9 @@ void draw() {
   if (testFire.y < 675) {
     testFire.gravity();
   }
-  //testWater.gravity();
+  if (testWater.y < 675) {
+    testWater.gravity();
+  }
 }
 
 Controller keyboardInput;
