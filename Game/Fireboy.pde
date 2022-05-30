@@ -21,7 +21,7 @@ public class Fireboy extends Character {
 
   void jump() {
     if (fire.y < 675) {
-      fire.dy += 1;
+      fire.dy += 1; //gravity when jumping
     } else {
       fire.dy = 0;
       if (keyboardInput.isPressed(Controller.FIRE_UP)) {
@@ -32,7 +32,7 @@ public class Fireboy extends Character {
     fire.y += fire.dy;
 
     while (fire.y > 675) {
-      fire.y -= 1;
+      fire.y -= 1; //stabilize to floor
     }
   }
 }

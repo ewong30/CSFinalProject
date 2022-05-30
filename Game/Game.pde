@@ -35,19 +35,21 @@ void draw() {
       float overlapX = sumHalfWidth - Math.abs(distX);
       float overlapY = sumHalfHeight - Math.abs(distY);
 
-      if (overlapX < overlapY) {
+      if (overlapX <= overlapY) {
         if (plat1.centX > fire.x) {
           fire.x -= overlapX;
         } else {
           fire.x += overlapX;
         }
-      } /*else {
+      } else {
         if (plat1.centY > fire.y) {
           fire.y -= overlapY;
+          fire.dy = 0;
         } else {
           fire.y += overlapY;
+          fire.dy = 0;
         }
-      }*/
+      }
     }
   }
 }
