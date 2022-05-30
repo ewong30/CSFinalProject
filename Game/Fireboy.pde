@@ -1,5 +1,5 @@
 public class Fireboy extends Character {
-  Fireboy (int x, int y) {
+  Fireboy (float x, float y) {
     super(x, y);
   }
 

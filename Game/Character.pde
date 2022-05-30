@@ -1,10 +1,14 @@
 public class Character {
-  int x, y;
+  float x, y;
 
-  Character (int x, int y) {
+  Character (float x, float y) {
     this.x = x;
     this.y = y;
-  }  
+  }
+  
+  void gravity() {
+    y += 9.81; 
+  }
 
 
   void avatar() {

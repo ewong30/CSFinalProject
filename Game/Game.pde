@@ -15,15 +15,13 @@ void draw() {
   image(background, 0, 0, 900, 700);
 
   testFire.avatar();
-  testWater.avatar();
+  //testWater.avatar();
 
-  if (keyboardInput.isPressed(Controller.P1_LEFT)) {
-
+  if (keyboardInput.isPressed(Controller.P1_LEFT) && testFire.x >= 25) {
       testFire.x -= 5;
-
   }
   //check if the button P1_RIGHT is being pressed:
-  if (keyboardInput.isPressed(Controller.P1_RIGHT)) {
+  if (keyboardInput.isPressed(Controller.P1_RIGHT) && testFire.x <= 875) {
     testFire.x += 5;
   }
   if (keyboardInput.isPressed(Controller.P2_LEFT)) {
@@ -34,11 +32,15 @@ void draw() {
     testWater.x += 5;
   }
   if (keyboardInput.isPressed(Controller.P1_UP)) {
-    testFire.y -= 5;
+    testFire.y -= 20;
   }
   if (keyboardInput.isPressed(Controller.P2_UP)) {
-    testWater.y -= 5;
+    testWater.y -= 20;
   }
+  if (testFire.y < 675) {
+    testFire.gravity();
+  }
+  //testWater.gravity();
 }
 
 Controller keyboardInput;

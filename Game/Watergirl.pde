@@ -1,5 +1,5 @@
 public class Watergirl extends Character {
-  Watergirl (int x, int y) {
+  Watergirl (float x, float y) {
     super(x,y);
   }
   
