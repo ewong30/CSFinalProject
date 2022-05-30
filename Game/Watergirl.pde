@@ -5,7 +5,7 @@ public class Watergirl extends Character {
   
   void avatar() {
     noStroke();
-    fill(0,0,200);
+    fill(#31BFFF);
     //head of boy
     circle(x, y - 55, 28);
 
