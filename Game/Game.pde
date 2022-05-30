@@ -1,6 +1,8 @@
 PImage background;
 Fireboy testFire = new Fireboy(100, 675);
 Watergirl testWater = new Watergirl(60, 675);
+int p1UpCounter = 0;
+int p2UpCounter = 0;
 
 void setup() {
   size(900, 700);
@@ -17,6 +19,8 @@ void draw() {
   testFire.avatar();
   testWater.avatar();
 
+  p1UpCounter--;
+  
   if (keyboardInput.isPressed(Controller.P1_LEFT) && testFire.x >= 25) {
       testFire.x -= 5;
   }
@@ -31,12 +35,21 @@ void draw() {
   if (keyboardInput.isPressed(Controller.P2_RIGHT)) {
     testWater.x += 5;
   }
+  
   if (keyboardInput.isPressed(Controller.P1_UP)) {
-    testFire.y -= 20;
+    if (p1UpCounter == 0) {
+      p1UpCounter += 5;
+    }
+    if (p1UpCounter <= 5) {
+      testFire.y -= 20;
+    }
+    
   }
   if (keyboardInput.isPressed(Controller.P2_UP)) {
     testWater.y -= 20;
   }
+  
+  
   if (testFire.y < 675) {
     testFire.gravity();
   }

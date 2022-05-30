@@ -5,6 +5,7 @@ class Controller {
   static final int P2_LEFT = 3;
   static final int P2_RIGHT = 4;
   static final int P2_UP = 5;
+
   boolean [] inputs;
 
   public Controller() {
