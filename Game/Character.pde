@@ -13,17 +13,15 @@ public class Character {
     fill(0, 0, 0);
     circle(x, y, 75);
   }
-<<<<<<< HEAD
+  
   //mType is move type, move given the type of move
   boolean detectBorders() {
-    if (x <= 20 || x >= width - 20) 
+    if (x <= 25 || x >= width - 25) 
       return false;
-    if (y <= 20 || y >= height - 20)
+    if (y <= 25 || y >= height - 25)
       return false;
     else
       return true;
   }
-=======
 
 }
->>>>>>> 2a8f1205e906ac10fd75d382e7d26ceee054984d
