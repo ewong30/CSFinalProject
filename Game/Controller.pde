@@ -1,10 +1,10 @@
 class Controller {
-  static final int P1_LEFT = 0;
-  static final int P1_RIGHT = 1;
-  static final int P1_UP = 2;
-  static final int P2_LEFT = 3;
-  static final int P2_RIGHT = 4;
-  static final int P2_UP = 5;
+  static final int FIRE_LEFT = 0;
+  static final int FIRE_RIGHT = 1;
+  static final int FIRE_UP = 2;
+  static final int WATER_LEFT = 3;
+  static final int WATER_RIGHT = 4;
+  static final int WATER_UP = 5;
 
   boolean [] inputs;
 
@@ -12,7 +12,7 @@ class Controller {
     inputs = new boolean[6];//2 valid buttons
   }
 
-  /**@param code: a valid constant e.g. P1_LEFT
+  /**@param code: a valid constant e.g. FIRE_LEFT
    */
   boolean isPressed(int code) {
     return inputs[code];
@@ -21,30 +21,30 @@ class Controller {
   void press(int code) {
     println(code);
     if (code == 'A')
-      inputs[P1_LEFT] = true;
+      inputs[FIRE_LEFT] = true;
     if (code == 'D')
-      inputs[P1_RIGHT] = true;
+      inputs[FIRE_RIGHT] = true;
     if (code == 'W')
-      inputs[P1_UP] = true;
+      inputs[FIRE_UP] = true;
     if (code == 'J')
-      inputs[P2_LEFT] = true;
+      inputs[WATER_LEFT] = true;
     if (code == 'L')
-      inputs[P2_RIGHT] = true;
+      inputs[WATER_RIGHT] = true;
     if (code == 'I')
-      inputs[P2_UP] = true;
+      inputs[WATER_UP] = true;
   }
   void release(int code) {
     if (code == 'A')
-      inputs[P1_LEFT] = false;
+      inputs[FIRE_LEFT] = false;
     if (code == 'D')
-      inputs[P1_RIGHT] = false;
+      inputs[FIRE_RIGHT] = false;
       if (code == 'J')
-      inputs[P2_LEFT] = false;
+      inputs[WATER_LEFT] = false;
     if (code == 'L')
-      inputs[P2_RIGHT] = false;
+      inputs[WATER_RIGHT] = false;
     if (code == 'W')
-      inputs[P1_UP] = false;
+      inputs[FIRE_UP] = false;
     if (code == 'I')
-      inputs[P2_UP] = false;
+      inputs[WATER_UP] = false;
   }
 }

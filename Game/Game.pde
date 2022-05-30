@@ -1,6 +1,6 @@
 PImage background;
-Fireboy testFire = new Fireboy(100, 595);
-Watergirl testWater = new Watergirl(60, 675);
+Fireboy fire = new Fireboy(100, 595);
+Watergirl water = new Watergirl(60, 675);
 static final int JUMP_HEIGHT = 16;
 
 void setup() {
@@ -12,60 +12,60 @@ void setup() {
 
 void draw() {
   image(background, 0, 0, 900, 700);
-  testWater.avatar();
-  testFire.avatar();
+  water.avatar();
+  fire.avatar();
   
   // fire jump
-  if (testFire.y < 675) {
-    testFire.dy += 1;
+  if (fire.y < 675) {
+    fire.dy += 1;
   } else {
-    testFire.dy = 0;
-    if (keyboardInput.isPressed(Controller.P1_UP)) {
-      testFire.dy = -12;
+    fire.dy = 0;
+    if (keyboardInput.isPressed(Controller.FIRE_UP)) {
+      fire.dy = -12;
     }
   }
   
-  testFire.y += testFire.dy;
+  fire.y += fire.dy;
   
-  while (testFire.y > 675) {
-    testFire.y -= 1;
+  while (fire.y > 675) {
+    fire.y -= 1;
   }
   
   //fire left and right
-  if (keyboardInput.isPressed(Controller.P1_LEFT) && testFire.x >= 25) {
-    if(testFire.detectBordersL())
-    testFire.x -= 5;
+  if (keyboardInput.isPressed(Controller.FIRE_LEFT) && fire.x >= 25) {
+    if(fire.detectBordersL())
+    fire.x -= 5;
   }
 
-  if (keyboardInput.isPressed(Controller.P1_RIGHT) && testFire.x <= 875) {
-    if(testFire.detectBordersR())
-    testFire.x += 5;
+  if (keyboardInput.isPressed(Controller.FIRE_RIGHT) && fire.x <= 875) {
+    if(fire.detectBordersR())
+    fire.x += 5;
   } 
   
   
   // water jump
-  if (testWater.y < 675) {
-    testWater.dy += 1;
+  if (water.y < 675) {
+    water.dy += 1;
   } else {
-    testWater.dy = 0;
-    if (keyboardInput.isPressed(Controller.P2_UP)) {
-      testWater.dy = -12;
+    water.dy = 0;
+    if (keyboardInput.isPressed(Controller.WATER_UP)) {
+      water.dy = -12;
     }
   }
   
-  testWater.y += testWater.dy;
+  water.y += water.dy;
   
-  while (testWater.y > 675) {
-    testWater.y -= 1;
+  while (water.y > 675) {
+    water.y -= 1;
   }
   
-  if (keyboardInput.isPressed(Controller.P2_LEFT)) {
-    if(testWater.detectBordersL())
-    testWater.x -= 5;
+  if (keyboardInput.isPressed(Controller.WATER_LEFT)) {
+    if(water.detectBordersL())
+    water.x -= 5;
   }
-  if (keyboardInput.isPressed(Controller.P2_RIGHT)) {
-    if(testWater.detectBordersR())
-    testWater.x += 5;
+  if (keyboardInput.isPressed(Controller.WATER_RIGHT)) {
+    if(water.detectBordersR())
+    water.x += 5;
   }
 
 }
