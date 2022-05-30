@@ -29,12 +29,12 @@ public class Platform {
     float sumHalfWidth = player.wide/2.0 + wide/2.0;
     float sumHalfHeight = player.high/2.0 + high/2.0;
 
-    if (Math.abs(distX) < sumHalfWidth) {
-      if (Math.abs(distY) < sumHalfHeight) {
+    if (Math.abs(distX) <= sumHalfWidth) {
+      if (Math.abs(distY) <= sumHalfHeight) {
         float overlapX = sumHalfWidth - Math.abs(distX);
         float overlapY = sumHalfHeight - Math.abs(distY);
 
-        if (overlapX <= overlapY) {
+        if (overlapX < overlapY) {
           if (centX > player.x) {
             player.x -= overlapX;
           } else {

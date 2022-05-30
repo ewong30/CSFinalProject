@@ -31,10 +31,8 @@ public class Fireboy extends Character {
     
     y += dy;
 
-    
     while (y > 675) {
-      y -= 1; //stabilize to floor
+      y -= 1;
     }
-    
   }
 }

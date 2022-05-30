@@ -25,6 +25,8 @@ void draw() {
   //water.xMove();
 
   fire.isOnPlat = plat1.activate(fire);
+  println(fire.isOnPlat);
+
 }
 
 
