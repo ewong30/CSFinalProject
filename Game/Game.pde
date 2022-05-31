@@ -9,6 +9,11 @@ Platform plat3 = new Platform(450, 500, 730, 525);
 Platform plat4 = new Platform(430, 475, 500, 500);
 Platform plat5 = new Platform(24, 450, 475, 475);
 Platform plat6 = new Platform(100, 365, 876, 390);
+Platform plat7 = new Platform(24, 275, 776, 300);
+Platform plat8 = new Platform(24, 205, 120, 275);
+Platform plat9 = new Platform(220, 165, 876, 190);
+Platform plat10 = new Platform(180, 140, 300, 165);
+Platform plat11 = new Platform(220, 165, 320, 225);
 
 void setup() {
   size(900, 675);
@@ -21,6 +26,11 @@ void setup() {
   plats.add(plat4);
   plats.add(plat5);
   plats.add(plat6);
+  plats.add(plat7);
+  plats.add(plat8);
+  plats.add(plat9);
+  plats.add(plat10);
+  plats.add(plat11);
 }
 
 void draw() {
