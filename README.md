@@ -9,6 +9,11 @@ With extra time, this puzzle aspect will include levers and buttons that open do
 
 The Prototype Google Document is linked [here](https://docs.google.com/document/d/11r0vwaMjeIKi1Fcn6KsxP72kj12YtNphz2ERwZSUVpM/edit?usp=sharing).
 
+## Compile/Run Instructions
+1. Clone the repository into a directory.
+2. Open the Game directory in Processing. Click on the file Game.pde.
+3. Click run in the top left corner of the Processing window.
+
 ## Development Log
 | Date        | Kate           | Ethan  |
 | --- | --- | --- |
