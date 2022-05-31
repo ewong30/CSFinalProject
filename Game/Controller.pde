@@ -9,7 +9,7 @@ class Controller {
   boolean [] inputs;
 
   public Controller() {
-    inputs = new boolean[6];//2 valid buttons
+    inputs = new boolean[6];//6 valid buttons
   }
 
   /**@param code: a valid constant e.g. FIRE_LEFT
@@ -19,7 +19,6 @@ class Controller {
   }
 
   void press(int code) {
-    println(code);
     if (code == 'A')
       inputs[FIRE_LEFT] = true;
     if (code == 'D')

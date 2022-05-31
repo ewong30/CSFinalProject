@@ -1,6 +1,7 @@
 class Door {
   float x, y;
   boolean fire, water;
+  
   public Door(float x, float y, String define) {
     this.x = x;
     this.y = y;
@@ -32,6 +33,28 @@ class Door {
       circle(x + 27, y + 25, 20);
       line(x + 27, y + 35, x + 27, y + 47);
       line(x + 20, y + 40, x + 35, y + 40);
+    }
+  }
+  
+  void activateF(Fireboy fireboy) {
+    if((fireboy.x >= x && fireboy.x <= x + 55) && (fireboy.y <= y + 65 && fireboy.y >= y)) {
+      if(fire == true) {
+        fireboy.doorAct = true;
+      }
+    }
+    else {
+      fireboy.doorAct = false;
+    }
+  }
+  
+  void activateW(Watergirl watergirl) {
+    if((watergirl.x >= x && watergirl.x <= x + 55) && (watergirl.y <= y + 65 && watergirl.y >= y)) {
+      if(water == true) {
+        watergirl.doorAct = true;
+      }
+    }
+    else {
+      watergirl.doorAct = false;
     }
   }
 }

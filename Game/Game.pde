@@ -22,7 +22,7 @@ void setup() {
   size(900, 675);
   keyboardInput = new Controller();
   background = loadImage("background.png");
-  
+
   plats.add(plat1);
   plats.add(plat2);
   plats.add(plat3);
@@ -39,15 +39,23 @@ void setup() {
 void draw() {
   image(background, 0, 0, 901, 675);
   fill(#908c4c);
-  
+
   fireDoor.drawDoor();
-  fire.avatar();
+  if (fire.winF == false) {
+    fire.avatar();
+  }
+  fireDoor.activateF(fire);
+  fire.doorLeave();
   fire.jump();
   fire.xMove();
-  
+
   waterDoor.drawDoor();
-  water.avatar();
+  if (water.winW == false) {
+    water.avatar();
+  }
   water.jump();
+  waterDoor.activateW(water);
+  water.doorLeave();
   water.xMove();
 
   boolean fireOnPlat = false;
@@ -68,7 +76,7 @@ void keyPressed() {
   keyboardInput.press(keyCode);
 }
 
-void mouseClicked(){
+void mouseClicked() {
   println(mouseX + " " + mouseY);
 }
 
