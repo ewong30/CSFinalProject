@@ -25,7 +25,7 @@ public class Platform {
 
     float distX = centX - player.x;
     float distY = centY - (player.y - player.high/2.0);
-
+    
     float sumHalfWidth = player.wide/2.0 + wide/2.0;
     float sumHalfHeight = player.high/2.0 + high/2.0;
 
@@ -37,17 +37,21 @@ public class Platform {
         if (overlapX < overlapY) {
           if (centX > player.x) {
             player.x -= overlapX;
+            
           } else {
             player.x += overlapX;
+            
           }
         } else {
           if (centY > player.y) {
             player.y -= overlapY;
             player.dy = 0;
+            
             return true;
           } else {
             player.y += overlapY;
             player.dy = 0;
+            
           }
         }
       }

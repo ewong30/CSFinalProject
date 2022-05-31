@@ -1,6 +1,7 @@
 PImage background;
 Fireboy fire = new Fireboy(60, 652);
-Watergirl water = new Watergirl(60, 550);
+//Watergirl water = new Watergirl(60, 550);
+Watergirl water = new Watergirl(60, 200);
  
 boolean WIPmessage;
 
@@ -32,21 +33,36 @@ void setup() {
 
   plats.add(plat1);
   plats.add(plat2);
-  plats.add(plat3);
-  plats.add(plat4);
   plats.add(plat5);
+  plats.add(plat4);
+  plats.add(plat3);
+  
+  
   plats.add(plat6);
-  plats.add(plat7);
   plats.add(plat8);
-  plats.add(plat9);
+  plats.add(plat7);
+  
   plats.add(plat10);
+  plats.add(plat9);
+ 
   plats.add(plat11);
 }
 
 void draw() {
   image(background, 0, 0, 901, 675);
   fill(#908c4c);
-
+  
+  //places platforms
+  boolean fireOnPlat = false;
+  boolean waterOnPlat = false;
+  for (Platform p : plats) {
+    p.place();
+    fireOnPlat = fireOnPlat || p.activate(fire);
+    waterOnPlat = waterOnPlat || p.activate(water);
+  }
+  fire.isOnPlat = fireOnPlat;
+  water.isOnPlat = waterOnPlat;
+  
   fireDoor.drawDoor();
   waterDoor.drawDoor();
   
@@ -72,16 +88,7 @@ void draw() {
   waterDoor.activateW(water);
   water.doorLeave(fire);
   water.xMove();
-
-  boolean fireOnPlat = false;
-  boolean waterOnPlat = false;
-  for (Platform p : plats) {
-    p.place();
-    fireOnPlat = fireOnPlat || p.activate(fire);
-    waterOnPlat = waterOnPlat || p.activate(water);
-  }
-  fire.isOnPlat = fireOnPlat;
-  water.isOnPlat = waterOnPlat;
+  
   if (fire.winF == true && water.winW == true) {
     screen.displayWin();
   }
