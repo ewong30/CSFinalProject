@@ -15,6 +15,9 @@ Platform plat9 = new Platform(220, 165, 876, 190);
 Platform plat10 = new Platform(180, 140, 300, 165);
 Platform plat11 = new Platform(220, 165, 320, 225);
 
+Door fireDoor = new Door(655, 110, "fire");
+Door waterDoor = new Door(750, 110, "water");
+
 void setup() {
   size(900, 675);
   keyboardInput = new Controller();
@@ -36,12 +39,13 @@ void setup() {
 void draw() {
   image(background, 0, 0, 901, 675);
   fill(#908c4c);
-
-
+  
+  fireDoor.drawDoor();
   fire.avatar();
   fire.jump();
   fire.xMove();
-
+  
+  waterDoor.drawDoor();
   water.avatar();
   water.jump();
   water.xMove();
@@ -62,6 +66,10 @@ Controller keyboardInput;
 
 void keyPressed() {
   keyboardInput.press(keyCode);
+}
+
+void mouseClicked(){
+  println(mouseX + " " + mouseY);
 }
 
 void keyReleased() {

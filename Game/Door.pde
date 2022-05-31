@@ -1,0 +1,37 @@
+class Door {
+  float x, y;
+  boolean fire, water;
+  public Door(float x, float y, String define) {
+    this.x = x;
+    this.y = y;
+    if(define.equals("fire")) {
+      fire = true;
+    }
+    if(define.equals("water")) {
+      water = true;
+    }
+  }
+  
+  void drawDoor() {
+    stroke(4);
+    rectMode(CORNER);
+    fill(113,103,51);
+    rect(x, y, 55, 65);
+    rect(x + 5, y + 5, 45, 50);
+    if(fire) {
+      stroke(255, 55, 5);
+      strokeWeight(2);
+      circle(x + 27, y + 32, 20);
+      line(x + 33, y + 24, x + 44, y + 16);
+      line(x + 33, y + 13, x + 44, y + 16);
+      line(x + 45, y + 27, x + 44, y + 16);
+    }
+    if(water) {
+      stroke(49, 191, 255);
+      strokeWeight(2);
+      circle(x + 27, y + 25, 20);
+      line(x + 27, y + 35, x + 27, y + 47);
+      line(x + 20, y + 40, x + 35, y + 40);
+    }
+  }
+}
