@@ -1,7 +1,7 @@
 PImage background;
 Fireboy fire = new Fireboy(60, 652);
 Watergirl water = new Watergirl(60, 550);
-
+ 
 boolean WIPmessage;
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
