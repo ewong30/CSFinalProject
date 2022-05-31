@@ -4,6 +4,7 @@ public class Character {
   float high = 40;
   float wide = 30;
   boolean isOnPlat = false;
+  boolean win;
 
   Character (float x, float y) {
     this.x = x;

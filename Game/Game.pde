@@ -2,6 +2,8 @@ PImage background;
 Fireboy fire = new Fireboy(60, 652);
 Watergirl water = new Watergirl(60, 550);
 
+boolean WIPmessage;
+
 ArrayList<Platform> plats = new ArrayList<Platform>();
 Platform plat1 = new Platform(24, 550, 350, 575);
 Platform plat2 = new Platform(780, 585, 876, 652);
@@ -17,6 +19,8 @@ Platform plat11 = new Platform(220, 165, 320, 225);
 
 Door fireDoor = new Door(655, 110, "fire");
 Door waterDoor = new Door(750, 110, "water");
+winScreen win = new winScreen(49, 48);
+
 
 void setup() {
   size(900, 675);
@@ -41,21 +45,23 @@ void draw() {
   fill(#908c4c);
 
   fireDoor.drawDoor();
+  waterDoor.drawDoor();
+  
   if (fire.winF == false) {
     fire.avatar();
   }
   fireDoor.activateF(fire);
-  fire.doorLeave();
+  fire.doorLeave(water);
   fire.jump();
   fire.xMove();
 
-  waterDoor.drawDoor();
+  
   if (water.winW == false) {
     water.avatar();
   }
   water.jump();
   waterDoor.activateW(water);
-  water.doorLeave();
+  water.doorLeave(fire);
   water.xMove();
 
   boolean fireOnPlat = false;
@@ -67,8 +73,13 @@ void draw() {
   }
   fire.isOnPlat = fireOnPlat;
   water.isOnPlat = waterOnPlat;
+  if (fire.winF == true && water.winW == true) {
+    win.displayWin();
+  }
+  if (WIPmessage) {
+    win.nextStage();
+  }
 }
-
 
 Controller keyboardInput;
 
@@ -77,7 +88,9 @@ void keyPressed() {
 }
 
 void mouseClicked() {
-  println(mouseX + " " + mouseY);
+  if ((win.winscreen) && (mouseX >= 200) && (mouseX <= 700) && (mouseY >= 475) && (mouseY <= 575)) {
+    WIPmessage = true;
+  }
 }
 
 void keyReleased() {

@@ -23,8 +23,8 @@ public class Watergirl extends Character {
     }
   }
 
-  void doorLeave() {
-    if (keyboardInput.isPressed(Controller.WATER_UP) && doorAct == true) {
+  void doorLeave(Fireboy fire) {
+    if (fire.doorAct == true && doorAct == true) {
       winW = true;
     }
   }

@@ -24,8 +24,8 @@ public class Fireboy extends Character {
     }
   }
 
-  void doorLeave() {
-    if (keyboardInput.isPressed(Controller.FIRE_UP) && doorAct == true) {
+  void doorLeave(Watergirl water) {
+    if (water.doorAct == true && doorAct == true) {
       winF = true;
     }
   }
