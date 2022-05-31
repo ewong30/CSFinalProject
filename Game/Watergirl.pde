@@ -22,7 +22,7 @@ public class Watergirl extends Character {
     if (y >= 652 || isOnPlat) {
       dy = 0; //can jump when on floor
       if (keyboardInput.isPressed(Controller.WATER_UP)) {
-        dy = -12;
+        dy = -13;
       }
     } else {
       dy += 1; //gravity when not on floor

@@ -1,10 +1,14 @@
 PImage background;
 Fireboy fire = new Fireboy(60, 652);
-Watergirl water = new Watergirl(60, 560);
+Watergirl water = new Watergirl(60, 550);
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
-Platform plat1 = new Platform(0, 560, 350, 585);
+Platform plat1 = new Platform(24, 550, 350, 575);
 Platform plat2 = new Platform(780, 585, 876, 652);
+Platform plat3 = new Platform(450, 500, 730, 525);
+Platform plat4 = new Platform(430, 475, 500, 500);
+Platform plat5 = new Platform(24, 450, 475, 475);
+Platform plat6 = new Platform(100, 365, 876, 390);
 
 void setup() {
   size(900, 675);
@@ -13,6 +17,10 @@ void setup() {
   
   plats.add(plat1);
   plats.add(plat2);
+  plats.add(plat3);
+  plats.add(plat4);
+  plats.add(plat5);
+  plats.add(plat6);
 }
 
 void draw() {
@@ -28,11 +36,15 @@ void draw() {
   water.jump();
   water.xMove();
 
+  boolean fireOnPlat = false;
+  boolean waterOnPlat = false;
   for (Platform p : plats) {
     p.place();
-    fire.isOnPlat = plat1.activate(fire) || p.activate(fire);
-    water.isOnPlat = plat1.activate(water) || p.activate(water);
+    fireOnPlat = fireOnPlat || p.activate(fire);
+    waterOnPlat = waterOnPlat || p.activate(water);
   }
+  fire.isOnPlat = fireOnPlat;
+  water.isOnPlat = waterOnPlat;
 }
 
 
