@@ -1,7 +1,7 @@
 PImage background;
 Fireboy fire = new Fireboy(60, 652);
 Watergirl water = new Watergirl(60, 550);
-
+ 
 boolean WIPmessage;
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
@@ -20,6 +20,8 @@ Platform plat11 = new Platform(220, 165, 320, 225);
 Door fireDoor = new Door(655, 110, "fire");
 Door waterDoor = new Door(750, 110, "water");
 winScreen win = new winScreen(49, 48);
+
+WaterPool wPool = new WaterPool(450, 652, 100);
 
 
 void setup() {
@@ -47,7 +49,10 @@ void draw() {
   fireDoor.drawDoor();
   waterDoor.drawDoor();
   
-  if (fire.winF == false) {
+  wPool.drawPool();
+  wPool.killF(fire);
+  
+  if (fire.winF == false && fire.dead == false) {
     fire.avatar();
   }
   fireDoor.activateF(fire);
