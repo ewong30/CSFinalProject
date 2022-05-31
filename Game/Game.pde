@@ -21,6 +21,8 @@ Door fireDoor = new Door(655, 110, "fire");
 Door waterDoor = new Door(750, 110, "water");
 winScreen win = new winScreen(49, 48);
 
+WaterPool wPool = new WaterPool(450, 652, 100);
+
 
 void setup() {
   size(900, 675);
@@ -47,7 +49,10 @@ void draw() {
   fireDoor.drawDoor();
   waterDoor.drawDoor();
   
-  if (fire.winF == false) {
+  wPool.drawPool();
+  wPool.killF(fire);
+  
+  if (fire.winF == false && fire.dead == false) {
     fire.avatar();
   }
   fireDoor.activateF(fire);
