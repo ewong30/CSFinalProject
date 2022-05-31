@@ -32,6 +32,7 @@ public class Platform {
     if (Math.abs(distX) <= sumHalfWidth) {
       if (Math.abs(distY) <= sumHalfHeight) {
         float overlapX = sumHalfWidth - Math.abs(distX);
+        println(overlapX);
         float overlapY = sumHalfHeight - Math.abs(distY);
 
         if (overlapX < overlapY) {

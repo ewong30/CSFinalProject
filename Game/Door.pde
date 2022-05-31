@@ -13,13 +13,23 @@ class Door {
     }
   }
 
-  void drawDoor() {
+  void drawDoor(Fireboy fireboy, Watergirl watergirl) {
     stroke(4);
     rectMode(CORNER);
     fill(113, 103, 51);
-    rect(x, y, 55, 65);   
-    rect(x + 5, y + 5, 45, 50);
-    if (fire) {
+    rect(x, y, 55, 65);
+    if (fire && !fireboy.doorAct) {
+      fill(113, 103, 51);
+      rect(x + 5, y + 5, 45, 50);
+    } else if (water && !watergirl.doorAct) {
+      fill(113, 103, 51);
+      rect(x + 5, y + 5, 45, 50);
+    }
+    else {
+      fill(0);
+      rect(x + 5, y + 5, 45, 50);
+    }
+    if (fire && !fireboy.doorAct) {
       stroke(255, 55, 5);
       strokeWeight(2);
       circle(x + 27, y + 32, 20);
@@ -27,7 +37,7 @@ class Door {
       line(x + 33, y + 13, x + 44, y + 16);
       line(x + 45, y + 27, x + 44, y + 16);
     }
-    if (water) {
+    if (water && !watergirl.doorAct) {
       stroke(49, 191, 255);
       strokeWeight(2);
       circle(x + 27, y + 25, 20);

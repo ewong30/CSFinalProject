@@ -35,7 +35,7 @@ public class Character {
     else
       return true;
   }
-  
+
   //detectBordersD isn't used 
   boolean detectBordersD() {
     if (y >= height - 40) 
@@ -43,6 +43,4 @@ public class Character {
     else
       return true;
   }
-  
-  
 }
