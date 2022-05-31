@@ -8,3 +8,9 @@ Each character will be programmed under a Character class, which has a jump feat
 With extra time, this puzzle aspect will include levers and buttons that open doors and with time, it will have easy, medium, and hard levels. Additionally, we could create add-ons like power ups and different additions to the puzzles like push-able boxes.
 
 The Prototype Google Document is linked [here](https://docs.google.com/document/d/11r0vwaMjeIKi1Fcn6KsxP72kj12YtNphz2ERwZSUVpM/edit?usp=sharing).
+
+## Development Log
+| Date        | Kate           | Ethan  |
+| --- | --- | --- |
+|5/30/22| Today, I created platforms and a jump function for both characters. I also organized the code outside of the main Game tab and into their respective tabs/classes.|  |
+
