@@ -12,9 +12,15 @@ public class Character {
   }
 
   void avatar() {
-    circle(x, y - 25, 30);
     rectMode(CORNERS);
-    rect(x-8, y-25, x+8, y);
+    rect(x-15, y-25, x-2, y, 0,0,3,3);
+    rect(x+15, y-25, x+2, y, 0,0,3,3);
+    rect(x-15, y-25, x+15, y-7);
+    circle(x, y - 28, 30);
+    
+    fill(60, 95, 110);
+    rect(x-2, y-21, x+19,y - 32, 4, 4, 4, 4);
+    
   }
 
   boolean detectBordersL() {
