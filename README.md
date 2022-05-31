@@ -12,5 +12,13 @@ The Prototype Google Document is linked [here](https://docs.google.com/document/
 ## Development Log
 | Date        | Kate           | Ethan  |
 | --- | --- | --- |
-|5/30/22| Today, I created platforms and a jump function for both characters. I also organized the code outside of the main Game tab and into their respective tabs/classes.|  |
+| 5/17/22 |  | Created the initial commit for the project. |
+| 5/19/22 | I tested out merging and branching. | I tested merging and branching and edited the Readme. |
+| 5/23/22 | I created the basic tabs and classes for the characters. | I created the basic folders to the github. |
+| 5/24/22 | | I practiced more merging and branching. |
+| 5/25/22 | I designed the background for the game in Processing. |  |
+| 5/26/22 | I created a basic design for Fireboy. | I created basic move functions for the characters. |
+| 5/27/22 | I changed the background from Processing into a picture. | I fixed merge conflicts. |
+| 5/29/22 | I changed the character designs to more basic shapes and created a jump/up function. |  |
+|5/30/22| I created platforms and a smoother jump function for both characters. I also organized the code outside of the main Game tab and into their respective tabs/classes.|  |
 
