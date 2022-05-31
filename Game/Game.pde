@@ -19,9 +19,10 @@ Platform plat11 = new Platform(220, 165, 320, 225);
 
 Door fireDoor = new Door(655, 110, "fire");
 Door waterDoor = new Door(750, 110, "water");
-winScreen win = new winScreen(49, 48);
+winScreen screen = new winScreen(49, 48);
 
-WaterPool wPool = new WaterPool(450, 652, 100);
+WaterPool wPool = new WaterPool(625, 652, 90);
+LavaPool fPool = new LavaPool(450, 652, 90);
 
 
 void setup() {
@@ -52,6 +53,9 @@ void draw() {
   wPool.drawPool();
   wPool.killF(fire);
   
+  fPool.drawPool();
+  fPool.killW(water);
+  
   if (fire.winF == false && fire.dead == false) {
     fire.avatar();
   }
@@ -61,7 +65,7 @@ void draw() {
   fire.xMove();
 
   
-  if (water.winW == false) {
+  if (water.winW == false && water.dead == false) {
     water.avatar();
   }
   water.jump();
@@ -79,10 +83,13 @@ void draw() {
   fire.isOnPlat = fireOnPlat;
   water.isOnPlat = waterOnPlat;
   if (fire.winF == true && water.winW == true) {
-    win.displayWin();
+    screen.displayWin();
+  }
+  if(fire.dead == true || water.dead == true) {
+    screen.displayDead();
   }
   if (WIPmessage) {
-    win.nextStage();
+    screen.nextStage();
   }
 }
 
@@ -93,7 +100,18 @@ void keyPressed() {
 }
 
 void mouseClicked() {
-  if ((win.winscreen) && (mouseX >= 200) && (mouseX <= 700) && (mouseY >= 475) && (mouseY <= 575)) {
+  if ((screen.winscreen) && (mouseX >= 200) && (mouseX <= 700) && (mouseY >= 475) && (mouseY <= 575)) {
+    WIPmessage = true;
+  }
+  if ((screen.deadScreen) && (mouseX >= 150) && (mouseX <= 350) && (mouseY >= 480) && (mouseY <= 580)) {
+    fire.y = 652;
+    water.y = 550;
+    water.x = 60;
+    fire.x = 60;
+    fire.dead = false;
+    water.dead = false;
+  }
+  if ((screen.deadScreen) && (mouseX >= 525) && (mouseX <= 725) && (mouseY >= 480) && (mouseY <= 580)) {
     WIPmessage = true;
   }
 }

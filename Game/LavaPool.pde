@@ -6,8 +6,8 @@ public class LavaPool extends Pool {
   
   
   void drawPool() {
-    fill(#31BFFF);
     fill(#FF3705);
+    super.drawPool();
   }
   
   void killW(Watergirl watergirl) {
