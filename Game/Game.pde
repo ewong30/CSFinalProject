@@ -18,7 +18,7 @@ Platform plat10 = new Platform(180, 140, 300, 165);
 Platform plat11 = new Platform(220, 165, 320, 225);
 Platform ceiling = new Platform(0,0,900,25);
 
-//Door fireDoor = new Door(800, 165, "fire");
+Door fireDoor = new Door(725, 163, "fire");
 Door waterDoor = new Door(825, 163, "water");
 winScreen screen = new winScreen(49, 48);
 
@@ -56,7 +56,7 @@ void draw() {
   fill(#908c4c);
   
   //draw doors
-  //fireDoor.drawDoor();
+  fireDoor.drawDoor();
   waterDoor.drawDoor();
   
   //places platforms
@@ -85,7 +85,7 @@ void draw() {
   }
   
   
-  //fireDoor.activateF(fire);
+  fireDoor.activateF(fire);
   fire.doorLeave(water);
   fire.jump();
   fire.xMove();
