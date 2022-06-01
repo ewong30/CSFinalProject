@@ -35,6 +35,7 @@ class Door {
       line(x + 20, y + 40, x + 35, y + 40);
       stroke(0, 0, 0);
     }
+    noStroke();
   }
 
   void activateF(Fireboy fireboy) {

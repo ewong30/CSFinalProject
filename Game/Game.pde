@@ -1,6 +1,6 @@
 PImage background;
-Fireboy fire = new Fireboy(60, 652);
-Watergirl water = new Watergirl(60, 550);
+Fireboy fire = new Fireboy(200, 100);
+Watergirl water = new Watergirl(260, 100);
  
 boolean WIPmessage;
 
@@ -16,6 +16,7 @@ Platform plat8 = new Platform(24, 205, 120, 275);
 Platform plat9 = new Platform(220, 165, 876, 190);
 Platform plat10 = new Platform(180, 140, 300, 165);
 Platform plat11 = new Platform(220, 165, 320, 225);
+Platform ceiling = new Platform(0,0,900,25);
 
 Door fireDoor = new Door(655, 110, "fire");
 Door waterDoor = new Door(750, 110, "water");
@@ -45,11 +46,17 @@ void setup() {
   plats.add(plat9);
  
   plats.add(plat11);
+  
+  plats.add(ceiling);
 }
 
 void draw() {
   image(background, 0, 0, 901, 675);
   fill(#908c4c);
+  
+  //draw doors
+  fireDoor.drawDoor();
+  waterDoor.drawDoor();
   
   //places platforms
   boolean fireOnPlat = false;
@@ -62,24 +69,24 @@ void draw() {
   fire.isOnPlat = fireOnPlat;
   water.isOnPlat = waterOnPlat;
   
-  fireDoor.drawDoor();
-  waterDoor.drawDoor();
-  
   wPool.drawPool();
   wPool.killF(fire);
   
   fPool.drawPool();
   fPool.killW(water);
   
+  //fire actions
   if (fire.winF == false && fire.dead == false) {
     fire.avatar();
   }
+  
+  
   fireDoor.activateF(fire);
   fire.doorLeave(water);
   fire.jump();
   fire.xMove();
 
-  
+  //water actions
   if (water.winW == false && water.dead == false) {
     water.avatar();
   }

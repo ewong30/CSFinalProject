@@ -18,8 +18,9 @@ public class Character {
     rect(x-15, y-25, x+15, y-7);
     circle(x, y - 28, 30);
     
-    stroke(0);
+    stroke(0,130);
     fill(60, 95, 110);
+    strokeWeight(2);
     rect(x-2, y-21, x+19,y - 32, 4, 4, 4, 4);
     noStroke();
   }
@@ -42,14 +43,4 @@ public class Character {
     else
       return true;
   }
-  
-  //detectBordersD isn't used 
-  boolean detectBordersD() {
-    if (y >= height - 40) 
-      return false;
-    else
-      return true;
-  }
-  
-  
 }
