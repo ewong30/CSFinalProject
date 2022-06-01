@@ -1,7 +1,7 @@
 public class Character {
   float x, y;
   float dy = 0;
-  boolean isOnPlat = false;
+  boolean isOnPlat = false, isOnBox = false;
   boolean win;
   boolean faceR;
 

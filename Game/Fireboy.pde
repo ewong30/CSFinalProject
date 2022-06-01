@@ -34,7 +34,7 @@ public class Fireboy extends Character {
   }
 
   void jump() {
-    if ((y >= 652 || isOnPlat) && doorAct == false) {
+    if ((y >= 652 || isOnPlat || isOnBox) && doorAct == false) {
       dy = 0; //can jump when on floor
       if (keyboardInput.isPressed(Controller.FIRE_UP)) {
         dy = -13;

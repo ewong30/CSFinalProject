@@ -1,6 +1,6 @@
 PImage background;
-Fireboy fire = new Fireboy(200, 100);
-Watergirl water = new Watergirl(260, 100);
+Fireboy fire = new Fireboy(100, 652);
+Watergirl water = new Watergirl(100, 550);
  
 boolean WIPmessage;
 
@@ -26,6 +26,7 @@ WaterPool wPool = new WaterPool(625, 652, 90);
 LavaPool fPool = new LavaPool(450, 652, 90);
 PoisonPuddle pPool = new PoisonPuddle(575, 500, 75);
 
+Box box0 = new Box(400,652);
 
 void setup() {
   size(900, 675);
@@ -59,6 +60,11 @@ void draw() {
   fireDoor.drawDoor();
   waterDoor.drawDoor();
   
+  //box actions
+  box0.avatar();
+  
+  fire.isOnBox = box0.activate(fire);
+  
   //places platforms
   boolean fireOnPlat = false;
   boolean waterOnPlat = false;
@@ -70,6 +76,7 @@ void draw() {
   fire.isOnPlat = fireOnPlat;
   water.isOnPlat = waterOnPlat;
   
+  //pool actions
   wPool.drawPool();
   wPool.killF(fire);
   
@@ -79,11 +86,13 @@ void draw() {
   pPool.drawPool();
   pPool.kill(fire, water);
   
+  
+  
+  
   //fire actions
   if (fire.winF == false && fire.dead == false) {
     fire.avatar();
   }
-  
   
   fireDoor.activateF(fire);
   fire.doorLeave(water);
@@ -99,6 +108,7 @@ void draw() {
   water.doorLeave(fire);
   water.xMove();
   
+  //ending actions
   if (fire.winF == true && water.winW == true) {
     screen.displayWin();
   }
