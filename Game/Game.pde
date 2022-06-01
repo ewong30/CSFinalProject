@@ -18,8 +18,8 @@ Platform plat10 = new Platform(180, 140, 300, 165);
 Platform plat11 = new Platform(220, 165, 320, 225);
 Platform ceiling = new Platform(0,0,900,25);
 
-Door fireDoor = new Door(655, 110, "fire");
-Door waterDoor = new Door(750, 110, "water");
+//Door fireDoor = new Door(800, 165, "fire");
+Door waterDoor = new Door(825, 163, "water");
 winScreen screen = new winScreen(49, 48);
 
 WaterPool wPool = new WaterPool(625, 652, 90);
@@ -55,7 +55,7 @@ void draw() {
   fill(#908c4c);
   
   //draw doors
-  fireDoor.drawDoor();
+  //fireDoor.drawDoor();
   waterDoor.drawDoor();
   
   //places platforms
@@ -81,7 +81,7 @@ void draw() {
   }
   
   
-  fireDoor.activateF(fire);
+  //fireDoor.activateF(fire);
   fire.doorLeave(water);
   fire.jump();
   fire.xMove();

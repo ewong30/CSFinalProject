@@ -15,10 +15,12 @@ class Door {
 
   void drawDoor() {
     stroke(4);
-    rectMode(CORNER);
+    rectMode(CORNERS);
     fill(113, 103, 51);
-    rect(x, y, 55, 65);   
-    rect(x + 5, y + 5, 45, 50);
+    rect(x - 30, y - 70, x + 30, y);   
+    //rect(x + 5, y + 5, 45, 50);
+    
+    /*
     if (fire) {
       stroke(255, 55, 5);
       strokeWeight(2);
@@ -27,6 +29,7 @@ class Door {
       line(x + 33, y + 13, x + 44, y + 16);
       line(x + 45, y + 27, x + 44, y + 16);
     }
+    
     if (water) {
       stroke(49, 191, 255);
       strokeWeight(2);
@@ -35,6 +38,7 @@ class Door {
       line(x + 20, y + 40, x + 35, y + 40);
       stroke(0, 0, 0);
     }
+    */
     noStroke();
   }
 
