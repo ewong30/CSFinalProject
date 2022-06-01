@@ -16,10 +16,10 @@ public class Watergirl extends Character {
   void xMove() {
     if (winW == false) {
       if (keyboardInput.isPressed(Controller.WATER_LEFT) && detectBordersL()) {
-        x -= 6;
+        x -= 8;
       }
       if (keyboardInput.isPressed(Controller.WATER_RIGHT) && detectBordersR()) {
-        x += 6;
+        x += 8;
       }
     }
   }

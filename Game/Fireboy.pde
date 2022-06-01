@@ -16,11 +16,11 @@ public class Fireboy extends Character {
   void xMove() {
     if (winF == false) {
       if (keyboardInput.isPressed(Controller.FIRE_LEFT) && detectBordersL()) {
-        x -= 6;
+        x -= 8;
       }
 
       if (keyboardInput.isPressed(Controller.FIRE_RIGHT) && detectBordersR()) {
-        x += 6;
+        x += 8;
       }
     }
   }
@@ -32,7 +32,6 @@ public class Fireboy extends Character {
   }
 
   void jump() {
-
     if ((y >= 652 || isOnPlat) && doorAct == false) {
       dy = 0; //can jump when on floor
       if (keyboardInput.isPressed(Controller.FIRE_UP)) {

@@ -1,6 +1,6 @@
 PImage background;
-Fireboy fire = new Fireboy(60, 652);
-Watergirl water = new Watergirl(60, 550);
+Fireboy fire = new Fireboy(200, 100);
+Watergirl water = new Watergirl(260, 100);
  
 boolean WIPmessage;
 
@@ -16,14 +16,17 @@ Platform plat8 = new Platform(24, 205, 120, 275);
 Platform plat9 = new Platform(220, 165, 876, 190);
 Platform plat10 = new Platform(180, 140, 300, 165);
 Platform plat11 = new Platform(220, 165, 320, 225);
+Platform ceiling = new Platform(0,0,900,25);
 
-Door fireDoor = new Door(655, 110, "fire");
-Door waterDoor = new Door(750, 110, "water");
+//Door fireDoor = new Door(800, 165, "fire");
+Door waterDoor = new Door(825, 163, "water");
 winScreen screen = new winScreen(49, 48);
 
 WaterPool wPool = new WaterPool(625, 652, 90);
 LavaPool fPool = new LavaPool(450, 652, 90);
 PoisonPuddle pPool = new PoisonPuddle(575, 500, 75);
+
+Lever lever = new Lever(200, 450);
 
 
 void setup() {
@@ -33,41 +36,32 @@ void setup() {
 
   plats.add(plat1);
   plats.add(plat2);
-  plats.add(plat3);
-  plats.add(plat4);
   plats.add(plat5);
+  plats.add(plat4);
+  plats.add(plat3);
+  
+  
   plats.add(plat6);
-  plats.add(plat7);
   plats.add(plat8);
-  plats.add(plat9);
+  plats.add(plat7);
+  
   plats.add(plat10);
+  plats.add(plat9);
+ 
   plats.add(plat11);
+  
+  plats.add(ceiling);
 }
 
 void draw() {
   image(background, 0, 0, 901, 675);
   fill(#908c4c);
-
-  fireDoor.drawDoor(fire, water);
-  waterDoor.drawDoor(fire, water);
   
-  if (fire.winF == false && fire.dead == false) {
-    fire.avatar();
-  }
-  fireDoor.activateF(fire);
-  fire.doorLeave(water);
-  fire.jump();
-  fire.xMove();
-
+  //draw doors
+  //fireDoor.drawDoor();
+  //waterDoor.drawDoor();
   
-  if (water.winW == false && water.dead == false) {
-    water.avatar();
-  }
-  water.jump();
-  waterDoor.activateW(water);
-  water.doorLeave(fire);
-  water.xMove();
-
+  //places platforms
   boolean fireOnPlat = false;
   boolean waterOnPlat = false;
   for (Platform p : plats) {
@@ -86,6 +80,36 @@ void draw() {
   
   pPool.drawPool();
   pPool.kill(fire, water);
+  
+  //fire actions
+  if (fire.winF == false && fire.dead == false) {
+    fire.avatar();
+  }
+  
+  //fireDoor.activateF(fire);
+  fire.doorLeave(water);
+  fire.jump();
+  fire.xMove();
+
+  //water actions
+  if (water.winW == false && water.dead == false) {
+    water.avatar();
+  }
+  water.jump();
+  waterDoor.activateW(water);
+  water.doorLeave(fire);
+  water.xMove();
+  
+  wPool.drawPool();
+  wPool.killF(fire);
+  
+  fPool.drawPool();
+  fPool.killW(water);
+  
+  pPool.drawPool();
+  pPool.kill(fire, water);
+  
+  lever.drawLever();
   
   if (fire.winF == true && water.winW == true) {
     screen.displayWin();
@@ -115,10 +139,12 @@ void mouseClicked() {
     fire.x = 60;
     fire.dead = false;
     water.dead = false;
+    screen.deadScreen = false;
   }
   if ((screen.deadScreen) && (mouseX >= 525) && (mouseX <= 725) && (mouseY >= 480) && (mouseY <= 580)) {
     WIPmessage = true;
   }
+  println(mouseX + " " + mouseY);
 }
 
 void keyReleased() {

@@ -12,9 +12,17 @@ public class Character {
   }
 
   void avatar() {
-    circle(x, y - 25, 30);
     rectMode(CORNERS);
-    rect(x-8, y-25, x+8, y);
+    rect(x-15, y-25, x-2, y, 0,0,3,3);
+    rect(x+15, y-25, x+2, y, 0,0,3,3);
+    rect(x-15, y-25, x+15, y-7);
+    circle(x, y - 28, 30);
+    
+    stroke(0,130);
+    fill(60, 95, 110);
+    strokeWeight(2);
+    rect(x-2, y-21, x+19,y - 32, 4, 4, 4, 4);
+    noStroke();
   }
 
   boolean detectBordersL() {
@@ -31,14 +39,6 @@ public class Character {
   }
   boolean detectBordersU() {
     if (y <= 40) 
-      return false;
-    else
-      return true;
-  }
-
-  //detectBordersD isn't used 
-  boolean detectBordersD() {
-    if (y >= height - 40) 
       return false;
     else
       return true;

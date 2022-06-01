@@ -6,11 +6,16 @@ public class Lever {
     this.y = y;
   }
   
-  void drawLever() {
+  void drawLever(int x, int y) {
     noStroke();
     rectMode(CORNER);
-    rect(x, y - 20, 50, 20);
+    fill(238,170,24);
+    rect(x, y, 50, 20);
     triangle(x - 10, y, x, y + 20, x, y);
     triangle(x + (50 + 10), y, x + 50, y + 20, x, y);
+    stroke(238,170,24);
+    strokeWeight(5);
+    line(223, 453, x, y);
+    noStroke();
   }
 }
