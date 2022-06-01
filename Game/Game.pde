@@ -1,7 +1,7 @@
 PImage background;
 Fireboy fire = new Fireboy(150, 260);
 Watergirl water = new Watergirl(160, 260);
- 
+
 boolean WIPmessage;
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
@@ -16,7 +16,7 @@ Platform plat8 = new Platform(24, 205, 120, 275);
 Platform plat9 = new Platform(220, 165, 876, 190);
 Platform plat10 = new Platform(180, 140, 300, 165);
 Platform plat11 = new Platform(220, 165, 320, 225);
-Platform ceiling = new Platform(0,0,900,25);
+Platform ceiling = new Platform(0, 0, 900, 25);
 
 Door fireDoor = new Door(725, 163, "fire");
 Door waterDoor = new Door(825, 163, "water");
@@ -26,7 +26,7 @@ WaterPool wPool = new WaterPool(625, 652, 90);
 LavaPool fPool = new LavaPool(450, 652, 90);
 PoisonPuddle pPool = new PoisonPuddle(575, 500, 75);
 
-Box box0 = new Box(380,235,420,275);
+Box box0 = new Box(380, 235, 420, 275);
 
 void setup() {
   size(900, 675);
@@ -38,60 +38,61 @@ void setup() {
   plats.add(plat5);
   plats.add(plat4);
   plats.add(plat3);
-  
-  
+
+
   plats.add(plat6);
   plats.add(plat8);
   plats.add(plat7);
-  
+
   plats.add(plat10);
   plats.add(plat9);
- 
+
   plats.add(plat11);
-  
+
   plats.add(ceiling);
-  
 }
 
 void draw() {
   image(background, 0, 0, 901, 675);
   fill(#908c4c);
-  
+
   //draw doors
   fireDoor.drawDoor();
   waterDoor.drawDoor();
-  
+
   //places platforms
   boolean fireOnPlat = false;
   boolean waterOnPlat = false;
+
   for (Platform p : plats) {
     p.place();
     p.activate(box0);
     fireOnPlat = fireOnPlat || p.activate(fire);
     waterOnPlat = waterOnPlat || p.activate(water);
   }
-  fire.isOnPlat = fireOnPlat;
-  water.isOnPlat = waterOnPlat;
-  
+
   //places box
   box0.place();
-  fireOnPlat = box0.activate(fire);
-  
+  box0.activate(fire);
+  box0.activate(water);
+  fire.isOnPlat = fireOnPlat;
+  water.isOnPlat = waterOnPlat;
+
   //pool actions
   wPool.drawPool();
   wPool.killF(fire);
-  
+
   fPool.drawPool();
   fPool.killW(water);
-  
+
   pPool.drawPool();
   pPool.kill(fire, water);
- 
+
   //fire actions
   if (fire.winF == false && fire.dead == false) {
     fire.avatar();
   }
-  
+
   fireDoor.activateF(fire);
   fire.doorLeave(water);
   fire.jump();
@@ -105,12 +106,12 @@ void draw() {
   waterDoor.activateW(water);
   water.doorLeave(fire);
   water.xMove();
-  
+
   //ending actions
   if (fire.winF == true && water.winW == true) {
     screen.displayWin();
   }
-  if(fire.dead == true || water.dead == true) {
+  if (fire.dead == true || water.dead == true) {
     screen.displayDead();
   }
   if (WIPmessage) {
