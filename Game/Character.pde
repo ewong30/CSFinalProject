@@ -25,13 +25,23 @@ public class Character {
     
     if (faceR) {
       // backpack
-      rect(x - 25, y - 25, x - 5, y - 8);
+      rect(x - 21, y - 28, x - 5, y - 8, 4, 0, 0, 4);
       
       //eyes
       stroke(0, 130);
       fill(60, 95, 110);
       strokeWeight(2);
       rect(x-2, y-21, x+19, y - 32, 4, 4, 4, 4);
+      noStroke();
+    } else {
+      // backpack
+      rect(x + 21, y - 28, x + 5, y - 8, 4, 4, 4, 4);
+      
+      //eyes
+      stroke(0, 130);
+      fill(60, 95, 110);
+      strokeWeight(2);
+      rect(x+2, y-21, x-19, y - 32, 4, 4, 4, 4);
       noStroke();
     }
   }
