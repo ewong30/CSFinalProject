@@ -127,6 +127,7 @@ void mouseClicked() {
     fire.x = 60;
     fire.dead = false;
     water.dead = false;
+    screen.deadScreen = false;
   }
   if ((screen.deadScreen) && (mouseX >= 525) && (mouseX <= 725) && (mouseY >= 480) && (mouseY <= 580)) {
     WIPmessage = true;
