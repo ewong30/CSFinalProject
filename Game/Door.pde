@@ -18,7 +18,7 @@ class Door {
     rectMode(CORNERS);
     fill(113, 103, 51);
     rect(x - 30, y - 70, x + 30, y);   
-    //rect(x + 5, y + 5, 45, 50);
+    rect(x - 19, y - 59, x + 19, y);
     
     /*
     if (fire) {
