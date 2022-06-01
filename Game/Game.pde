@@ -24,6 +24,7 @@ winScreen screen = new winScreen(49, 48);
 
 WaterPool wPool = new WaterPool(625, 652, 90);
 LavaPool fPool = new LavaPool(450, 652, 90);
+PoisonPuddle pPool = new PoisonPuddle(575, 500, 75);
 
 
 void setup() {
@@ -74,6 +75,9 @@ void draw() {
   
   fPool.drawPool();
   fPool.killW(water);
+  
+  pPool.drawPool();
+  pPool.kill(fire, water);
   
   //fire actions
   if (fire.winF == false && fire.dead == false) {
