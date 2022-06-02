@@ -17,14 +17,18 @@ class Door {
     stroke(3);
     rectMode(CORNERS);
     fill(113, 103, 51);
+    rect(x, y, 55, 65);
     rect(x - 30, y - 70, x + 30, y);   
     rect(x - 19, y - 59, x + 19, y);
     
+
+    /*
     if (fire) {
       stroke(255, 55, 5);
       strokeWeight(2);
       circle(x, y - 32, 18);
     }
+    if (water && !watergirl.doorAct) {
     
     if (water) {
       stroke(49, 191, 255);

@@ -7,9 +7,9 @@ boolean WIPmessage;
 ArrayList<Platform> plats = new ArrayList<Platform>();
 Platform plat1 = new Platform(24, 550, 350, 575);
 Platform plat2 = new Platform(780, 585, 876, 652);
-Platform plat3 = new Platform(450, 500, 730, 525);
+Platform plat3 = new Platform(450, 500, 730, 525); // add pool to this one
 Platform plat4 = new Platform(430, 475, 500, 500);
-Platform plat5 = new Platform(24, 450, 475, 475);
+Platform plat5 = new Platform(24, 450, 475, 475); // same level as lever
 Platform plat6 = new Platform(100, 365, 876, 390);
 Platform plat7 = new Platform(24, 275, 776, 300);
 Platform plat8 = new Platform(24, 205, 120, 275);
@@ -25,6 +25,8 @@ winScreen screen = new winScreen(49, 48);
 WaterPool wPool = new WaterPool(625, 652, 90);
 LavaPool fPool = new LavaPool(450, 652, 90);
 PoisonPuddle pPool = new PoisonPuddle(575, 500, 75);
+
+Lever lever = new Lever(200, 450);
 
 Box box0 = new Box(380, 235, 420, 275);
 
@@ -57,6 +59,7 @@ void draw() {
   fill(#908c4c);
 
   //draw doors
+
   fireDoor.drawDoor();
   waterDoor.drawDoor();
 
@@ -92,7 +95,9 @@ void draw() {
     fire.avatar();
   }
 
+
   fireDoor.activateF(fire);
+
   fire.doorLeave(water);
   fire.jump();
   fire.xMove();
@@ -105,6 +110,19 @@ void draw() {
   waterDoor.activateW(water);
   water.doorLeave(fire);
   water.xMove();
+
+  
+  wPool.drawPool();
+  wPool.killF(fire);
+  
+  fPool.drawPool();
+  fPool.killW(water);
+  
+  pPool.drawPool();
+  pPool.kill(fire, water);
+  
+  lever.drawLever(223, 453, 244, 423);
+  
 
   //ending actions
   if (fire.winF == true && water.winW == true) {
@@ -140,6 +158,7 @@ void mouseClicked() {
   if ((screen.deadScreen) && (mouseX >= 525) && (mouseX <= 725) && (mouseY >= 480) && (mouseY <= 580)) {
     WIPmessage = true;
   }
+  println(mouseX + " " + mouseY);
 }
 
 void keyReleased() {
