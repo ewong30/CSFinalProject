@@ -6,7 +6,7 @@ public class Lever {
     this.y = y;
   }
   
-  void drawLever(int x, int y) {
+  void drawLever(int x2, int y2) {
     noStroke();
     rectMode(CORNER);
     fill(238,170,24);
@@ -15,7 +15,7 @@ public class Lever {
     triangle(x + (50 + 10), y, x + 50, y + 20, x, y);
     stroke(238,170,24);
     strokeWeight(5);
-    line(223, 453, x, y);
+    line(223, 453, x2, y2);
     noStroke();
   }
 }

@@ -109,7 +109,7 @@ void draw() {
   pPool.drawPool();
   pPool.kill(fire, water);
   
-  lever.drawLever();
+  lever.drawLever(244, 423);
   
   if (fire.winF == true && water.winW == true) {
     screen.displayWin();
