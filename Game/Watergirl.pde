@@ -17,9 +17,11 @@ public class Watergirl extends Character {
     if (winW == false) {
       if (keyboardInput.isPressed(Controller.WATER_LEFT) && detectBordersL()) {
         x -= 8;
+        faceR = false;
       }
       if (keyboardInput.isPressed(Controller.WATER_RIGHT) && detectBordersR()) {
         x += 8;
+        faceR = true;
       }
     }
   }

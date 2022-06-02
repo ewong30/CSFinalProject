@@ -24,10 +24,10 @@ public class Platform {
   boolean activate(Character player) {
 
     float distX = centX - player.x;
-    float distY = centY - (player.y - player.high/2.0);
+    float distY = centY - (player.y - 20);
     
-    float sumHalfWidth = player.wide/2.0 + wide/2.0;
-    float sumHalfHeight = player.high/2.0 + high/2.0;
+    float sumHalfWidth = 15 + wide/2.0;
+    float sumHalfHeight = 20 + high/2.0;
 
     if (Math.abs(distX) <= sumHalfWidth) {
       if (Math.abs(distY) <= sumHalfHeight) {
@@ -57,5 +57,31 @@ public class Platform {
       }
     }
     return false;
+  }
+  
+  void activate(Box player) {
+
+    float distX = centX - player.centX;
+    float distY = centY - (player.centY - 20);
+    
+    float sumHalfWidth = player.wide/2.0 + wide/2.0;
+    float sumHalfHeight = player.high/2.0 + high/2.0;
+
+    if (Math.abs(distX) <= sumHalfWidth) {
+      if (Math.abs(distY) <= sumHalfHeight) {
+        float overlapX = sumHalfWidth - Math.abs(distX);
+        float overlapY = sumHalfHeight - Math.abs(distY);
+
+        if (overlapX < overlapY) {
+          if (centX > player.centX) {
+            player.centX -= overlapX;
+            
+          } else {
+            player.centX += overlapX;
+            
+          }
+        }
+      }
+    }
   }
 }
