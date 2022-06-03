@@ -1,6 +1,6 @@
 PImage background;
-Fireboy fire = new Fireboy(150, 260);
-Watergirl water = new Watergirl(160, 260);
+Fireboy fire = new Fireboy(150, 450);
+Watergirl water = new Watergirl(160, 450);
 
 boolean WIPmessage;
 
@@ -122,10 +122,7 @@ void draw() {
   pPool.kill(fire, water);
   
   lever.drawLever(223, 453, 244, 423, 194);
-<<<<<<< HEAD
-=======
   lever.toggle(fire, water);
->>>>>>> main
   
 
   //ending actions
