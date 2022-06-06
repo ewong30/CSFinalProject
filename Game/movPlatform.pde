@@ -1,7 +1,7 @@
 public class movPlatform extends Platform {
   int x1, x2, y1, y2;
   int x1Off, y1Off, x2Off, y2Off, x1On, y1On, x2On, y2On;
-    boolean state;
+  boolean state;
 
   public movPlatform (Lever lever, int x1Off, int y1Off, int x2Off, int y2Off, int x1On, int y1On, int x2On, int y2On) {
     super(x1Off, y1Off, x2Off, y2Off);
@@ -24,49 +24,58 @@ public class movPlatform extends Platform {
     //if lever is on / turned on
     state = lever.on;
     if ((state && (nY - oY)> 0) && (super.y1 < nY)) {
-        super.y1 += 5;
-        super.y2 += 5;
-    }
-    else if ((state && (nY - oY)< 0) && (super.y1 > nY)) {
-        super.y1 -= 5;
-        super.y2 -= 5;
+      super.y1 += 5;
+      super.y2 += 5;
+    } else if ((state && (nY - oY)< 0) && (super.y1 > nY)) {
+      super.y1 -= 5;
+      super.y2 -= 5;
     } else if ((state && (nX - oX)> 0) && (super.x1 < nX)) {
-        super.x1 += 5;
-        super.x2 += 5;
+      super.x1 += 5;
+      super.x2 += 5;
     } else if ((state && (nY - oY) < 0) && (super.x1 > nX)) {
-        super.x1 -= 5;
-        super.x2 -= 5;
+      super.x1 -= 5;
+      super.x2 -= 5;
     }
     //if lever is off / turned off
     if ((!state && (nY - oY) < 0) && (super.y1 < oY)) {
-        super.y1 += 5;
-        super.y2 += 5;
-    }
-    else if ((!state && (nY - oY) > 0) && (super.y1 > oY)) {
-        super.y1 -= 5;
-        super.y2 -= 5;
+      super.y1 += 5;
+      super.y2 += 5;
+    } else if ((!state && (nY - oY) > 0) && (super.y1 > oY)) {
+      super.y1 -= 5;
+      super.y2 -= 5;
     } else if ((!state && (nX - oX) < 0) && (super.x1 < oX)) {
-        super.x1 += 5;
-        super.x2 += 5;
+      super.x1 += 5;
+      super.x2 += 5;
     } else if ((!state && (nY - oY) > 0) && (super.x1 > oX)) {
-        super.x1 -= 5;
-        super.x2 -= 5;
+      super.x1 -= 5;
+      super.x2 -= 5;
     }
   }
-  
+
   //override to redefine bounds constantly
-  boolean activate(Character player) {
+  boolean activate(Character player, Lever lever) {
+    state = lever.on;
+    int high, wide;
+    float centX, centY;
+    
+    if (!state) {
+      high = Math.abs(y1Off - y2Off);
+      wide = Math.abs(x1Off - x2Off);
+      centX = (x1Off + x2Off) / 2.0;
+      centY = (y1Off + y2Off) / 2.0;
+    } else {
+      high = Math.abs(y1On - y2On);
+      wide = Math.abs(x1On - x2On);
+      centX = (x1On + x2On) / 2.0;
+      centY = (y1On + y2On) / 2.0;
+    }
 
     float distX = centX - player.x;
     float distY = centY - (player.y - 20);
-    
+
     float sumHalfWidth = 15 + wide/2.0;
     float sumHalfHeight = 20 + high/2.0;
-    
-    float centX = (super.x1 + super.x2) / 2.0;
-    float centY = (super.y1 + super.y2) / 2.0;
-    int high = Math.abs(y1 - y2);
-    int wide = Math.abs(x1 - x2);
+
 
     if (Math.abs(distX) <= sumHalfWidth) {
       if (Math.abs(distY) <= sumHalfHeight) {
@@ -76,21 +85,18 @@ public class movPlatform extends Platform {
         if (overlapX < overlapY) {
           if (centX > player.x) {
             player.x -= overlapX;
-            
           } else {
             player.x += overlapX;
-            
           }
         } else {
           if (centY > player.y) {
             player.y -= overlapY;
             player.dy = 0;
-            
+
             return true;
           } else {
             player.y += overlapY;
             player.dy = 0;
-            
           }
         }
       }
