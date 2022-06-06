@@ -64,7 +64,7 @@ void draw() {
   waterDoor.drawDoor();
 
   //places platforms
-  boolean fireOnPlat = box0.activate(fire);
+  boolean fireOnPlat = false;
   boolean waterOnPlat = box0.activate(water);
 
   for (Platform p : plats) {
@@ -74,6 +74,7 @@ void draw() {
     waterOnPlat = waterOnPlat || p.activate(water);
   }
 
+  fireOnPlat = fireOnPlat || box0.activate(fire);
   fire.isOnPlat = fireOnPlat;
   water.isOnPlat = waterOnPlat;
   //places box
@@ -111,18 +112,18 @@ void draw() {
   water.doorLeave(fire);
   water.xMove();
 
-  
+
   wPool.drawPool();
   wPool.killF(fire);
-  
+
   fPool.drawPool();
   fPool.killW(water);
-  
+
   pPool.drawPool();
   pPool.kill(fire, water);
-  
+
   lever.drawLever(223, 453, 244, 423);
-  
+
 
   //ending actions
   if (fire.winF == true && water.winW == true) {
