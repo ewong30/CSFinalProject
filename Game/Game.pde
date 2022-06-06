@@ -1,6 +1,6 @@
 PImage background;
-Fireboy fire = new Fireboy(150, 450);
-Watergirl water = new Watergirl(160, 450);
+Fireboy fire = new Fireboy(150, 200);
+Watergirl water = new Watergirl(160, 200);
 
 boolean WIPmessage;
 
@@ -66,11 +66,11 @@ void draw() {
   waterDoor.drawDoor();
 
   //places platforms
-  boolean fireOnPlat = false;
+  boolean fireOnPlat = box0.activate(fire);
   boolean waterOnPlat = box0.activate(water);
   
-  boolean fireOnMovPlat = box0.activate(fire);
-  boolean waterOnMovPlat = box0.activate(water);
+  boolean fireOnMovPlat;
+  boolean waterOnMovPlat;
   
   mPlat.place();
   fireOnMovPlat = (fireOnPlat || mPlat.activate(fire, lever));
@@ -84,8 +84,8 @@ void draw() {
     waterOnPlat = waterOnPlat || p.activate(water);
   }
 
-  fireOnPlat = fireOnPlat || box0.activate(fire);
-
+  //fireOnPlat = fireOnPlat || ;
+  //waterOnPlat = waterOnPlat || ;
   fire.isOnPlat = fireOnPlat;
   water.isOnPlat = waterOnPlat;
   //places box
