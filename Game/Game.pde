@@ -69,12 +69,12 @@ void draw() {
   boolean fireOnPlat = box0.activate(fire);
   boolean waterOnPlat = box0.activate(water);
   
-  boolean fireOnMovPlat = box0.activate(fire);
-  boolean waterOnMovPlat = box0.activate(water);
+  boolean fireOnMovPlat;
+  boolean waterOnMovPlat;
   
   mPlat.place();
-  fireOnMovPlat = (fireOnPlat || mPlat.activate(fire, lever));
-  waterOnMovPlat = (waterOnPlat || mPlat.activate(water, lever));
+  fireOnMovPlat = mPlat.activate(fire);
+  waterOnMovPlat = mPlat.activate(water);
   mPlat.move(lever, 24, 364, 24, 450);
 
   for (Platform p : plats) {
