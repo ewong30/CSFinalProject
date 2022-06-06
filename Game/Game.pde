@@ -1,8 +1,10 @@
 PImage background;
-Fireboy fire = new Fireboy(150, 260);
-Watergirl water = new Watergirl(160, 260);
+Fireboy fire = new Fireboy(150, 450);
+Watergirl water = new Watergirl(160, 450);
 
 boolean WIPmessage;
+
+Lever lever = new Lever(200, 450);
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
 Platform plat1 = new Platform(24, 550, 350, 575);
@@ -18,6 +20,8 @@ Platform plat10 = new Platform(180, 140, 300, 165);
 Platform plat11 = new Platform(220, 165, 320, 225);
 Platform ceiling = new Platform(0, 0, 900, 25);
 
+movPlatform mPlat = new movPlatform(lever, 24, 364, 98, 386, 24, 425, 475, 450);
+
 Door fireDoor = new Door(725, 163, "fire");
 Door waterDoor = new Door(825, 163, "water");
 winScreen screen = new winScreen(49, 48);
@@ -25,8 +29,6 @@ winScreen screen = new winScreen(49, 48);
 WaterPool wPool = new WaterPool(625, 652, 90);
 LavaPool fPool = new LavaPool(450, 652, 90);
 PoisonPuddle pPool = new PoisonPuddle(575, 500, 75);
-
-Lever lever = new Lever(200, 450);
 
 Box box0 = new Box(380, 235, 420, 275);
 
@@ -66,6 +68,12 @@ void draw() {
   //places platforms
   boolean fireOnPlat = false;
   boolean waterOnPlat = box0.activate(water);
+  
+  mPlat.place();
+  mPlat.activate(box0);
+  fireOnPlat = fireOnPlat || mPlat.activate(fire);
+  waterOnPlat = waterOnPlat || mPlat.activate(water);
+  mPlat.move(lever, 24, 364, 24, 450);
 
   for (Platform p : plats) {
     p.place();
@@ -75,6 +83,7 @@ void draw() {
   }
 
   fireOnPlat = fireOnPlat || box0.activate(fire);
+
   fire.isOnPlat = fireOnPlat;
   water.isOnPlat = waterOnPlat;
   //places box
@@ -95,7 +104,6 @@ void draw() {
   if (fire.winF == false && fire.dead == false) {
     fire.avatar();
   }
-
 
   fireDoor.activateF(fire);
 
@@ -122,7 +130,10 @@ void draw() {
   pPool.drawPool();
   pPool.kill(fire, water);
 
-  lever.drawLever(223, 453, 244, 423);
+
+  lever.drawLever(223, 453, 244, 423, 194);
+  lever.toggle(fire, water);
+
 
 
   //ending actions
