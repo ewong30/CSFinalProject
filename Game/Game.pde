@@ -1,15 +1,19 @@
 PImage background;
+<<<<<<< HEAD
 Fireboy fire = new Fireboy(100, 652);
 Watergirl water = new Watergirl(100, 550);
 
+
 boolean WIPmessage;
+
+Lever lever = new Lever(200, 450);
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
 Platform plat1 = new Platform(24, 550, 300, 575);
 Platform plat2 = new Platform(780, 585, 876, 652);
-Platform plat3 = new Platform(450, 500, 730, 525);
+Platform plat3 = new Platform(450, 500, 730, 525); // add pool to this one
 Platform plat4 = new Platform(430, 475, 500, 500);
-Platform plat5 = new Platform(24, 450, 475, 475);
+Platform plat5 = new Platform(24, 450, 475, 475); // same level as lever
 Platform plat6 = new Platform(100, 365, 876, 390);
 Platform plat7 = new Platform(24, 275, 776, 300);
 Platform plat8 = new Platform(24, 205, 120, 275);
@@ -17,6 +21,8 @@ Platform plat9 = new Platform(220, 165, 876, 190);
 Platform plat10 = new Platform(180, 140, 300, 165);
 Platform plat11 = new Platform(220, 165, 320, 225);
 Platform ceiling = new Platform(0, 0, 900, 25);
+
+movPlatform mPlat = new movPlatform(lever, 24, 364, 98, 386, 24, 425, 475, 450);
 
 Door fireDoor = new Door(725, 163, "fire");
 Door waterDoor = new Door(825, 163, "water");
@@ -57,12 +63,21 @@ void draw() {
   fill(#908c4c);
 
   //draw doors
+
   fireDoor.drawDoor();
   waterDoor.drawDoor();
 
   //places platforms
-  boolean fireOnPlat = false;
-  boolean waterOnPlat = false;
+  boolean fireOnPlat = box0.activate(fire);
+  boolean waterOnPlat = box0.activate(water);
+  
+  boolean fireOnMovPlat;
+  boolean waterOnMovPlat;
+  
+  mPlat.place();
+  fireOnMovPlat = mPlat.activate(fire);
+  waterOnMovPlat = mPlat.activate(water);
+  mPlat.move(lever, 24, 364, 24, 450);
 
   for (Platform p : plats) {
     p.place();
@@ -71,12 +86,13 @@ void draw() {
     waterOnPlat = waterOnPlat || p.activate(water);
   }
 
-  //places box
-  box0.place();
-  box0.activate(fire);
-  box0.activate(water);
+  //fireOnPlat = fireOnPlat || ;
+  //waterOnPlat = waterOnPlat || ;
   fire.isOnPlat = fireOnPlat;
   water.isOnPlat = waterOnPlat;
+  //places box
+  box0.place();
+
 
   //pool actions
   wPool.drawPool();
@@ -94,6 +110,7 @@ void draw() {
   }
 
   fireDoor.activateF(fire);
+
   fire.doorLeave(water);
   fire.jump();
   fire.xMove();
@@ -106,6 +123,22 @@ void draw() {
   waterDoor.activateW(water);
   water.doorLeave(fire);
   water.xMove();
+
+
+  wPool.drawPool();
+  wPool.killF(fire);
+
+  fPool.drawPool();
+  fPool.killW(water);
+
+  pPool.drawPool();
+  pPool.kill(fire, water);
+
+
+  lever.drawLever(223, 453, 244, 423, 194);
+  lever.toggle(fire, water);
+
+
 
   //ending actions
   if (fire.winF == true && water.winW == true) {
@@ -141,6 +174,7 @@ void mouseClicked() {
   if ((screen.deadScreen) && (mouseX >= 525) && (mouseX <= 725) && (mouseY >= 480) && (mouseY <= 580)) {
     WIPmessage = true;
   }
+  println(mouseX + " " + mouseY);
 }
 
 void keyReleased() {
