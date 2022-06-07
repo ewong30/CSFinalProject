@@ -23,6 +23,7 @@ Platform plat11 = new Platform(220, 165, 320, 225);
 Platform ceiling = new Platform(0, 0, 900, 25);
 
 movPlatform mPlat = new movPlatform(lever, 24, 364, 98, 386, 24, 425, 475, 450);
+movPlatform mPlat1 = new movPlatform(button, 24, 364, 98, 386, 24, 425, 475, 450);
 
 Door fireDoor = new Door(725, 163, "fire");
 Door waterDoor = new Door(825, 163, "water");
@@ -75,8 +76,9 @@ void draw() {
   boolean waterOnMovPlat;
   
   mPlat.place();
-  fireOnMovPlat = mPlat.activate(fire);
-  waterOnMovPlat = mPlat.activate(water);
+  mPlat1.place();
+  fireOnMovPlat = mPlat.activate(fire) || mPlat1.activate(fire);
+  waterOnMovPlat = mPlat.activate(water) || mPlat1.activate(water);
   mPlat.move(lever, 24, 364, 24, 450);
 
   for (Platform p : plats) {
