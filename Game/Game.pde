@@ -14,7 +14,7 @@ Platform plat2 = new Platform(780, 585, 876, 652);
 Platform plat3 = new Platform(450, 500, 730, 525); // add pool to this one
 Platform plat4 = new Platform(430, 475, 500, 500);
 Platform plat5 = new Platform(24, 450, 475, 475); // same level as lever
-Platform plat6 = new Platform(100, 365, 876, 390);
+Platform plat6 = new Platform(120, 365, 876, 390);
 Platform plat7 = new Platform(24, 275, 776, 300);
 Platform plat8 = new Platform(24, 205, 120, 275);
 Platform plat9 = new Platform(220, 165, 876, 190);
@@ -22,7 +22,7 @@ Platform plat10 = new Platform(180, 140, 300, 165);
 Platform plat11 = new Platform(220, 165, 320, 225);
 Platform ceiling = new Platform(0, 0, 900, 25);
 
-movPlatform mPlat = new movPlatform(lever, 24, 364, 98, 386, 24, 425, 475, 450);
+movPlatform mPlat = new movPlatform(lever, 24, 365, 118, 390, 24, 421);
 movPlatform mPlat1 = new movPlatform(button, 24, 364, 98, 386, 24, 425, 475, 450);
 
 Door fireDoor = new Door(725, 163, "fire");
@@ -76,10 +76,12 @@ void draw() {
   boolean waterOnMovPlat;
   
   mPlat.place();
-  mPlat1.place();
-  fireOnMovPlat = mPlat.activate(fire) || mPlat1.activate(fire);
-  waterOnMovPlat = mPlat.activate(water) || mPlat1.activate(water);
-  mPlat.move(lever, 24, 364, 24, 450);
+  //mPlat1.place();
+  fireOnMovPlat = mPlat.activate(fire);
+  //mPlat1.activate(fire);
+  waterOnMovPlat = mPlat.activate(water);
+  //mPlat1.activate(water);
+  mPlat.move(lever);
 
   for (Platform p : plats) {
     p.place();
