@@ -1,6 +1,8 @@
 public class Button {
   float x, y;
   boolean on = false;
+  int halfWide = 18;
+  int tall = 13;
 
   Button(float x, float y) {
     this.x = x;
@@ -11,30 +13,21 @@ public class Button {
     noStroke();
     rectMode(CORNERS);
     fill(238, 170, 24);
-    rect(x - 18, y - 13, x + 18, y);
+    rect(x - halfWide, y - tall, x + halfWide, y);
     noStroke();
   }
 
   void toggle(Fireboy fire, Watergirl water) {
-    if ((fire.x >= x - 6 && fire.x <= x + 50 + 6) && (fire.y >= y - 20 && fire.y <= y)) {
+    if ((fire.x + fire.halfWide >= x - halfWide && fire.x - fire.halfWide < x + halfWide) && (fire.y >= y - tall && fire.y <= y)) {
       if (!on) {
         on = true;
-      } else if (on) {
-        on = false;
       }
-    } 
-    else if ((water.x >= x - 6 && water.x <= x + 50 + 6) && (water.y >= y - 5 && water.y <= y + 20)) {
+    } else if ((water.x + water.halfWide >= x - halfWide && water.x - water.halfWide < x + halfWide) && (water.y >= y - tall && water.y <= y)) {
       if (!on) {
         on = true;
-
       }
-      else if (on) {
-        on = false;
-
-      }
-    }
-    else {
-
+    } else {
+      on = false;
     }
   }
 }

@@ -4,6 +4,8 @@ public class Character {
   boolean isOnPlat = false, isOnBox = false;
   boolean win;
   boolean faceR;
+  int halfWide = 15;
+  int tall = 43;
 
   Character (float x, float y) {
     this.x = x;
@@ -58,10 +60,5 @@ public class Character {
     else
       return true;
   }
-  boolean detectBordersU() {
-    if (y <= 40) 
-      return false;
-    else
-      return true;
-  }
+  
 }
