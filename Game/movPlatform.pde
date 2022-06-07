@@ -50,9 +50,8 @@ public class movPlatform extends Platform {
     }
   }
   
-  void move(Button button) {
+  void move(boolean state) {
     //if lever is on / turned on
-    state = button.on;
     if ((state && (y1On - y1Off)> 0) && (super.y1 < y1On)) {
       super.y1 += 5;
       super.y2 += 5;

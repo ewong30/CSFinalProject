@@ -6,7 +6,8 @@ Watergirl water = new Watergirl(100, 550);
 boolean WIPmessage;
 
 Lever lever = new Lever(200, 450);
-Button button = new Button(270, 347);
+Button button0 = new Button(270, 347);
+Button button1 = new Button(600, 250);
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
 Platform plat1 = new Platform(24, 550, 300, 575);
@@ -25,7 +26,7 @@ Platform plat11 = new Platform(250, 140, 320, 200);
 Platform ceiling = new Platform(0, 0, 900, 25);
 
 movPlatform mPlat = new movPlatform(lever, 24, 347, 118, 372, 24, 420);
-movPlatform mPlat1 = new movPlatform(button, 778, 250, 876, 275, 778, 320);
+movPlatform mPlat1 = new movPlatform(button0, 778, 250, 876, 275, 778, 320);
 
 Door fireDoor = new Door(725, 138, "fire");
 Door waterDoor = new Door(825, 138, "water");
@@ -64,7 +65,6 @@ void draw() {
   fill(#908c4c);
 
   //draw doors
-
   fireDoor.drawDoor();
   waterDoor.drawDoor();
 
@@ -81,16 +81,26 @@ void draw() {
     fireOnPlat = fireOnPlat || p.activate(fire);
     waterOnPlat = waterOnPlat || p.activate(water);
   }
-  
+
   mPlat.place();
   mPlat1.place();
+
   fireOnMovPlat = mPlat.activate(fire) || mPlat1.activate(fire);
   waterOnMovPlat = mPlat.activate(water) || mPlat1.activate(water);
-  mPlat.move(lever);
-  mPlat1.move(button);
-  
+
   fire.isOnPlat = fireOnPlat || fireOnMovPlat;
   water.isOnPlat = waterOnPlat || waterOnMovPlat;
+  
+  
+  mPlat.move(lever);
+  
+  button0.drawButton();
+  button1.drawButton();
+  
+  button0.toggle(fire, water);
+  button1.toggle(fire, water);
+  mPlat1.move(button1.on || button0.on);
+  
   //places box
   box0.place();
 
@@ -138,10 +148,8 @@ void draw() {
 
   lever.drawLever(223, 453, 244, 423, 194);
   lever.toggle(fire, water);
-
-  button.drawButton();
-  button.toggle(fire, water);
-
+  
+  
   //ending actions
   if (fire.winF == true && water.winW == true) {
     screen.displayWin();

@@ -46,4 +46,5 @@ public class Box extends Platform {
     }
     return false;
   }
+
 }
