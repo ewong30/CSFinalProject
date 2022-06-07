@@ -6,7 +6,7 @@ Watergirl water = new Watergirl(100, 550);
 boolean WIPmessage;
 
 Lever lever = new Lever(200, 450);
-Button button = new Button(270, 365);
+Button button = new Button(270, 347);
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
 Platform plat1 = new Platform(24, 550, 300, 575);
@@ -14,26 +14,28 @@ Platform plat2 = new Platform(780, 585, 876, 652);
 Platform plat3 = new Platform(450, 500, 730, 525); // add pool to this one
 Platform plat4 = new Platform(430, 475, 500, 500);
 Platform plat5 = new Platform(24, 450, 475, 475); // same level as lever
-Platform plat6 = new Platform(120, 365, 876, 390);
-Platform plat7 = new Platform(24, 275, 776, 300);
-Platform plat8 = new Platform(24, 205, 120, 275);
-Platform plat9 = new Platform(220, 165, 876, 190);
-Platform plat10 = new Platform(180, 140, 300, 165);
-Platform plat11 = new Platform(220, 165, 320, 225);
+
+Platform plat6 = new Platform(120, 347, 876, 372);
+Platform plat7 = new Platform(24, 250, 776, 275);
+Platform plat8 = new Platform(24, 175, 120, 250);
+
+Platform plat9 = new Platform(250, 140, 876, 165);
+Platform plat10 = new Platform(210, 115, 300, 140);
+Platform plat11 = new Platform(250, 140, 320, 200);
 Platform ceiling = new Platform(0, 0, 900, 25);
 
-movPlatform mPlat = new movPlatform(lever, 24, 365, 118, 390, 24, 421);
+movPlatform mPlat = new movPlatform(lever, 24, 347, 118, 372, 24, 420);
 movPlatform mPlat1 = new movPlatform(button, 24, 364, 98, 386, 24, 425);
 
-Door fireDoor = new Door(725, 163, "fire");
-Door waterDoor = new Door(825, 163, "water");
+Door fireDoor = new Door(725, 138, "fire");
+Door waterDoor = new Door(825, 138, "water");
 winScreen screen = new winScreen(49, 48);
 
 WaterPool wPool = new WaterPool(625, 652, 90);
 LavaPool fPool = new LavaPool(450, 652, 90);
 PoisonPuddle pPool = new PoisonPuddle(575, 500, 75);
 
-Box box0 = new Box(380, 235, 420, 275);
+Box box0 = new Box(380, 210, 420, 250);
 
 void setup() {
   size(900, 675);
@@ -46,14 +48,12 @@ void setup() {
   plats.add(plat4);
   plats.add(plat3);
 
-
   plats.add(plat6);
   plats.add(plat8);
   plats.add(plat7);
 
   plats.add(plat10);
   plats.add(plat9);
-
   plats.add(plat11);
 
   plats.add(ceiling);
