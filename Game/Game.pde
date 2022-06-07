@@ -1,12 +1,12 @@
 PImage background;
-<<<<<<< HEAD
+
 Fireboy fire = new Fireboy(100, 652);
 Watergirl water = new Watergirl(100, 550);
-
 
 boolean WIPmessage;
 
 Lever lever = new Lever(200, 450);
+Button button = new Button(270, 365);
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
 Platform plat1 = new Platform(24, 550, 300, 575);
@@ -138,7 +138,8 @@ void draw() {
   lever.drawLever(223, 453, 244, 423, 194);
   lever.toggle(fire, water);
 
-
+  button.drawButton();
+  button.toggle(fire, water);
 
   //ending actions
   if (fire.winF == true && water.winW == true) {
