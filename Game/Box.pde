@@ -1,36 +1,39 @@
 public class Box extends Platform {
   float dy = 0;
   boolean canMove = true;
-  
-  
+
+
   public Box (int x1_, int y1_, int x2_, int y2_) {
-    super(x1_,y1_,x2_,y2_);
+    super(x1_, y1_, x2_, y2_);
   }
-  
+
   void place() {
     fill(120);
     rectMode(CORNERS);
-    rect(centX - 20,centY + 20, centX + 20, centY - 20);
+    rect(centX - 20, centY + 20, centX + 20, centY - 20);
   }
-  
+
   boolean testMove(ArrayList<Platform> plats, Fireboy fire, Watergirl water) { //width 
     boolean preBool = true;
-    if(x2 <= fire.x - 35 || x1 >= fire.x + 35 && fire.y <= y1) {
+    if (x2 <= fire.x - 35 || x1 >= fire.x + 35 && fire.y <= y1) {
+      preBool = false;
+    }
+    if (x2 <= water.x - 35 || x1 >= water.x + 35 && water.y <= y1) {
       preBool = false;
     }
   }
-  
+
   boolean activate(Character player) {
-    
+
     //float centX = (super.x1 + super.x2) / 2.0;
     //float centY = (super.y1 + super.y2) / 2.0;
-    
+
     //float high = Math.abs(super.y1 - super.y2);
     //float wide = Math.abs(super.x1 - super.x2);
-    
+
     float distX = centX - player.x;
     float distY = centY - (player.y - 20);
-    
+
     float sumHalfWidth = 15 + wide/2.0;
     float sumHalfHeight = 20 + high/2.0;
 
@@ -40,23 +43,23 @@ public class Box extends Platform {
         float overlapY = sumHalfHeight - Math.abs(distY);
         println(overlapX + ", " + overlapY);
         if (overlapX < overlapY) {
-          if (centX > player.x) {
+          if (centX > player.x && canMove) {
             centX += overlapX;
-            
           } else {
-            centX -= overlapX;
-            
+            if (canMove)
+              centX -= overlapX;
           }
         } else {
-          if (centY > player.y) {
+          if (centY > player.y && canMove) {
             player.y -= overlapY;
             player.dy = 0;
-            
+
             return true;
           } else {
-            player.y += overlapY;
-            player.dy = 0;
-            
+            if (canMove) {
+              player.y += overlapY;
+              player.dy = 0;
+            }
           }
         }
       }
