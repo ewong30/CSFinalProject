@@ -49,6 +49,27 @@ public class movPlatform extends Platform {
       super.y2 -= 5;
     }
   }
+  
+  void move(Button button) {
+    //if lever is on / turned on
+    state = button.on;
+    if ((state && (y1On - y1Off)> 0) && (super.y1 < y1On)) {
+      super.y1 += 5;
+      super.y2 += 5;
+    } else if ((state && (y1On - y1Off)< 0) && (super.y1 > y1On)) {
+      super.y1 -= 5;
+      super.y2 -= 5;
+    }
+   
+    //if lever is off / turned off
+    if ((!state && (y1On - y1Off) < 0) && (super.y1 < y1Off)) {
+      super.y1 += 5;
+      super.y2 += 5;
+    } else if ((!state && (y1On - y1Off) > 0) && (super.y1 > y1Off)) {
+      super.y1 -= 5;
+      super.y2 -= 5;
+    }
+  }
 
   //override to redefine bounds constantly
   boolean activate(Character player) {
