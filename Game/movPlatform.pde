@@ -1,5 +1,6 @@
 public class movPlatform extends Platform {
-  int x1Off, y1Off, x2Off, y2Off, x1On, y1On;
+  int x1Off, y1Off, x2Off, y2Off;
+  int x1On, y1On;
   boolean state;
 
   public movPlatform (Lever lever, int x1Off, int y1Off, int x2Off, int y2Off, int x1On, int y1On) {
@@ -37,13 +38,8 @@ public class movPlatform extends Platform {
     } else if ((state && (y1On - y1Off)< 0) && (super.y1 > y1On)) {
       super.y1 -= 5;
       super.y2 -= 5;
-    } else if ((state && (x1On - x1Off)> 0) && (super.x1 < x1On)) {
-      super.x1 += 5;
-      super.x2 += 5;
-    } else if ((state && (y1On - y1Off) < 0) && (super.x1 > x1On)) {
-      super.x1 -= 5;
-      super.x2 -= 5;
     }
+   
     //if lever is off / turned off
     if ((!state && (y1On - y1Off) < 0) && (super.y1 < y1Off)) {
       super.y1 += 5;
@@ -51,12 +47,6 @@ public class movPlatform extends Platform {
     } else if ((!state && (y1On - y1Off) > 0) && (super.y1 > y1Off)) {
       super.y1 -= 5;
       super.y2 -= 5;
-    } else if ((!state && (x1On - x1Off) < 0) && (super.x1 < x1Off)) {
-      super.x1 += 5;
-      super.x2 += 5;
-    } else if ((!state && (y1On - y1Off) > 0) && (super.x1 > x1Off)) {
-      super.x1 -= 5;
-      super.x2 -= 5;
     }
   }
 
