@@ -1,11 +1,11 @@
 PImage background;
-Fireboy fire = new Fireboy(150, 260);
-Watergirl water = new Watergirl(160, 260);
+Fireboy fire = new Fireboy(100, 652);
+Watergirl water = new Watergirl(100, 550);
 
 boolean WIPmessage;
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
-Platform plat1 = new Platform(24, 550, 350, 575);
+Platform plat1 = new Platform(24, 550, 300, 575);
 Platform plat2 = new Platform(780, 585, 876, 652);
 Platform plat3 = new Platform(450, 500, 730, 525);
 Platform plat4 = new Platform(430, 475, 500, 500);
