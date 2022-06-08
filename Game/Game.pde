@@ -69,8 +69,8 @@ void draw() {
   box0.place();
 
   //places platforms
-  boolean fireOnPlat = box0.activate(fire);
-  boolean waterOnPlat = box0.activate(water);
+  boolean fireOnPlat = box0.activate(plats, fire);
+  boolean waterOnPlat = box0.activate(plats, water);
   
   boolean fireOnMovPlat;
   boolean waterOnMovPlat;
