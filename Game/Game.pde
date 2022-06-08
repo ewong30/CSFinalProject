@@ -38,7 +38,8 @@ PoisonPuddle pPool = new PoisonPuddle(575, 500, 75);
 
 Box box0 = new Box(380, 210, 420, 250);
 
-Gem gem0 = new Gem(200, 620);
+Gem gem0 = new Gem(200, 620, true);
+Gem gem1 = new Gem(300, 620, false);
 
 void setup() {
   size(900, 675);
@@ -92,23 +93,26 @@ void draw() {
 
   fire.isOnPlat = fireOnPlat || fireOnMovPlat;
   water.isOnPlat = waterOnPlat || waterOnMovPlat;
-  
-  
+
+
   mPlat.move(lever);
-  
+
   button0.drawButton();
   button1.drawButton();
-  
+
   button0.toggle(fire, water);
   button1.toggle(fire, water);
   mPlat1.move(button1.on || button0.on);
-  
+
   //places box
   box0.place();
 
   //gem
-  gem0.activate(fire);
+  gem0.activate(fire, water);
   gem0.drawGem();
+  
+  gem1.activate(fire, water);
+  gem1.drawGem();
 
   //pool actions
   wPool.drawPool();
@@ -153,8 +157,8 @@ void draw() {
 
   lever.drawLever(223, 453, 244, 423, 194);
   lever.toggle(fire, water);
-  
-  
+
+
   //ending actions
   if (fire.winF == true && water.winW == true) {
     screen.displayWin();
