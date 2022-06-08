@@ -11,7 +11,7 @@ public class WaterPool extends Pool {
   }
   
   void killF(Fireboy fireboy) {
-    if ((fireboy.x >= x - 10 && fireboy.x <= x + wide + 10) && (fireboy.y >= y - 5 && fireboy.y <= y + 20)) {
+    if ((fire.x + fire.halfWide > x - 10 && fire.x - fire.halfWide < x + wide + 10) && (fire.y >= y - 5 && fire.y <= y + 20)) {
       fireboy.dead = true;
     } 
   }

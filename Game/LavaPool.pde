@@ -10,9 +10,9 @@ public class LavaPool extends Pool {
     super.drawPool();
   }
   
-  void killW(Watergirl watergirl) {
-    if ((watergirl.x >= x - 10 && watergirl.x <= x + wide + 10) && (watergirl.y >= y - 5 && watergirl.y <= y + 20)) {
-      watergirl.dead = true;
+  void killW(Watergirl water) {
+    if ((water.x + water.halfWide >= x - 10 && water.x - water.halfWide <= x + wide + 10) && (water.y >= y - 5 && water.y <= y + 20)) {
+      water.dead = true;
     } 
   }
 }
