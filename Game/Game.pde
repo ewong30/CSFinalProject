@@ -1,6 +1,6 @@
 PImage background;
 
-Fireboy fire = new Fireboy(100, 652);
+Fireboy fire = new Fireboy(176, 246);
 Watergirl water = new Watergirl(100, 550);
 
 boolean WIPmessage;
@@ -124,7 +124,7 @@ void draw() {
 
   fire.doorLeave(water);
   fire.jump();
-  fire.xMove();
+  fire.xMove(plats, box0);
 
   //water actions
   if (water.winW == false && water.dead == false) {
@@ -133,7 +133,7 @@ void draw() {
   water.jump();
   waterDoor.activateW(water);
   water.doorLeave(fire);
-  water.xMove();
+  water.xMove(plats, box0);
 
 
   wPool.drawPool();

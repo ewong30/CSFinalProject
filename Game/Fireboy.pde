@@ -13,9 +13,9 @@ public class Fireboy extends Character {
     super.avatar();
   }
 
-  void xMove() {
+  void xMove(ArrayList<Platform> plats, Box box) {
     if (winF == false) {
-      if (keyboardInput.isPressed(Controller.FIRE_LEFT) && detectBordersL()) {
+      if (keyboardInput.isPressed(Controller.FIRE_LEFT) && detectBordersL(plats, box)) {
         x -= 8;
         faceR = false;
       }
