@@ -6,6 +6,7 @@ public class Character {
   boolean faceR;
   int halfWide = 15;
   int tall = 43;
+  boolean dead = false;
 
   Character (float x, float y) {
     this.x = x;
@@ -18,17 +19,17 @@ public class Character {
     //legs
     rect(x-15, y-25, x-2, y, 0, 0, 3, 3);
     rect(x+15, y-25, x+2, y, 0, 0, 3, 3);
-    
+
     //body
     rect(x-15, y-25, x+15, y-7);
-    
+
     //head
     circle(x, y - 28, 30);
-    
+
     if (faceR) {
       // backpack
       rect(x - 21, y - 28, x - 5, y - 8, 4, 0, 0, 4);
-      
+
       //eyes
       stroke(0, 130);
       fill(60, 95, 110);
@@ -38,7 +39,7 @@ public class Character {
     } else {
       // backpack
       rect(x + 21, y - 28, x + 5, y - 8, 4, 4, 4, 4);
-      
+
       //eyes
       stroke(0, 130);
       fill(60, 95, 110);
@@ -60,5 +61,4 @@ public class Character {
     else
       return true;
   }
-  
 }

@@ -1,7 +1,7 @@
 public class WaterPool extends Pool {
   
   WaterPool(float x, float y, float wide) {
-    super(x, y, wide);
+    super(x, y, wide, true, false);
   }
   
   

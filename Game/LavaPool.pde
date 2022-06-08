@@ -1,7 +1,7 @@
 public class LavaPool extends Pool {
   
   LavaPool(float x, float y, float wide) {
-    super(x, y, wide);
+    super(x, y, wide, false, true);
   }
   
   
