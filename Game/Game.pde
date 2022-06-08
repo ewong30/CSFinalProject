@@ -32,14 +32,15 @@ Door fireDoor = new Door(725, 138, "fire");
 Door waterDoor = new Door(825, 138, "water");
 winScreen screen = new winScreen(49, 48);
 
-Pool wPool = new Pool(625, 652, 90, true, false);
-Pool fPool = new Pool(450, 652, 90, false, true);
+Pool wPool = new Pool(605, 652, 75, true, false);
+Pool fPool = new Pool(450, 652, 75, false, true);
 Pool pPool = new Pool(575, 500, 75, true, true);
 
 Box box0 = new Box(380, 210, 420, 250);
 
-Gem gem0 = new Gem(200, 620, true);
-Gem gem1 = new Gem(300, 620, false);
+Gem wgem = new Gem(670, 610, false);
+Gem fgem = new Gem(495, 610, true);
+
 
 void setup() {
   size(900, 675);
@@ -108,11 +109,11 @@ void draw() {
   box0.place();
 
   //gem
-  gem0.activate(fire, water);
-  gem0.drawGem();
+  fgem.activate(fire, water);
+  fgem.drawGem();
   
-  gem1.activate(fire, water);
-  gem1.drawGem();
+  wgem.activate(fire, water);
+  wgem.drawGem();
 
   //pool actions
   wPool.drawPool();

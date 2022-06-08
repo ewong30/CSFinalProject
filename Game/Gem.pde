@@ -13,13 +13,14 @@ public class Gem {
 
   void drawGem() {
     if (!collected) {
+      stroke(0, 130);
       if (isFire) {
         fill(#FF3705);
-        
       } else {
         fill(#31BFFF);
       }
       triangle(x - halfWide, y, x + halfWide, y, x, y + tall);
+      noStroke();
     }
   }
 

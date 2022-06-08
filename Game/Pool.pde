@@ -1,6 +1,7 @@
 public class Pool {
   float x, y;
   float wide;
+  float tall = 15;
   boolean killFire, killWater;
 
   Pool(float x, float y, float wide, boolean f, boolean w) {
@@ -22,9 +23,9 @@ public class Pool {
     } else if (killWater) {
       fill(#FF3705);
     }
-    rect(x, y, wide, 20);
-    triangle(x - 10, y, x, y + 20, x, y);
-    triangle(x + (wide + 10), y, x + wide, y + 20, x, y);
+    rect(x, y, wide, tall);
+    triangle(x - 10, y, x, y + tall, x, y);
+    triangle(x + (wide + 10), y, x + wide, y + tall, x, y);
   }
 
   void kill(Fireboy fire, Watergirl water) {
