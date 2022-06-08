@@ -38,6 +38,8 @@ PoisonPuddle pPool = new PoisonPuddle(575, 500, 75);
 
 Box box0 = new Box(380, 210, 420, 250);
 
+Gem gem0 = new Gem(200, 620);
+
 void setup() {
   size(900, 675);
   keyboardInput = new Controller();
@@ -104,6 +106,9 @@ void draw() {
   //places box
   box0.place();
 
+  //gem
+  gem0.activate(fire);
+  gem0.drawGem();
 
   //pool actions
   wPool.drawPool();
