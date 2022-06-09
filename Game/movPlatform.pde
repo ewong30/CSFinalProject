@@ -15,6 +15,12 @@ public class movPlatform extends Platform {
 
     state = lever.on;
   }
+  
+  void place() {
+    rectMode(CORNERS);
+    fill(169);
+    rect(x1, y1, x2, y2);
+  }
 
   public movPlatform (Button button, int x1Off, int y1Off, int x2Off, int y2Off, int x1On, int y1On) {
     super(x1Off, y1Off, x2Off, y2Off);

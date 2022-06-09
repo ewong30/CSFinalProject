@@ -5,7 +5,7 @@ public class Box extends Platform {
   }
   
   void place() {
-    fill(120);
+    fill(169);
     rectMode(CORNERS);
     rect(centX - 20,centY + 20, centX + 20, centY - 20);
   }
