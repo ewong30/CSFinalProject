@@ -27,20 +27,20 @@ public class Lever {
 
   void toggle(Fireboy fire, Watergirl water) {
     if ((fire.x >= x - 6 && fire.x <= x + 50 + 6) && (fire.y >= y - 20 && fire.y <= y)) {
-      if (!on && !hasBeen) {
+      if (!on && !hasBeen && !fire.faceR) {
         on = true;
         hasBeen = true;
-      } else if (on && !hasBeen) {
+      } else if (on && !hasBeen && fire.faceR) {
         on = false;
         hasBeen = true;
       }
     } 
-    else if ((water.x >= x - 6 && water.x <= x + 50 + 6) && (water.y >= y - 5 && water.y <= y + 20)) {
-      if (!on && !hasBeen) {
+    else if ((water.x >= x - 6 && water.x <= x + 50 + 6) && (water.y >= y - 20 && water.y <= y)) {
+      if (!on && !hasBeen && !water.faceR) {
         on = true;
         hasBeen = true;
       }
-      else if (on && !hasBeen) {
+      else if (on && !hasBeen && water.faceR) {
         on = false;
         hasBeen = true;
       }
