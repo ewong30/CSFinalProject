@@ -154,9 +154,7 @@ void draw() {
   if (fire.winF == false && fire.dead == false) {
     fire.avatar();
   }
-
   fireDoor.activateF(fire);
-
   fire.doorLeave(water);
   fire.jump();
   fire.xMove();
@@ -169,12 +167,6 @@ void draw() {
   waterDoor.activateW(water);
   water.doorLeave(fire);
   water.xMove();
-
-
-  pPool.drawPool();
-  pPool.kill(fire, water);
-
-
 
   //ending actions
   if (fire.winF == true && water.winW == true) {

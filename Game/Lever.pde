@@ -28,7 +28,8 @@ public class Lever {
     stroke(0);
     strokeWeight(2);
     fill(col);
-    rect(x + 6, y + 3, 36, 8, 5, 5, 5, 5);
+    rect(x + 6, y + 3, 36, 7, 5, 5, 5, 5);
+    noStroke();
   }
 
   void toggle(Fireboy fire, Watergirl water) {
