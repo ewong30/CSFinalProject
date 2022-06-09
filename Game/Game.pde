@@ -5,9 +5,9 @@ Watergirl water = new Watergirl(100, 550); //og: 100, 550
 
 boolean WIPmessage;
 
-Lever lever = new Lever(200, 450);
-Button button0 = new Button(270, 347);
-Button button1 = new Button(600, 250);
+Lever lever = new Lever(200, 450, #CBCE41);
+Button button0 = new Button(270, 347, #CB41CE);
+Button button1 = new Button(600, 250, #CB41CE);
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
 Platform plat1 = new Platform(24, 550, 300, 575);
@@ -79,7 +79,7 @@ void draw() {
   fireDoor.drawDoor();
   waterDoor.drawDoor();
 
-  //places platforms
+  //platforms
   boolean fireOnPlat = box0.activate(fire);
   boolean waterOnPlat = box0.activate(water);
 
@@ -93,8 +93,8 @@ void draw() {
     waterOnPlat = waterOnPlat || p.activate(water);
   }
 
-  mPlat.place();
-  mPlat1.place();
+  mPlat.place(lever.col);
+  mPlat1.place(button0.col);
 
   fireOnMovPlat = mPlat.activate(fire) || mPlat1.activate(fire);
   waterOnMovPlat = mPlat.activate(water) || mPlat1.activate(water);
@@ -102,9 +102,12 @@ void draw() {
   fire.isOnPlat = fireOnPlat || fireOnMovPlat;
   water.isOnPlat = waterOnPlat || waterOnMovPlat;
 
-
+  //lever
+  lever.drawLever(223, 453, 244, 423, 194);
+  lever.toggle(fire, water);
   mPlat.move(lever);
 
+  //button
   button0.drawButton();
   button1.drawButton();
 
@@ -124,16 +127,16 @@ void draw() {
 
   fgem1.activate(fire, water);
   fgem1.drawGem();
-  
+
   wgem1.activate(fire, water);
   wgem1.drawGem();
-  
+
   fgem2.activate(fire, water);
   fgem2.drawGem();
-  
+
   wgem2.activate(fire, water);
   wgem2.drawGem();
-  
+
   wgem3.activate(fire, water);
   wgem3.drawGem();
 
@@ -171,9 +174,6 @@ void draw() {
   pPool.drawPool();
   pPool.kill(fire, water);
 
-
-  lever.drawLever(223, 453, 244, 423, 194);
-  lever.toggle(fire, water);
 
 
   //ending actions

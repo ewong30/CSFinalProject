@@ -16,12 +16,12 @@ public class movPlatform extends Platform {
     state = lever.on;
   }
   
-  void place() {
+  void place(color col) {
     rectMode(CORNERS);
     fill(169);
     rect(x1, y1, x2, y2);
     stroke(0);
-    fill(#CB41CE);
+    fill(col);
     //color for button: #CB41CE
     //color for lever: #CBCE41
     rect(x1 + 10, y1 + 8, x2 - 10, y2 - 8);

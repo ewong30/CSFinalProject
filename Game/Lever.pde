@@ -2,19 +2,21 @@ public class Lever {
   float x, y;
   boolean on = false;
   boolean hasBeen = false;
+  color col;
 
-  Lever(float x, float y) {
+  Lever(float x, float y, color col) {
     this.x = x;
     this.y = y;
+    this.col = col;
   }
 
   void drawLever(int x1, int y1, int x2, int y2, int x3) {
     noStroke();
     rectMode(CORNER);
     fill(238, 170, 24);
-    rect(x, y, 50, 20);
-    triangle(x - 10, y, x, y + 20, x, y);
-    triangle(x + (50 + 10), y, x + 50, y + 20, x, y);
+    rect(x, y, 50, 15);
+    triangle(x - 10, y, x, y + 15, x, y);
+    triangle(x + (50 + 10), y, x + 50, y + 15, x, y);
     stroke(238, 170, 24);
     strokeWeight(5);
     if (!on) {
@@ -22,7 +24,11 @@ public class Lever {
     } else {
       line(223, 453, x3, y2);
     }
-    noStroke();
+    
+    stroke(0);
+    strokeWeight(2);
+    fill(col);
+    rect(x + 6, y + 3, 36, 8, 5, 5, 5, 5);
   }
 
   void toggle(Fireboy fire, Watergirl water) {
