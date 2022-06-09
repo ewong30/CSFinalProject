@@ -21,7 +21,7 @@ Platform plat7 = new Platform(24, 250, 776, 275); //same as button1
 Platform plat8 = new Platform(24, 145, 135, 250); // need box to get on
 
 Platform plat9 = new Platform(295, 140, 876, 165); //long top one
-Platform plat10 = new Platform(235, 115, 370, 140); // thin top one
+Platform plat10 = new Platform(235, 115, 350, 140); // thin top one
 Platform plat11 = new Platform(280, 140, 390, 200); // thick top one
 Platform ceiling = new Platform(0, 0, 900, 25);
 
@@ -44,6 +44,10 @@ Gem fgem0 = new Gem(488, 618, true);
 Gem wgem1 = new Gem(545, 313, false);
 Gem fgem1 = new Gem(185, 313, true);
 
+Gem wgem2 = new Gem(555, 106, false);
+Gem fgem2 = new Gem(290, 81, true);
+
+Gem wgem3 = new Gem(60, 111, false);
 
 void setup() {
   size(900, 675);
@@ -123,6 +127,15 @@ void draw() {
   
   wgem1.activate(fire, water);
   wgem1.drawGem();
+  
+  fgem2.activate(fire, water);
+  fgem2.drawGem();
+  
+  wgem2.activate(fire, water);
+  wgem2.drawGem();
+  
+  wgem3.activate(fire, water);
+  wgem3.drawGem();
 
   //pool actions
   wPool.drawPool();
