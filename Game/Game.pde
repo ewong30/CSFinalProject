@@ -1,6 +1,6 @@
 PImage background;
 
-Fireboy fire = new Fireboy(300, 200); //og: 100, 652
+Fireboy fire = new Fireboy(100, 652); //og: 100, 652
 Watergirl water = new Watergirl(100, 550); //og: 100, 550
 
 boolean WIPmessage;

@@ -20,6 +20,12 @@ public class movPlatform extends Platform {
     rectMode(CORNERS);
     fill(169);
     rect(x1, y1, x2, y2);
+    stroke(0);
+    fill(#CB41CE);
+    //color for button: #CB41CE
+    //color for lever: #CBCE41
+    rect(x1 + 10, y1 + 8, x2 - 10, y2 - 8);
+    noStroke();
   }
 
   public movPlatform (Button button, int x1Off, int y1Off, int x2Off, int y2Off, int x1On, int y1On) {
