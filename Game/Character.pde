@@ -7,6 +7,7 @@ public class Character {
   int halfWide = 15;
   int tall = 43;
   boolean dead = false;
+  boolean doorAct = false;
 
   Character (float x, float y) {
     this.x = x;

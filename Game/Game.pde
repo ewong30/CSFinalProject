@@ -1,7 +1,7 @@
 PImage background;
 
-Fireboy fire = new Fireboy(100, 652);
-Watergirl water = new Watergirl(100, 550);
+Fireboy fire = new Fireboy(300, 200); //og: 100, 652
+Watergirl water = new Watergirl(100, 550); //og: 100, 550
 
 boolean WIPmessage;
 
@@ -16,13 +16,13 @@ Platform plat3 = new Platform(450, 500, 730, 525); // add pool to this one
 Platform plat4 = new Platform(430, 475, 500, 500);
 Platform plat5 = new Platform(24, 450, 475, 475); // same level as lever
 
-Platform plat6 = new Platform(120, 347, 876, 372);
-Platform plat7 = new Platform(24, 250, 776, 275);
-Platform plat8 = new Platform(24, 175, 120, 250);
+Platform plat6 = new Platform(120, 347, 876, 372); // same as button0
+Platform plat7 = new Platform(24, 250, 776, 275); //same as button1
+Platform plat8 = new Platform(24, 145, 135, 250); // need box to get on
 
-Platform plat9 = new Platform(250, 140, 876, 165);
-Platform plat10 = new Platform(210, 115, 300, 140);
-Platform plat11 = new Platform(250, 140, 320, 200);
+Platform plat9 = new Platform(295, 140, 876, 165); //long top one
+Platform plat10 = new Platform(235, 115, 370, 140); // thin top one
+Platform plat11 = new Platform(280, 140, 390, 200); // thick top one
 Platform ceiling = new Platform(0, 0, 900, 25);
 
 movPlatform mPlat = new movPlatform(lever, 24, 347, 118, 372, 24, 420);
@@ -32,14 +32,17 @@ Door fireDoor = new Door(725, 138, "fire");
 Door waterDoor = new Door(825, 138, "water");
 winScreen screen = new winScreen(49, 48);
 
-Pool wPool = new Pool(605, 652, 75, true, false);
-Pool fPool = new Pool(450, 652, 75, false, true);
-Pool pPool = new Pool(575, 500, 75, true, true);
+Pool wPool = new Pool(605, 652, 76, true, false);
+Pool fPool = new Pool(450, 652, 76, false, true);
+Pool pPool = new Pool(575, 500, 76, true, true);
 
 Box box0 = new Box(380, 210, 420, 250);
 
-Gem wgem = new Gem(670, 610, false);
-Gem fgem = new Gem(495, 610, true);
+Gem wgem0 = new Gem(643, 618, false);
+Gem fgem0 = new Gem(488, 618, true);
+
+Gem wgem1 = new Gem(545, 313, false);
+Gem fgem1 = new Gem(185, 313, true);
 
 
 void setup() {
@@ -109,18 +112,24 @@ void draw() {
   box0.place();
 
   //gem
-  fgem.activate(fire, water);
-  fgem.drawGem();
+  fgem0.activate(fire, water);
+  fgem0.drawGem();
+
+  wgem0.activate(fire, water);
+  wgem0.drawGem();
+
+  fgem1.activate(fire, water);
+  fgem1.drawGem();
   
-  wgem.activate(fire, water);
-  wgem.drawGem();
+  wgem1.activate(fire, water);
+  wgem1.drawGem();
 
   //pool actions
   wPool.drawPool();
-  wPool.kill(fire,water);
+  wPool.kill(fire, water);
 
   fPool.drawPool();
-  fPool.kill(fire,water);
+  fPool.kill(fire, water);
 
   pPool.drawPool();
   pPool.kill(fire, water);

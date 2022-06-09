@@ -1,6 +1,7 @@
 class Door {
   float x, y;
   boolean fire, water;
+  int halfWide = 30;
 
   public Door(float x, float y, String define) {
     this.x = x;
@@ -18,7 +19,7 @@ class Door {
     strokeWeight(2);
     rectMode(CORNERS);
     fill(113, 103, 51);
-    rect(x - 30, y - 70, x + 30, y);   
+    rect(x - halfWide, y - 70, x + halfWide, y);   
     rect(x - 19, y - 59, x + 19, y);
     
     if (fire) {
@@ -35,7 +36,7 @@ class Door {
   }
 
   void activateF(Fireboy fireboy) {
-    if ((fireboy.x >= x && fireboy.x <= x + 55) && (fireboy.y <= y + 65 && fireboy.y >= y)) {
+    if ((fireboy.x >= x - halfWide && fireboy.x <= x + halfWide) && (fireboy.y <= y + 65 && fireboy.y >= y)) {
       if (fire == true) {
         fireboy.doorAct = true;
       }
@@ -45,7 +46,7 @@ class Door {
   }
 
   void activateW(Watergirl watergirl) {
-    if ((watergirl.x >= x && watergirl.x <= x + 55) && (watergirl.y <= y + 65 && watergirl.y >= y)) {
+    if ((watergirl.x  >= x - halfWide && watergirl.x  <= x + halfWide) && (watergirl.y <= y + 65 && watergirl.y >= y)) {
       if (water == true) {
         watergirl.doorAct = true;
       }

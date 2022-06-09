@@ -17,7 +17,7 @@ public class Pool {
     rectMode(CORNER);
 
     if (killFire && killWater) {
-      fill(62, 150, 36);
+      fill(#32E31B);
     } else if (killFire) {
       fill(#31BFFF);
     } else if (killWater) {

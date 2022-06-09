@@ -1,7 +1,7 @@
 public class Gem {
   int x, y;
   int halfWide = 13;
-  int tall = 20;
+  int tall = 15;
   boolean collected = false;
   boolean isFire;
 
@@ -13,13 +13,18 @@ public class Gem {
 
   void drawGem() {
     if (!collected) {
-      stroke(0, 130);
+      //stroke(0, 130);
+      noStroke();
       if (isFire) {
         fill(#FF3705);
       } else {
         fill(#31BFFF);
       }
       triangle(x - halfWide, y, x + halfWide, y, x, y + tall);
+      rectMode(CORNERS);
+      rect(x - (halfWide - 6), y, x + (halfWide - 6), y - 6);
+      triangle(x - halfWide, y, x - (halfWide - 6), y, x - (halfWide - 6), y - 6);
+      triangle(x + halfWide, y, x + (halfWide - 6), y, x + (halfWide - 6), y - 6);
       noStroke();
     }
   }
