@@ -1,7 +1,7 @@
 PImage background;
 
-Fireboy fire = new Fireboy(100, 652); //og: 100, 652
-Watergirl water = new Watergirl(100, 550); //og: 100, 550
+Fireboy fire = new Fireboy(599, 70); //og: 100, 652
+Watergirl water = new Watergirl(500, 70); //og: 100, 550
 
 
 boolean WIPmessage;
@@ -194,10 +194,11 @@ void keyPressed() {
 }
 
 void mouseClicked() {
-  if ((screen.winscreen) && (mouseX >= 200) && (mouseX <= 700) && (mouseY >= 475) && (mouseY <= 575)) {
+  if ((screen.winscreen) && (mouseX >= 200) && (mouseX <= 700) && (mouseY >= 409) && (mouseY <= 465)) {
     WIPmessage = true;
   }
-  if ((screen.deadScreen) && (mouseX >= 150) && (mouseX <= 350) && (mouseY >= 480) && (mouseY <= 580)) {
+  //prompt retry
+  if ((screen.deadScreen) && (mouseX >= 230) && (mouseX <= 410) && (mouseY >= 409) && (mouseY <= 465)) {
     fire.y = 652;
     water.y = 550;
     water.x = 60;
@@ -206,7 +207,8 @@ void mouseClicked() {
     water.dead = false;
     screen.deadScreen = false;
   }
-  if ((screen.deadScreen) && (mouseX >= 525) && (mouseX <= 725) && (mouseY >= 480) && (mouseY <= 580)) {
+  //prompt main menu
+  if ((screen.deadScreen) && (mouseX >= 490) && (mouseX <= 670) && (mouseY >= 409) && (mouseY <= 465)) {
     WIPmessage = true;
   }
   println(mouseX + " " + mouseY);

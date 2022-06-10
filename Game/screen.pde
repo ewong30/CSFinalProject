@@ -36,6 +36,23 @@ public class Screen {
 
   void displayWin() {
     winscreen = true;
+    display();
+    
+    textAlign(CENTER);
+    textSize(55);
+    stroke(0);
+    text("LEVEL COMPLETE!", x, y - 60);
+    
+    rectMode(RADIUS);
+    fill(135);
+    stroke(0);
+    strokeWeight(2);
+    rect(x, y + 120, 120, 28);
+    
+    textSize(35);
+    fill(#FFD900);
+    text("CONTINUE", x, y + 132);
+    /*
     fill(150, 150, 150);
     rectMode(CORNER);
     rect(x, y, 800, 600);
@@ -55,6 +72,7 @@ public class Screen {
     rect (200, 475, 500, 100);
     noStroke();
     strokeWeight(0);
+    */
   }
 
   void displayDead() {
