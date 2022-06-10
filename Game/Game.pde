@@ -16,11 +16,9 @@ Platform plat2 = new Platform(780, 585, 876, 652);
 Platform plat3 = new Platform(450, 500, 730, 525); // add pool to this one
 Platform plat4 = new Platform(430, 475, 500, 500);
 Platform plat5 = new Platform(24, 450, 475, 475); // same level as lever
-
 Platform plat6 = new Platform(120, 347, 876, 372); // same as button0
 Platform plat7 = new Platform(24, 250, 776, 275); //same as button1
 Platform plat8 = new Platform(24, 145, 135, 250); // need box to get on
-
 Platform plat9 = new Platform(295, 140, 876, 165); //long top one
 Platform plat10 = new Platform(235, 115, 350, 140); // thin top one
 Platform plat11 = new Platform(280, 140, 390, 200); // thick top one
@@ -42,13 +40,10 @@ Box box0 = new Box(380, 210, 420, 250);
 ArrayList<Gem> gems = new ArrayList<Gem>();
 Gem wgem0 = new Gem(643, 618, false);
 Gem fgem0 = new Gem(488, 618, true);
-
 Gem wgem1 = new Gem(545, 313, false);
 Gem fgem1 = new Gem(185, 313, true);
-
 Gem wgem2 = new Gem(555, 106, false);
 Gem fgem2 = new Gem(290, 81, true);
-
 Gem wgem3 = new Gem(60, 111, false);
 
 void setup() {
@@ -224,13 +219,13 @@ void keyReleased() {
 }
 
 void reset() {
+  lever.on = false;
+  
   fire.y = 652;
   fire.x = 60;
 
   water.y = 550;
   water.x = 60;
-
-  lever.on = false;
 
   fire.dead = false;
   water.dead = false;
