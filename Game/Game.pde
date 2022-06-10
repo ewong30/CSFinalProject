@@ -3,6 +3,7 @@ PImage background;
 Fireboy fire = new Fireboy(100, 652); //og: 100, 652
 Watergirl water = new Watergirl(100, 550); //og: 100, 550
 
+
 boolean WIPmessage;
 
 Lever lever = new Lever(200, 450, #CBCE41);
@@ -157,7 +158,7 @@ void draw() {
   fireDoor.activateF(fire);
   fire.doorLeave(water);
   fire.jump();
-  fire.xMove();
+  fire.xMove(plats, box0);
 
   //water actions
   if (water.winW == false && water.dead == false) {
@@ -166,7 +167,7 @@ void draw() {
   water.jump();
   waterDoor.activateW(water);
   water.doorLeave(fire);
-  water.xMove();
+  water.xMove(plats, box0);
 
   //ending actions
   if (fire.winF == true && water.winW == true) {

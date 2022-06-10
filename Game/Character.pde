@@ -50,11 +50,25 @@ public class Character {
     }
   }
 
-  boolean detectBordersL() {
+  boolean detectBordersL(ArrayList<Platform> plats, Box box) {
+    for (Platform p : plats) {
+      if((p.x2 >= (x - 15) && p.x1 <= x) && (p.y1 < y && p.y2 > y)) {
+        println("A");
+        return false;
+      }
+      else if((p.x1 <= (x + 15) && p.x2 >= x) && (p.y1 < y && p.y2 > y)) {
+        return false;
+      }
+    }
+    if((box.x2 >= (x - 42) && box.x1 <= x) && (box.y1 < y && box.y2 > y)) {
+        println("A");
+        return false;
+      }
     if (x <= 42) 
       return false;
-    else
+    else {
       return true;
+    }
   }
   boolean detectBordersR() {
     if (x >= width - 42) 
