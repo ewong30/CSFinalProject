@@ -10,7 +10,6 @@ public class Screen {
   }
 
   void display() {
-    deadScreen = true;
     stroke(2);
     rectMode(RADIUS);
     fill(0, 170);
@@ -76,8 +75,9 @@ public class Screen {
   }
 
   void displayDead() {
+    deadScreen = true;
+    
     display();
-
     textAlign(CENTER);
     textSize(60);
     stroke(0);
@@ -104,7 +104,7 @@ public class Screen {
     strokeWeight(0);
   }
 
-  void nextStage() { 
+  void WIP() { 
     fill(0);
     rect(0, 0, width, height);
     fill(255, 255, 255);

@@ -4,9 +4,6 @@ PImage background;
 Fireboy fire = new Fireboy(100, 652); //og: 100, 652
 Watergirl water = new Watergirl(100, 550); //og: 100, 550
 
-
-char value = ' ';
-
 boolean WIPmessage;
 
 Lever lever = new Lever(200, 450, #CBCE41);
@@ -85,6 +82,8 @@ void setup() {
 }
 
 void draw() {
+
+
   image(background, 0, 0, 901, 675);
   fill(#908c4c);
 
@@ -142,26 +141,6 @@ void draw() {
     g.activate(fire, water);
     g.drawGem();
   }
-  //fgem0.activate(fire, water);
-  //fgem0.drawGem();
-
-  //wgem0.activate(fire, water);
-  //wgem0.drawGem();
-
-  //fgem1.activate(fire, water);
-  //fgem1.drawGem();
-
-  //wgem1.activate(fire, water);
-  //wgem1.drawGem();
-
-  //fgem2.activate(fire, water);
-  //fgem2.drawGem();
-
-  //wgem2.activate(fire, water);
-  //wgem2.drawGem();
-
-  //wgem3.activate(fire, water);
-  //wgem3.drawGem();
 
   //pool actions
   wPool.drawPool();
@@ -199,7 +178,7 @@ void draw() {
     screen.displayDead();
   }
   if (WIPmessage) {
-    screen.nextStage();
+    screen.WIP();
   }
 }
 
@@ -217,31 +196,29 @@ void keyPressed() {
 }
 
 void mouseClicked() {
-  //prompt level complete
-  if ((screen.winscreen) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 429) && (mouseY <= 485)) {
-    WIPmessage = true;
-    screen.winscreen = false;
-  }
-  
-  //prompt play again 
-  if ((WIPmessage) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 449) && (mouseY <= 505)) {
-    reset();
-    WIPmessage = false;
-  }
-
   //prompt retry
   if ((screen.deadScreen) && (mouseX >= 230) && (mouseX <= 410) && (mouseY >= 409) && (mouseY <= 465)) {
     reset();
     screen.deadScreen = false;
   }
-  //prompt main menu
+
+  //prompt play again 
+  if ((WIPmessage) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 449) && (mouseY <= 505)) {
+    reset();
+    WIPmessage = false;
+  }
+  
+  //prompt WIP (pressed continue)
+  if ((screen.winscreen) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 429) && (mouseY <= 485)) {
+    WIPmessage = true;
+    screen.winscreen = false;
+  }
+
+  //prompt WIP
   if ((screen.deadScreen) && (mouseX >= 490) && (mouseX <= 670) && (mouseY >= 409) && (mouseY <= 465)) {
     WIPmessage = true;
     screen.deadScreen = false;
   }
-
-
-  println(mouseX + " " + mouseY);
 }
 
 void keyReleased() {
