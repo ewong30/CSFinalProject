@@ -37,42 +37,42 @@ public class Screen {
   void displayWin() {
     winscreen = true;
     display();
-    
+
     textAlign(CENTER);
     textSize(55);
     stroke(0);
     text("LEVEL COMPLETE!", x, y - 60);
-    
+
     rectMode(RADIUS);
     fill(135);
     stroke(0);
     strokeWeight(2);
     rect(x, y + 120, 120, 28);
-    
+
     textSize(35);
     fill(#FFD900);
     text("CONTINUE", x, y + 132);
     /*
     fill(150, 150, 150);
-    rectMode(CORNER);
-    rect(x, y, 800, 600);
-    fill(218, 185, 41);
-    rect(x - 30, y - 30, 60, 60);
-    rect(x - 30, y + 570, 60, 60);
-    rect(x + 770, y - 30, 60, 60);
-    rect(x + 770, y + 570, 60, 60);
-    textSize(72);
-    stroke(0);
-    strokeWeight(3);
-    text("You Win!", 295, 225);
-    text("Continue?", 275, 550);
-    noFill();
-    stroke(0);
-    strokeWeight(2);
-    rect (200, 475, 500, 100);
-    noStroke();
-    strokeWeight(0);
-    */
+     rectMode(CORNER);
+     rect(x, y, 800, 600);
+     fill(218, 185, 41);
+     rect(x - 30, y - 30, 60, 60);
+     rect(x - 30, y + 570, 60, 60);
+     rect(x + 770, y - 30, 60, 60);
+     rect(x + 770, y + 570, 60, 60);
+     textSize(72);
+     stroke(0);
+     strokeWeight(3);
+     text("You Win!", 295, 225);
+     text("Continue?", 275, 550);
+     noFill();
+     stroke(0);
+     strokeWeight(2);
+     rect (200, 475, 500, 100);
+     noStroke();
+     strokeWeight(0);
+     */
   }
 
   void displayDead() {
@@ -94,7 +94,7 @@ public class Screen {
     rectMode(RADIUS);
     rect(x - 130, y + 100, 90, 28);
     rect(x + 130, y + 100, 90, 28);
-    
+
     fill(#FFD900);
     textSize(35);
     text("RETRY", x - 130, y + 112);
@@ -108,7 +108,17 @@ public class Screen {
     fill(0);
     rect(0, 0, width, height);
     fill(255, 255, 255);
-    textSize(72);
-    text("That's all for now!\nMore levels to come.", (width /2 - 400), 100);
+    textSize(50);
+    text("That's all for now!\nMore levels to come.", x, y - 40);
+
+    rectMode(RADIUS);
+    fill(135);
+    stroke(0);
+    strokeWeight(2);
+    rect(x, y + 140, 120, 28);
+
+    textSize(35);
+    fill(#FFD900);
+    text("PLAY AGAIN", x, y + 152);
   }
 }
