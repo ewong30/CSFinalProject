@@ -1,4 +1,8 @@
 public class Box extends Platform {
+  boolean onWall = false;
+  boolean onWallR = false;
+  boolean touchingPlayerL = false;
+  boolean touchingPlayerR = false;
   float dy = 0;
   boolean canMove = true;
 
@@ -19,21 +23,15 @@ public class Box extends Platform {
       preBool = false;
     }
     for (Platform p : plats) {
-      if(x1 <= p.x2 || x2 >= p.x1 && (y2 >= p.y2 && y1 <= p.y1)) {
+      if (x1 <= p.x2 || x2 >= p.x1 && (y2 >= p.y2 && y1 <= p.y1)) {
         preBool = false;
       }
     }
     return preBool;
   }
 
-  boolean activate(ArrayList<Platform> plats, Character player) {
 
-    //float centX = (super.x1 + super.x2) / 2.0;
-    //float centY = (super.y1 + super.y2) / 2.0;
-
-    //float high = Math.abs(super.y1 - super.y2);
-    ////float wide = Math.abs(super.x1 - super.x2);
-    canMove = testMove( plats, player);
+  boolean activate(Character player) {
     float distX = centX - player.x;
     float distY = centY - (player.y - 20);
 
@@ -46,22 +44,21 @@ public class Box extends Platform {
         float overlapY = sumHalfHeight - Math.abs(distY);
         println(overlapX + ", " + overlapY);
         if (overlapX < overlapY) {
-          if (centX > player.x) {
+          if (centX > player.x && !onWall) {
             centX += overlapX;
           } else {
+            if (!onWall)
               centX -= overlapX;
           }
         } else {
-          if (centY > player.y && canMove) {
+          if (centY > player.y) {
             player.y -= overlapY;
             player.dy = 0;
 
             return true;
           } else {
-            if (canMove) {
-              player.y += overlapY;
-              player.dy = 0;
-            }
+            player.y += overlapY;
+            player.dy = 0;
           }
         }
       }

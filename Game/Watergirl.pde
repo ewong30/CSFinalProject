@@ -14,9 +14,9 @@ public class Watergirl extends Character {
     super.avatar();
   }
 
-  void xMove() {
+  void xMove(ArrayList<Platform> plats, Box box) {
     if (winW == false) {
-      if (keyboardInput.isPressed(Controller.WATER_LEFT) && detectBordersL()) {
+      if (keyboardInput.isPressed(Controller.WATER_LEFT) && detectBordersL(plats, box)) {
         x -= 8;
         faceR = false;
       }

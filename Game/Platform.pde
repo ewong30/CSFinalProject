@@ -3,7 +3,7 @@ public class Platform {
   float centX, centY;
   float high;
   float wide;
-  int x3, y3, x4, y4;
+
   boolean state;
 
   Platform (int x1_, int y1_, int x2_, int y2_) {
