@@ -4,6 +4,7 @@ public class Fireboy extends Character {
   boolean dead = false;
   boolean canMove = true;
 
+
   Fireboy (float x, float y) {
     super(x, y);
   }
@@ -21,7 +22,7 @@ public class Fireboy extends Character {
         faceR = false;
       }
 
-      if (keyboardInput.isPressed(Controller.FIRE_RIGHT) && detectBordersR()) {
+      if (keyboardInput.isPressed(Controller.FIRE_RIGHT) && detectBordersR(plats, box)) {
         x += 8;
         faceR = true;
       }

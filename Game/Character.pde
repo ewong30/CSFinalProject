@@ -6,6 +6,9 @@ public class Character {
   boolean faceR;
   int halfWide = 15;
   int tall = 43;
+  boolean dead = false;
+  boolean doorAct = false;
+  boolean boxToggle = false;
 
   Character (float x, float y) {
     this.x = x;
@@ -57,8 +60,7 @@ public class Character {
         return false;
       }
     }
-    if ((box.x2 >= (x - 42) && box.x1 <= x) && (box.y1 < y && box.y2 > y)) {
-      println("A");
+    if(boxToggle && ((x - 15) <= box.x2 && x >= box.x1) && (y <= box.y2 && y >= box.y1)) {
       return false;
     }
     if (x <= 42) 
@@ -69,15 +71,13 @@ public class Character {
   }
   boolean detectBordersR(ArrayList<Platform> plats, Box box) {
     for (Platform p : plats) {
-      if ((p.x1 >= (x - 15) && p.x1 <= x) && (p.y1 < y && p.y2 > y)) {
-        println("A");
+      if ((p.x1 <= (x + 15) && p.x1 >= x) && (p.y1 < y && p.y2 > y)) {
         return false;
-      } else if ((p.x1 <= (x + 15) && p.x2 >= x) && (p.y1 < y && p.y2 > y)) {
+      } else if ((p.x1 >= (x - 15) && p.x2 <= x) && (p.y1 < y && p.y2 > y)) {
         return false;
       }
     }
-    if ((box.x2 >= (x - 42) && box.x1 <= x) && (box.y1 < y && box.y2 > y)) {
-      println("A");
+    if(boxToggle && ((x + 15) >= box.x1 && x <= box.x2) && (y <= box.y2 && y >= box.y1)) {
       return false;
     }
     if (x >= width - 42) 

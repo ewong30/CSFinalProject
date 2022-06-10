@@ -1,12 +1,12 @@
 public class Platform {
-  int x1, y1, x2, y2;
+  float x1, y1, x2, y2;
   float centX, centY;
   float high;
   float wide;
 
   boolean state;
 
-  Platform (int x1_, int y1_, int x2_, int y2_) {
+  Platform (float x1_, float y1_, float x2_, float y2_) {
     x1 = x1_;
     y1 = y1_;
     x2 = x2_;

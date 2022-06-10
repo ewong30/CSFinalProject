@@ -4,6 +4,7 @@ public class Watergirl extends Character {
   boolean dead = false;
   boolean canMove = true;
 
+
   Watergirl (float x, float y) {
     super(x, y);
   }
@@ -20,7 +21,7 @@ public class Watergirl extends Character {
         x -= 8;
         faceR = false;
       }
-      if (keyboardInput.isPressed(Controller.WATER_RIGHT) && detectBordersR()) {
+      if (keyboardInput.isPressed(Controller.WATER_RIGHT) && detectBordersR(plats, box)) {
         x += 8;
         faceR = true;
       }
