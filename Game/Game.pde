@@ -1,8 +1,9 @@
 PImage background;
 
-Fireboy fire = new Fireboy(599, 70); //og: 100, 652
-Watergirl water = new Watergirl(500, 70); //og: 100, 550
+Fireboy fire = new Fireboy(500, 50); //og: 100, 652
+Watergirl water = new Watergirl(500, 50); //og: 100, 550
 
+char value = ' ';
 
 boolean WIPmessage;
 
@@ -205,12 +206,38 @@ Controller keyboardInput;
 
 void keyPressed() {
   keyboardInput.press(keyCode);
+  
+  if (key == '`') {
+    fire.x = 500;
+    fire.y = 100;
+    water.x = 500;
+    water.y = 100;
+  }
 }
 
 void mouseClicked() {
+  //prompt level complete
   if ((screen.winscreen) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 429) && (mouseY <= 485)) {
     WIPmessage = true;
   }
+  //prompt play again 
+  if ((WIPmessage) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 449) && (mouseY <= 505)) {
+    
+    fire.y = 652;
+    water.y = 550;
+    water.x = 60;
+    fire.x = 60;
+    fire.dead = false;
+    water.dead = false;
+    lever.on = false;
+    
+    fire.winF = false;
+    water.winW = false;
+    
+    WIPmessage = false;
+    screen.winscreen = false;
+  }
+  
   //prompt retry
   if ((screen.deadScreen) && (mouseX >= 230) && (mouseX <= 410) && (mouseY >= 409) && (mouseY <= 465)) {
     fire.y = 652;
@@ -226,6 +253,8 @@ void mouseClicked() {
   if ((screen.deadScreen) && (mouseX >= 490) && (mouseX <= 670) && (mouseY >= 409) && (mouseY <= 465)) {
     WIPmessage = true;
   }
+  
+  
   println(mouseX + " " + mouseY);
 }
 
