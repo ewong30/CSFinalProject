@@ -39,6 +39,7 @@ Pool pPool = new Pool(575, 500, 76, true, true);
 
 Box box0 = new Box(380, 210, 420, 250);
 
+ArrayList<Gem> gems = new ArrayList<Gem>();
 Gem wgem0 = new Gem(643, 618, false);
 Gem fgem0 = new Gem(488, 618, true);
 
@@ -70,6 +71,15 @@ void setup() {
   plats.add(plat11);
 
   plats.add(ceiling);
+  
+  gems.add(wgem0);
+  gems.add(fgem0);
+  gems.add(wgem1);
+  gems.add(fgem1);
+  gems.add(wgem2);
+  gems.add(fgem2);
+  gems.add(wgem3);
+
 }
 
 void draw() {
@@ -126,26 +136,30 @@ void draw() {
  ///box0.activate(plats, water);
 
   //gem
-  fgem0.activate(fire, water);
-  fgem0.drawGem();
+  for (Gem g : gems) {
+    g.activate(fire, water);
+    g.drawGem();
+  }
+  //fgem0.activate(fire, water);
+  //fgem0.drawGem();
 
-  wgem0.activate(fire, water);
-  wgem0.drawGem();
+  //wgem0.activate(fire, water);
+  //wgem0.drawGem();
 
-  fgem1.activate(fire, water);
-  fgem1.drawGem();
+  //fgem1.activate(fire, water);
+  //fgem1.drawGem();
 
-  wgem1.activate(fire, water);
-  wgem1.drawGem();
+  //wgem1.activate(fire, water);
+  //wgem1.drawGem();
 
-  fgem2.activate(fire, water);
-  fgem2.drawGem();
+  //fgem2.activate(fire, water);
+  //fgem2.drawGem();
 
-  wgem2.activate(fire, water);
-  wgem2.drawGem();
+  //wgem2.activate(fire, water);
+  //wgem2.drawGem();
 
-  wgem3.activate(fire, water);
-  wgem3.drawGem();
+  //wgem3.activate(fire, water);
+  //wgem3.drawGem();
 
   //pool actions
   wPool.drawPool();
@@ -194,7 +208,7 @@ void keyPressed() {
 }
 
 void mouseClicked() {
-  if ((screen.winscreen) && (mouseX >= 200) && (mouseX <= 700) && (mouseY >= 409) && (mouseY <= 465)) {
+  if ((screen.winscreen) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 429) && (mouseY <= 485)) {
     WIPmessage = true;
   }
   //prompt retry
@@ -206,6 +220,7 @@ void mouseClicked() {
     fire.dead = false;
     water.dead = false;
     screen.deadScreen = false;
+    lever.on = false;
   }
   //prompt main menu
   if ((screen.deadScreen) && (mouseX >= 490) && (mouseX <= 670) && (mouseY >= 409) && (mouseY <= 465)) {
