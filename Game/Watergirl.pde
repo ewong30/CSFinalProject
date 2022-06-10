@@ -1,3 +1,4 @@
+import processing.sound.*;
 public class Watergirl extends Character {
   boolean doorAct;
   boolean winW = false;

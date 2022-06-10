@@ -1,3 +1,4 @@
+import processing.sound.*;
 public class Character {
   float x, y;
   float dy = 0;
@@ -54,7 +55,6 @@ public class Character {
   boolean detectBordersL(ArrayList<Platform> plats, Box box) {
     for (Platform p : plats) {
       if ((p.x2 >= (x - 15) && p.x1 <= x) && (p.y1 < y && p.y2 > y)) {
-        println("A");
         return false;
       } else if ((p.x1 <= (x + 15) && p.x2 >= x) && (p.y1 < y && p.y2 > y)) {
         return false;

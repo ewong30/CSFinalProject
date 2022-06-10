@@ -1,3 +1,4 @@
+import processing.sound.*;
 public class Fireboy extends Character {
   boolean doorAct = false;
   boolean winF = false;
