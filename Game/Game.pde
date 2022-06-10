@@ -1,13 +1,14 @@
 PImage background;
 
-Fireboy fire = new Fireboy(176, 246);
-Watergirl water = new Watergirl(100, 550);
+Fireboy fire = new Fireboy(100, 652); //og: 100, 652
+Watergirl water = new Watergirl(100, 550); //og: 100, 550
+
 
 boolean WIPmessage;
 
-Lever lever = new Lever(200, 450);
-Button button0 = new Button(270, 347);
-Button button1 = new Button(600, 250);
+Lever lever = new Lever(200, 450, #CBCE41);
+Button button0 = new Button(270, 347, #CB41CE);
+Button button1 = new Button(600, 250, #CB41CE);
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
 Platform plat1 = new Platform(24, 550, 300, 575);
@@ -16,13 +17,13 @@ Platform plat3 = new Platform(450, 500, 730, 525); // add pool to this one
 Platform plat4 = new Platform(430, 475, 500, 500);
 Platform plat5 = new Platform(24, 450, 475, 475); // same level as lever
 
-Platform plat6 = new Platform(120, 347, 876, 372);
-Platform plat7 = new Platform(24, 250, 776, 275);
-Platform plat8 = new Platform(24, 175, 120, 250);
+Platform plat6 = new Platform(120, 347, 876, 372); // same as button0
+Platform plat7 = new Platform(24, 250, 776, 275); //same as button1
+Platform plat8 = new Platform(24, 145, 135, 250); // need box to get on
 
-Platform plat9 = new Platform(250, 140, 876, 165);
-Platform plat10 = new Platform(210, 115, 300, 140);
-Platform plat11 = new Platform(250, 140, 320, 200);
+Platform plat9 = new Platform(295, 140, 876, 165); //long top one
+Platform plat10 = new Platform(235, 115, 350, 140); // thin top one
+Platform plat11 = new Platform(280, 140, 390, 200); // thick top one
 Platform ceiling = new Platform(0, 0, 900, 25);
 
 movPlatform mPlat = new movPlatform(lever, 24, 347, 118, 372, 24, 420);
@@ -32,11 +33,22 @@ Door fireDoor = new Door(725, 138, "fire");
 Door waterDoor = new Door(825, 138, "water");
 winScreen screen = new winScreen(49, 48);
 
-WaterPool wPool = new WaterPool(625, 652, 90);
-LavaPool fPool = new LavaPool(450, 652, 90);
-PoisonPuddle pPool = new PoisonPuddle(575, 500, 75);
+Pool wPool = new Pool(605, 652, 76, true, false);
+Pool fPool = new Pool(450, 652, 76, false, true);
+Pool pPool = new Pool(575, 500, 76, true, true);
 
 Box box0 = new Box(380, 210, 420, 250);
+
+Gem wgem0 = new Gem(643, 618, false);
+Gem fgem0 = new Gem(488, 618, true);
+
+Gem wgem1 = new Gem(545, 313, false);
+Gem fgem1 = new Gem(185, 313, true);
+
+Gem wgem2 = new Gem(555, 106, false);
+Gem fgem2 = new Gem(290, 81, true);
+
+Gem wgem3 = new Gem(60, 111, false);
 
 void setup() {
   size(900, 675);
@@ -68,7 +80,7 @@ void draw() {
   fireDoor.drawDoor();
   waterDoor.drawDoor();
 
-  //places platforms
+  //platforms
   boolean fireOnPlat = box0.activate(fire);
   boolean waterOnPlat = box0.activate(water);
 
@@ -82,35 +94,59 @@ void draw() {
     waterOnPlat = waterOnPlat || p.activate(water);
   }
 
-  mPlat.place();
-  mPlat1.place();
+  mPlat.place(lever.col);
+  mPlat1.place(button0.col);
 
   fireOnMovPlat = mPlat.activate(fire) || mPlat1.activate(fire);
   waterOnMovPlat = mPlat.activate(water) || mPlat1.activate(water);
 
   fire.isOnPlat = fireOnPlat || fireOnMovPlat;
   water.isOnPlat = waterOnPlat || waterOnMovPlat;
-  
-  
+
+  //lever
+  lever.drawLever(223, 453, 244, 423, 194);
+  lever.toggle(fire, water);
   mPlat.move(lever);
-  
+
+  //button
   button0.drawButton();
   button1.drawButton();
-  
+
   button0.toggle(fire, water);
   button1.toggle(fire, water);
   mPlat1.move(button1.on || button0.on);
-  
+
   //places box
   box0.place();
 
+  //gem
+  fgem0.activate(fire, water);
+  fgem0.drawGem();
+
+  wgem0.activate(fire, water);
+  wgem0.drawGem();
+
+  fgem1.activate(fire, water);
+  fgem1.drawGem();
+
+  wgem1.activate(fire, water);
+  wgem1.drawGem();
+
+  fgem2.activate(fire, water);
+  fgem2.drawGem();
+
+  wgem2.activate(fire, water);
+  wgem2.drawGem();
+
+  wgem3.activate(fire, water);
+  wgem3.drawGem();
 
   //pool actions
   wPool.drawPool();
-  wPool.killF(fire);
+  wPool.kill(fire, water);
 
   fPool.drawPool();
-  fPool.killW(water);
+  fPool.kill(fire, water);
 
   pPool.drawPool();
   pPool.kill(fire, water);
@@ -119,9 +155,7 @@ void draw() {
   if (fire.winF == false && fire.dead == false) {
     fire.avatar();
   }
-
   fireDoor.activateF(fire);
-
   fire.doorLeave(water);
   fire.jump();
   fire.xMove(plats, box0);
@@ -135,21 +169,6 @@ void draw() {
   water.doorLeave(fire);
   water.xMove(plats, box0);
 
-
-  wPool.drawPool();
-  wPool.killF(fire);
-
-  fPool.drawPool();
-  fPool.killW(water);
-
-  pPool.drawPool();
-  pPool.kill(fire, water);
-
-
-  lever.drawLever(223, 453, 244, 423, 194);
-  lever.toggle(fire, water);
-  
-  
   //ending actions
   if (fire.winF == true && water.winW == true) {
     screen.displayWin();

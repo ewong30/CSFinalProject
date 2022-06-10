@@ -1,7 +1,6 @@
 public class Fireboy extends Character {
   boolean doorAct = false;
   boolean winF = false;
-  boolean dead = false;
 
   Fireboy (float x, float y) {
     super(x, y);

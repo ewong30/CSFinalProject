@@ -1,19 +1,28 @@
 public class Button {
   float x, y;
   boolean on = false;
-  int halfWide = 18;
+  int halfWide = 13;
   int tall = 13;
+  color col;
 
-  Button(float x, float y) {
+  Button(float x, float y, color col) {
     this.x = x;
     this.y = y;
+    this.col = col;
   }
 
   void drawButton() {
     noStroke();
     rectMode(CORNERS);
+    fill(col);
+    if (on) {
+      rect(x - halfWide, y - tall + 5, x + halfWide, y);
+    } else {
+      rect(x - halfWide, y - tall, x + halfWide, y);
+    }
     fill(238, 170, 24);
-    rect(x - halfWide, y - tall, x + halfWide, y);
+    rect(x - (halfWide + 4), y - (tall - 7), x + (halfWide + 4), y);
+    
     noStroke();
   }
 

@@ -1,8 +1,7 @@
 public class Box extends Platform {
   boolean onWall = false;
   boolean onWallR = false;
-  boolean touchingPlayerL = false;
-  boolean touchingPlayerR = false;
+
   float dy = 0;
 
   public Box (int x1_, int y1_, int x2_, int y2_) {
@@ -10,7 +9,7 @@ public class Box extends Platform {
   }
 
   void place() {
-    fill(120);
+    fill(169);
     rectMode(CORNERS);
     rect(centX - 20, centY + 20, centX + 20, centY - 20);
   }
