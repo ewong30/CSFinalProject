@@ -72,7 +72,7 @@ void setup() {
   plats.add(plat11);
 
   plats.add(ceiling);
-  
+
   gems.add(wgem0);
   gems.add(fgem0);
   gems.add(wgem1);
@@ -80,7 +80,6 @@ void setup() {
   gems.add(wgem2);
   gems.add(fgem2);
   gems.add(wgem3);
-
 }
 
 void draw() {
@@ -90,14 +89,14 @@ void draw() {
   //draw doors
   fireDoor.drawDoor();
   waterDoor.drawDoor();
-  
-   //places box
+
+  //places box
   box0.place();
 
   //platforms
   boolean fireOnPlat = box0.activate(plats, fire);
   boolean waterOnPlat = box0.activate(plats, water);
-  
+
   boolean fireOnMovPlat;
   boolean waterOnMovPlat;
 
@@ -132,9 +131,9 @@ void draw() {
 
   //places box
   box0.place();
- ///box0.testMove(plats);
- ///box0.activate(plats, fire);
- ///box0.activate(plats, water);
+  ///box0.testMove(plats);
+  ///box0.activate(plats, fire);
+  ///box0.activate(plats, water);
 
   //gem
   for (Gem g : gems) {
@@ -206,7 +205,7 @@ Controller keyboardInput;
 
 void keyPressed() {
   keyboardInput.press(keyCode);
-  
+
   if (key == '`') {
     fire.x = 500;
     fire.y = 100;
@@ -219,45 +218,49 @@ void mouseClicked() {
   //prompt level complete
   if ((screen.winscreen) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 429) && (mouseY <= 485)) {
     WIPmessage = true;
-  }
-  //prompt play again 
-  if ((WIPmessage) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 449) && (mouseY <= 505)) {
-    
-    fire.y = 652;
-    water.y = 550;
-    water.x = 60;
-    fire.x = 60;
-    fire.dead = false;
-    water.dead = false;
-    lever.on = false;
-    
-    fire.winF = false;
-    water.winW = false;
-    
-    WIPmessage = false;
     screen.winscreen = false;
   }
   
+  //prompt play again 
+  if ((WIPmessage) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 449) && (mouseY <= 505)) {
+    reset();
+    WIPmessage = false;
+  }
+
   //prompt retry
   if ((screen.deadScreen) && (mouseX >= 230) && (mouseX <= 410) && (mouseY >= 409) && (mouseY <= 465)) {
-    fire.y = 652;
-    water.y = 550;
-    water.x = 60;
-    fire.x = 60;
-    fire.dead = false;
-    water.dead = false;
+    reset();
     screen.deadScreen = false;
-    lever.on = false;
   }
   //prompt main menu
   if ((screen.deadScreen) && (mouseX >= 490) && (mouseX <= 670) && (mouseY >= 409) && (mouseY <= 465)) {
     WIPmessage = true;
+    screen.deadScreen = false;
   }
-  
-  
+
+
   println(mouseX + " " + mouseY);
 }
 
 void keyReleased() {
   keyboardInput.release(keyCode);
+}
+
+void reset() {
+  fire.y = 652;
+  fire.x = 60;
+
+  water.y = 550;
+  water.x = 60;
+
+  lever.on = false;
+
+  fire.dead = false;
+  water.dead = false;
+
+  fire.winF = false;
+  water.winW = false;
+
+  fire.faceR = true;
+  water.faceR = true;
 }
