@@ -82,8 +82,6 @@ void setup() {
 }
 
 void draw() {
-
-
   image(background, 0, 0, 901, 675);
   fill(#908c4c);
 
@@ -242,4 +240,8 @@ void reset() {
 
   fire.faceR = true;
   water.faceR = true;
+  
+  for (Gem g : gems) {
+    g.collected = false;
+  }
 }
