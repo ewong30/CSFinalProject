@@ -1,3 +1,4 @@
+import processing.sound.*;
 public class Pool {
   float x, y;
   float wide;

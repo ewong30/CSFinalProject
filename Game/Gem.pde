@@ -1,3 +1,4 @@
+import processing.sound.*;
 public class Gem {
   int x, y;
   int halfWide = 13;

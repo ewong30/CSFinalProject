@@ -1,3 +1,4 @@
+import processing.sound.*;
 public class Lever {
   float x, y;
   boolean on = false;

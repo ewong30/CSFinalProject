@@ -1,3 +1,4 @@
+import processing.sound.*;
 class Door {
   float x, y;
   boolean fire, water;

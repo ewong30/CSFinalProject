@@ -1,7 +1,9 @@
+import processing.sound.*;
 PImage background;
 
-Fireboy fire = new Fireboy(599, 70); //og: 100, 652
-Watergirl water = new Watergirl(500, 70); //og: 100, 550
+Fireboy fire = new Fireboy(100, 652); //og: 100, 652
+Watergirl water = new Watergirl(100, 550); //og: 100, 550
+
 
 
 boolean WIPmessage;

@@ -1,3 +1,4 @@
+import processing.sound.*;
 public class Box extends Platform {
   boolean onWall = false;
   boolean onWallR = false;
