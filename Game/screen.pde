@@ -1,11 +1,31 @@
-public class winScreen {
+public class Screen {
   float x, y;
   boolean winscreen;
   boolean deadScreen;
 
-  public winScreen(float x, float y) {
+  public Screen(float x, float y) {
     this.x = x;
     this.y = y;
+  }
+  
+  void display() {
+    deadScreen = true;
+    rectMode(RADIUS);
+    fill(0,170);
+    rect(x, y, width, height);
+    
+    //dark gray border
+    fill(90);
+    rect(x, y, 397,237, 20, 20, 20, 20);
+    
+    //center light gray
+    fill(150,150,150);
+    rect(x, y, 370,210, 5, 5, 5, 5);
+    
+    fill(238, 170, 24);
+    rectMode(CORNERS);
+    rect(x - (370 - 5), y - (210 - 5), x - (397 + 5), y - (237 + 5));
+    
   }
 
   void displayWin() {
@@ -32,10 +52,8 @@ public class winScreen {
   }
   
   void displayDead() {
-    deadScreen = true;
-    fill(150,150,150);
-    rectMode(CORNER);
-    rect(x, y, 800,600);
+    display();
+    /*
     fill(218,185,41);
     rect(x - 30, y - 30, 60, 60);
     rect(x - 30, y + 570, 60, 60);
@@ -56,6 +74,7 @@ public class winScreen {
     rect (525, 480, 200, 100);
     noStroke();
     strokeWeight(0);
+    */
   }
   
   void nextStage() { 

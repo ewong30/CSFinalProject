@@ -31,7 +31,7 @@ movPlatform mPlat1 = new movPlatform(button0, 778, 250, 876, 275, 778, 320);
 
 Door fireDoor = new Door(725, 138, "fire");
 Door waterDoor = new Door(825, 138, "water");
-winScreen screen = new winScreen(49, 48);
+Screen screen = new Screen(450, 337);
 
 Pool wPool = new Pool(605, 652, 76, true, false);
 Pool fPool = new Pool(450, 652, 76, false, true);
