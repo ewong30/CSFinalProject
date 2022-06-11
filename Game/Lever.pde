@@ -1,14 +1,18 @@
-import processing.sound.*;
+
+
 public class Lever {
   float x, y;
   boolean on = false;
   boolean hasBeen = false;
   color col;
+  
 
   Lever(float x, float y, color col) {
     this.x = x;
     this.y = y;
     this.col = col;
+    
+    //loading sound files;
   }
 
   void drawLever(int x1, int y1, int x2, int y2, int x3) {
@@ -38,19 +42,23 @@ public class Lever {
       if (!on && !hasBeen && !fire.faceR) {
         on = true;
         hasBeen = true;
+        leverS.play();
       } else if (on && !hasBeen && fire.faceR) {
         on = false;
         hasBeen = true;
+        leverS.play();
       }
     } 
     else if ((water.x >= x - 6 && water.x <= x + 50 + 6) && (water.y >= y - 20 && water.y <= y)) {
       if (!on && !hasBeen && !water.faceR) {
         on = true;
         hasBeen = true;
+        leverS.play();
       }
       else if (on && !hasBeen && water.faceR) {
         on = false;
         hasBeen = true;
+        leverS.play();
       }
     }
     else {

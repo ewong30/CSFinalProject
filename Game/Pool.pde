@@ -33,12 +33,18 @@ public class Pool {
     if (killFire) {
       if ((fire.x + fire.halfWide >= x && fire.x - fire.halfWide <= x + wide) && (fire.y >= y - 5 && fire.y <= y + 20)) {
         fire.dead = true;
+        deathS.play();
+        fire.y = 652;
+        fire.x = 60;
       }
     }
     if (killWater) {
 
       if ((water.x + water.halfWide >= x && water.x - water.halfWide <= x + wide) && (water.y >= y - 5 && water.y <= y + 20)) {
         water.dead = true;
+        deathS.play();
+        water.y = 550;
+        water.x = 60;
       }
     }
   }

@@ -36,12 +36,14 @@ public class Gem {
       if ((fire.x + fire.halfWide > x - halfWide && fire.x - fire.halfWide < x + halfWide) && (fire.y - fire.tall < y + tall && fire.y > y)) { //if inside the bounds of gem,
         if (!collected) {
           collected = true;
+          diamondS.play();
         }
       }
     } else {
       if ((water.x + water.halfWide > x - halfWide && water.x - water.halfWide < x + halfWide) && (water.y - water.tall < y + tall && water.y > y)) { //if inside the bounds of gem,
         if (!collected) {
           collected = true;
+          diamondS.play();
         }
       }
     }

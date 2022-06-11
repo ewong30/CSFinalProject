@@ -40,6 +40,7 @@ public class Watergirl extends Character {
       dy = 0; //can jump when on floor
       if (keyboardInput.isPressed(Controller.WATER_UP)) {
         dy = -13;
+        jumpWGS.play();
       }
     } else {
       dy += 1; //gravity when not on floor

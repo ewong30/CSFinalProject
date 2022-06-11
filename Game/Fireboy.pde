@@ -41,6 +41,7 @@ public class Fireboy extends Character {
       dy = 0; //can jump when on floor
       if (keyboardInput.isPressed(Controller.FIRE_UP)) {
         dy = -13;
+        jumpFBS.play();
       }
     } else {
       dy += 1; //gravity when not on floor

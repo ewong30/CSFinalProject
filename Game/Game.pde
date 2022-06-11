@@ -4,12 +4,20 @@ PImage background;
 Fireboy fire = new Fireboy(100, 652); //og: 100, 652
 Watergirl water = new Watergirl(100, 550); //og: 100, 550
 
-
 boolean WIPmessage;
 
 Lever lever = new Lever(200, 450, #CBCE41);
 Button button0 = new Button(270, 347, #CB41CE);
 Button button1 = new Button(600, 250, #CB41CE);
+
+SoundFile leverS;
+SoundFile deathS;
+SoundFile menuS;
+SoundFile diamondS;
+SoundFile jumpFBS;
+SoundFile jumpWGS;
+SoundFile imposter;
+SoundFile door;
 
 ArrayList<Platform> plats = new ArrayList<Platform>();
 Platform plat1 = new Platform(24, 550, 300, 575);
@@ -56,6 +64,15 @@ void setup() {
   keyboardInput = new Controller();
   background = loadImage("background.png");
 
+  leverS = new SoundFile(this, "Lever.wav");
+  deathS = new SoundFile(this, "Death.wav");
+  menuS = new SoundFile(this, "Menu_Music.wav");
+  diamondS = new SoundFile(this, "Diamond.wav");
+  jumpFBS = new SoundFile(this, "Jump_fb.wav");
+  jumpWGS = new SoundFile(this, "Jump_wg.wav");
+  door = new SoundFile(this, "Door.wav");
+ // imposter = new SoundFile(this, "Imposter.wav");
+
   plats.add(plat1);
   plats.add(plat2);
   plats.add(plat5);
@@ -78,16 +95,16 @@ void draw() {
   fill(#908c4c);
 
   //draw doors
-  fireDoor.drawDoor();
-  waterDoor.drawDoor();
-  
-   //places box
+  fireDoor.drawDoor(fire, water);
+  waterDoor.drawDoor(fire, water);
+
+  //places box
   box0.place();
 
   //platforms
   boolean fireOnPlat = box0.activate(plats, fire);
   boolean waterOnPlat = box0.activate(plats, water);
-  
+
   boolean fireOnMovPlat;
   boolean waterOnMovPlat;
 
@@ -122,9 +139,9 @@ void draw() {
 
   //places box
   box0.place();
- ///box0.testMove(plats);
- ///box0.activate(plats, fire);
- ///box0.activate(plats, water);
+  ///box0.testMove(plats);
+  ///box0.activate(plats, fire);
+  ///box0.activate(plats, water);
 
   //gem
   fgem0.activate(fire, water);
