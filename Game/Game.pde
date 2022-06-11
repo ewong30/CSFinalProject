@@ -25,11 +25,9 @@ Platform plat2 = new Platform(780, 585, 876, 652);
 Platform plat3 = new Platform(450, 500, 730, 525); // add pool to this one
 Platform plat4 = new Platform(430, 475, 500, 500);
 Platform plat5 = new Platform(24, 450, 475, 475); // same level as lever
-
 Platform plat6 = new Platform(120, 347, 876, 372); // same as button0
 Platform plat7 = new Platform(24, 250, 776, 275); //same as button1
 Platform plat8 = new Platform(24, 145, 135, 250); // need box to get on
-
 Platform plat9 = new Platform(295, 140, 876, 165); //long top one
 Platform plat10 = new Platform(235, 115, 350, 140); // thin top one
 Platform plat11 = new Platform(280, 140, 390, 200); // thick top one
@@ -48,15 +46,13 @@ Pool pPool = new Pool(575, 500, 76, true, true);
 
 Box box0 = new Box(380, 210, 420, 250);
 
+ArrayList<Gem> gems = new ArrayList<Gem>();
 Gem wgem0 = new Gem(643, 618, false);
 Gem fgem0 = new Gem(488, 618, true);
-
 Gem wgem1 = new Gem(545, 313, false);
 Gem fgem1 = new Gem(185, 313, true);
-
 Gem wgem2 = new Gem(555, 106, false);
 Gem fgem2 = new Gem(290, 81, true);
-
 Gem wgem3 = new Gem(60, 111, false);
 
 void setup() {
@@ -88,6 +84,14 @@ void setup() {
   plats.add(plat11);
 
   plats.add(ceiling);
+
+  gems.add(wgem0);
+  gems.add(fgem0);
+  gems.add(wgem1);
+  gems.add(fgem1);
+  gems.add(wgem2);
+  gems.add(fgem2);
+  gems.add(wgem3);
 }
 
 void draw() {
@@ -95,8 +99,13 @@ void draw() {
   fill(#908c4c);
 
   //draw doors
+<<<<<<< HEAD
   fireDoor.drawDoor(fire, water);
   waterDoor.drawDoor(fire, water);
+=======
+  fireDoor.drawDoor();
+  waterDoor.drawDoor();
+>>>>>>> 939700659f8449fc5994f473d7e51c921d84e1b0
 
   //places box
   box0.place();
@@ -144,26 +153,10 @@ void draw() {
   ///box0.activate(plats, water);
 
   //gem
-  fgem0.activate(fire, water);
-  fgem0.drawGem();
-
-  wgem0.activate(fire, water);
-  wgem0.drawGem();
-
-  fgem1.activate(fire, water);
-  fgem1.drawGem();
-
-  wgem1.activate(fire, water);
-  wgem1.drawGem();
-
-  fgem2.activate(fire, water);
-  fgem2.drawGem();
-
-  wgem2.activate(fire, water);
-  wgem2.drawGem();
-
-  wgem3.activate(fire, water);
-  wgem3.drawGem();
+  for (Gem g : gems) {
+    g.activate(fire, water);
+    g.drawGem();
+  }
 
   //pool actions
   wPool.drawPool();
@@ -201,7 +194,7 @@ void draw() {
     screen.displayDead();
   }
   if (WIPmessage) {
-    screen.nextStage();
+    screen.WIP();
   }
 }
 
@@ -209,27 +202,64 @@ Controller keyboardInput;
 
 void keyPressed() {
   keyboardInput.press(keyCode);
+
+  if (key == '`') {
+    fire.x = 500;
+    fire.y = 100;
+    water.x = 500;
+    water.y = 100;
+  }
 }
 
 void mouseClicked() {
-  if ((screen.winscreen) && (mouseX >= 200) && (mouseX <= 700) && (mouseY >= 475) && (mouseY <= 575)) {
-    WIPmessage = true;
-  }
-  if ((screen.deadScreen) && (mouseX >= 150) && (mouseX <= 350) && (mouseY >= 480) && (mouseY <= 580)) {
-    fire.y = 652;
-    water.y = 550;
-    water.x = 60;
-    fire.x = 60;
-    fire.dead = false;
-    water.dead = false;
+  //prompt retry
+  if ((screen.deadScreen) && (mouseX >= 230) && (mouseX <= 410) && (mouseY >= 409) && (mouseY <= 465)) {
+    reset();
     screen.deadScreen = false;
   }
-  if ((screen.deadScreen) && (mouseX >= 525) && (mouseX <= 725) && (mouseY >= 480) && (mouseY <= 580)) {
-    WIPmessage = true;
+
+  //prompt play again 
+  if ((WIPmessage) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 449) && (mouseY <= 505)) {
+    reset();
+    WIPmessage = false;
   }
-  println(mouseX + " " + mouseY);
+  
+  //prompt WIP (pressed continue)
+  if ((screen.winscreen) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 429) && (mouseY <= 485)) {
+    WIPmessage = true;
+    screen.winscreen = false;
+  }
+
+  //prompt WIP
+  if ((screen.deadScreen) && (mouseX >= 490) && (mouseX <= 670) && (mouseY >= 409) && (mouseY <= 465)) {
+    WIPmessage = true;
+    screen.deadScreen = false;
+  }
 }
 
 void keyReleased() {
   keyboardInput.release(keyCode);
+}
+
+void reset() {
+  lever.on = false;
+  
+  fire.y = 652;
+  fire.x = 60;
+
+  water.y = 550;
+  water.x = 60;
+
+  fire.dead = false;
+  water.dead = false;
+
+  fire.winF = false;
+  water.winW = false;
+
+  fire.faceR = true;
+  water.faceR = true;
+  
+  for (Gem g : gems) {
+    g.collected = false;
+  }
 }
