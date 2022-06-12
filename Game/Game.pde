@@ -265,8 +265,8 @@ void instruct() {
   fill(#FFD900);
   textAlign(LEFT);
   if ((water.x >= 25 && water.x <= 380 && water.y <= 652 && water.y >= 475) || (fire.x >= 25 && fire.x <= 380 && fire.y <= 652 && fire.y >= 475)) {
-    text("USE J.I.L\nTO MOVE WATER-SUS", 140, 505);
-    text("USE W.A.D\nTO MOVE FIRE-SUS", 140, 607);
+    text("USE J.I.L\nTO MOVE WATERSUS", 140, 505);
+    text("USE W.A.D\nTO MOVE FIRESUS", 140, 607);
   }
   if ((water.x > 380 && water.x <= 730 && water.y <= 652 && water.y >= 525) || (fire.x > 380 && fire.x <= 730 && fire.y <= 652 && fire.y >= 525)) {
     text("NEVER MIX FIRE AND WATER!", 450, 570);
@@ -278,7 +278,7 @@ void instruct() {
     text("LEVERS REMAIN AS YOU LEFT THEM", 150, 410);
   }
   if ((water.x > 0 && water.x <= 778 && water.y <= 347 && water.y >= 275) || (fire.x > 0 && fire.x <= 778 && fire.y <= 347 && fire.y >= 275)) {
-    text("BUTTONS HOWEVER", 420, 300);
+    text("BUTTONS HOWEVER...", 400, 298);
     text("MUST BE HELD", 590, 325);
   }
   if ((water.x > 280 && water.x <= 778 && water.y <= 250 && water.y >= 165) || (fire.x > 280 && fire.x <= 778 && fire.y <= 250 && fire.y >= 165)) {
