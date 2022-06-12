@@ -44,7 +44,7 @@ Pool wPool = new Pool(605, 652, 76, true, false);
 Pool fPool = new Pool(450, 652, 76, false, true);
 Pool pPool = new Pool(575, 500, 76, true, true);
 
-Box box0 = new Box(380, 210, 420, 250);
+Box box0 = new Box(395, 210, 435, 250);
 
 ArrayList<Gem> gems = new ArrayList<Gem>();
 Gem wgem0 = new Gem(643, 618, false);
@@ -129,7 +129,9 @@ void draw() {
   water.isOnPlat = waterOnPlat || waterOnMovPlat;
 
   //instructions
-  instruct();
+  if (!WIPmessage && !screen.winscreen && !screen.deadScreen) {
+    instruct();
+  }
 
   //lever
   lever.drawLever(223, 453, 244, 423, 194);
@@ -213,13 +215,11 @@ void mouseClicked() {
   //prompt retry
   if ((screen.deadScreen) && (mouseX >= 230) && (mouseX <= 410) && (mouseY >= 409) && (mouseY <= 465)) {
     reset();
-    screen.deadScreen = false;
   }
 
   //prompt play again 
   if ((WIPmessage) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 449) && (mouseY <= 505)) {
     reset();
-    WIPmessage = false;
   }
 
   //prompt WIP (pressed continue)
@@ -254,6 +254,10 @@ void reset() {
   for (Gem g : gems) {
     g.collected = false;
   }
+
+  WIPmessage = false;
+  screen.deadScreen = false;
+  screen.winscreen = false;
 }
 
 void instruct() {
@@ -269,5 +273,22 @@ void instruct() {
   }
   if ((water.x > 730 && water.x <= 900 && water.y <= 585 && water.y >= 372) || (fire.x > 730 && fire.x <= 900 && fire.y <= 585 && fire.y >= 372)) {
     text("GREEN POISON KILLS THEM BOTH", 550, 438);
+  }
+  if ((water.x > 0 && water.x <= 730 && water.y <= 500 && water.y >= 372) || (fire.x > 0 && fire.x <= 730 && fire.y <= 500 && fire.y >= 372)) {
+    text("LEVERS REMAIN AS YOU LEFT THEM", 150, 410);
+  }
+  if ((water.x > 0 && water.x <= 778 && water.y <= 347 && water.y >= 275) || (fire.x > 0 && fire.x <= 778 && fire.y <= 347 && fire.y >= 275)) {
+    text("BUTTONS HOWEVER", 420, 300);
+    text("MUST BE HELD", 590, 325);
+  }
+  if ((water.x > 280 && water.x <= 778 && water.y <= 250 && water.y >= 165) || (fire.x > 280 && fire.x <= 778 && fire.y <= 250 && fire.y >= 165)) {
+    text("YOU CAN INTERACT WITH OBJECTS", 455, 200);
+  }
+  if ((water.x > 0 && water.x <= 280 && water.y <= 250 && water.y >= 0) || (fire.x > 0 && fire.x <= 280 && fire.y <= 250 && fire.y >= 0)) {
+    text("DONT FORGET TO\nGRAB SOME DIAMONDS!", 50, 60);
+  }
+  textAlign(RIGHT);
+  if ((water.x > 280 && water.x <= 900 && water.y <= 140 && water.y >= 0) || (fire.x > 280 && fire.x <= 900 && fire.y <= 140 && fire.y >= 0)) {
+    text("OPEN DOORS BY\nSTANDING IN FRONT OF THEM", 665, 60);
   }
 }
