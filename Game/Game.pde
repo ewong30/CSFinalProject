@@ -67,7 +67,7 @@ void setup() {
   jumpFBS = new SoundFile(this, "Jump_fb.wav");
   jumpWGS = new SoundFile(this, "Jump_wg.wav");
   //door = new SoundFile(this, "Door.wav");
- // imposter = new SoundFile(this, "Imposter.wav");
+  // imposter = new SoundFile(this, "Imposter.wav");
 
   plats.add(plat1);
   plats.add(plat2);
@@ -130,7 +130,7 @@ void draw() {
 
   //instructions
   instruct();
-  
+
   //lever
   lever.drawLever(223, 453, 244, 423, 194);
   lever.toggle(fire, water);
@@ -221,7 +221,7 @@ void mouseClicked() {
     reset();
     WIPmessage = false;
   }
-  
+
   //prompt WIP (pressed continue)
   if ((screen.winscreen) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 429) && (mouseY <= 485)) {
     WIPmessage = true;
@@ -260,6 +260,14 @@ void instruct() {
   textSize(18);
   fill(#FFD900);
   textAlign(LEFT);
-  text("USE J.I.L\nTO MOVE WATER-SUS", 140, 505);
-  text("USE W.A.D\nTO MOVE FIRE-SUS", 140, 607);
+  if ((water.x >= 25 && water.x <= 380 && water.y <= 652 && water.y >= 475) || (fire.x >= 25 && fire.x <= 380 && fire.y <= 652 && fire.y >= 475)) {
+    text("USE J.I.L\nTO MOVE WATER-SUS", 140, 505);
+    text("USE W.A.D\nTO MOVE FIRE-SUS", 140, 607);
+  }
+  if ((water.x > 380 && water.x <= 730 && water.y <= 652 && water.y >= 525) || (fire.x > 380 && fire.x <= 730 && fire.y <= 652 && fire.y >= 525)) {
+    text("NEVER MIX FIRE AND WATER!", 450, 570);
+  }
+  if ((water.x > 730 && water.x <= 900 && water.y <= 585 && water.y >= 372) || (fire.x > 730 && fire.x <= 900 && fire.y <= 585 && fire.y >= 372)) {
+    text("GREEN POISON KILLS THEM BOTH", 550, 438);
+  }
 }
