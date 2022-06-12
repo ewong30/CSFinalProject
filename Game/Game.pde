@@ -1,8 +1,8 @@
 import processing.sound.*;
 PImage background;
 
-Fireboy fire = new Fireboy(100, 652); //og: 100, 652
-Watergirl water = new Watergirl(100, 550); //og: 100, 550
+Fireboy fire = new Fireboy(80, 652); //og: 80, 652
+Watergirl water = new Watergirl(80, 550); //og: 80, 550
 
 boolean WIPmessage;
 
@@ -66,7 +66,7 @@ void setup() {
   diamondS = new SoundFile(this, "Diamond.wav");
   jumpFBS = new SoundFile(this, "Jump_fb.wav");
   jumpWGS = new SoundFile(this, "Jump_wg.wav");
-  door = new SoundFile(this, "Door.wav");
+  //door = new SoundFile(this, "Door.wav");
  // imposter = new SoundFile(this, "Imposter.wav");
 
   plats.add(plat1);
@@ -99,13 +99,8 @@ void draw() {
   fill(#908c4c);
 
   //draw doors
-<<<<<<< HEAD
   fireDoor.drawDoor(fire, water);
   waterDoor.drawDoor(fire, water);
-=======
-  fireDoor.drawDoor();
-  waterDoor.drawDoor();
->>>>>>> 939700659f8449fc5994f473d7e51c921d84e1b0
 
   //places box
   box0.place();
@@ -133,6 +128,9 @@ void draw() {
   fire.isOnPlat = fireOnPlat || fireOnMovPlat;
   water.isOnPlat = waterOnPlat || waterOnMovPlat;
 
+  //instructions
+  instruct();
+  
   //lever
   lever.drawLever(223, 453, 244, 423, 194);
   lever.toggle(fire, water);
@@ -243,23 +241,25 @@ void keyReleased() {
 
 void reset() {
   lever.on = false;
-  
   fire.y = 652;
-  fire.x = 60;
-
+  fire.x = 80;
   water.y = 550;
-  water.x = 60;
-
+  water.x = 80;
   fire.dead = false;
   water.dead = false;
-
   fire.winF = false;
   water.winW = false;
-
   fire.faceR = true;
   water.faceR = true;
-  
   for (Gem g : gems) {
     g.collected = false;
   }
+}
+
+void instruct() {
+  textSize(18);
+  fill(#FFD900);
+  textAlign(LEFT);
+  text("USE J.I.L\nTO MOVE WATER-SUS", 140, 505);
+  text("USE W.A.D\nTO MOVE FIRE-SUS", 140, 607);
 }

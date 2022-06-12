@@ -42,7 +42,7 @@ class Door {
     if ((fireboy.x >= x - halfWide && fireboy.x <= x + halfWide) && (fireboy.y <= y + 65 && fireboy.y >= y)) {
       if (fire == true) {
         fireboy.doorAct = true;
-        door.play();
+        //door.play();
       }
     } else {
       fireboy.doorAct = false;
@@ -53,7 +53,7 @@ class Door {
     if ((watergirl.x  >= x - halfWide && watergirl.x  <= x + halfWide) && (watergirl.y <= y + 65 && watergirl.y >= y)) {
       if (water == true) {
         watergirl.doorAct = true;
-        door.play();
+        //door.play();
       }
     } else {
       watergirl.doorAct = false;

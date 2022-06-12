@@ -51,27 +51,6 @@ public class Screen {
     textSize(35);
     fill(#FFD900);
     text("CONTINUE", x, y + 132);
-    /*
-    fill(150, 150, 150);
-     rectMode(CORNER);
-     rect(x, y, 800, 600);
-     fill(218, 185, 41);
-     rect(x - 30, y - 30, 60, 60);
-     rect(x - 30, y + 570, 60, 60);
-     rect(x + 770, y - 30, 60, 60);
-     rect(x + 770, y + 570, 60, 60);
-     textSize(72);
-     stroke(0);
-     strokeWeight(3);
-     text("You Win!", 295, 225);
-     text("Continue?", 275, 550);
-     noFill();
-     stroke(0);
-     strokeWeight(2);
-     rect (200, 475, 500, 100);
-     noStroke();
-     strokeWeight(0);
-     */
   }
 
   void displayDead() {
