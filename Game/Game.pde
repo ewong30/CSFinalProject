@@ -202,7 +202,6 @@ Controller keyboardInput;
 
 void keyPressed() {
   keyboardInput.press(keyCode);
-
   if (key == '`') {
     fire.x = 500;
     fire.y = 100;

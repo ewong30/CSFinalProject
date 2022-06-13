@@ -41,6 +41,7 @@ public class movPlatform extends Platform {
     state = button.on;
   }
 
+  //for lever
   void move(Lever lever) {
     //if lever is on / turned on
     state = lever.on;
@@ -62,8 +63,9 @@ public class movPlatform extends Platform {
     }
   }
   
+  //for button
   void move(boolean state) {
-    //if lever is on / turned on
+    //if button is on / turned on
     if ((state && (y1On - y1Off)> 0) && (super.y1 < y1On)) {
       super.y1 += 5;
       super.y2 += 5;
