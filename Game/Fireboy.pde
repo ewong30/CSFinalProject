@@ -4,6 +4,9 @@ public class Fireboy extends Character {
   boolean winF = false;
   boolean dead = false;
   boolean canMove = true;
+  boolean doorPlayed = false;
+  boolean mainM = false;
+  boolean cheatMove;
 
 
   Fireboy (float x, float y) {
@@ -17,7 +20,8 @@ public class Fireboy extends Character {
   }
 
   void xMove(ArrayList<Platform> plats, Box box) {
-    if (winF == false) {
+    if ((winF == false || !mainM)) {
+      
       if (keyboardInput.isPressed(Controller.FIRE_LEFT) && detectBordersL(plats, box)) {
         x -= 8;
         faceR = false;
@@ -29,6 +33,8 @@ public class Fireboy extends Character {
       }
     }
   }
+  
+ 
 
   void doorLeave(Watergirl water) {
     if (water.doorAct == true && doorAct == true) {
@@ -37,7 +43,7 @@ public class Fireboy extends Character {
   }
 
   void jump() {
-    if ((y >= 652 || isOnPlat || isOnBox) && doorAct == false) {
+    if (((y >= 652 || isOnPlat || isOnBox) && doorAct == false) && !mainM) {
       dy = 0; //can jump when on floor
       if (keyboardInput.isPressed(Controller.FIRE_UP)) {
         dy = -13;

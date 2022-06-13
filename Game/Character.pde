@@ -52,15 +52,17 @@ public class Character {
     }
   }
 
+  
+
   boolean detectBordersL(ArrayList<Platform> plats, Box box) {
     for (Platform p : plats) {
-      if ((p.x2 >= (x - 15) && p.x1 <= x) && (p.y1 < y && p.y2 > y)) {
+      if (doorAct && (p.x2 >= (x - 15) && p.x1 <= x) && (p.y1 < y && p.y2 > y)) {
         return false;
-      } else if ((p.x1 <= (x + 15) && p.x2 >= x) && (p.y1 < y && p.y2 > y)) {
+      } else if (doorAct && (p.x1 <= (x + 15) && p.x2 >= x) && (p.y1 < y && p.y2 > y)) {
         return false;
       }
     }
-    if(boxToggle && ((x - 15) <= box.x2 && x >= box.x1) && (y <= box.y2 && y >= box.y1)) {
+    if (boxToggle && ((x - 15) <= box.x2 && x >= box.x1) && (y <= box.y2 && y >= box.y1)) {
       return false;
     }
     if (x <= 42) 
@@ -69,6 +71,7 @@ public class Character {
       return true;
     }
   }
+
   boolean detectBordersR(ArrayList<Platform> plats, Box box) {
     for (Platform p : plats) {
       if ((p.x1 <= (x + 15) && p.x1 >= x) && (p.y1 < y && p.y2 > y)) {
@@ -77,7 +80,7 @@ public class Character {
         return false;
       }
     }
-    if(boxToggle && ((x + 15) >= box.x1 && x <= box.x2) && (y <= box.y2 && y >= box.y1)) {
+    if (boxToggle && ((x + 15) >= box.x1 && x <= box.x2) && (y <= box.y2 && y >= box.y1)) {
       return false;
     }
     if (x >= width - 42) 

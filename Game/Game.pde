@@ -5,6 +5,7 @@ Fireboy fire = new Fireboy(100, 652); //og: 100, 652
 Watergirl water = new Watergirl(100, 550); //og: 100, 550
 
 boolean WIPmessage;
+boolean mainMenu = true;
 
 Lever lever = new Lever(200, 450, #CBCE41);
 Button button0 = new Button(270, 347, #CB41CE);
@@ -36,8 +37,8 @@ Platform ceiling = new Platform(0, 0, 900, 25);
 movPlatform mPlat = new movPlatform(lever, 24, 347, 118, 372, 24, 420);
 movPlatform mPlat1 = new movPlatform(button0, 778, 250, 876, 275, 778, 320);
 
-Door fireDoor = new Door(725, 138, "fire");
-Door waterDoor = new Door(825, 138, "water");
+Door fireDoor = new Door(725, 138, 138, "fire");
+Door waterDoor = new Door(825, 138, 138, "water");
 Screen screen = new Screen(450, 337);
 
 Pool wPool = new Pool(605, 652, 76, true, false);
@@ -67,7 +68,7 @@ void setup() {
   jumpFBS = new SoundFile(this, "Jump_fb.wav");
   jumpWGS = new SoundFile(this, "Jump_wg.wav");
   door = new SoundFile(this, "Door.wav");
- // imposter = new SoundFile(this, "Imposter.wav");
+  // imposter = new SoundFile(this, "Imposter.wav");
 
   plats.add(plat1);
   plats.add(plat2);
@@ -99,13 +100,8 @@ void draw() {
   fill(#908c4c);
 
   //draw doors
-<<<<<<< HEAD
   fireDoor.drawDoor(fire, water);
   waterDoor.drawDoor(fire, water);
-=======
-  fireDoor.drawDoor();
-  waterDoor.drawDoor();
->>>>>>> 939700659f8449fc5994f473d7e51c921d84e1b0
 
   //places box
   box0.place();
@@ -186,15 +182,23 @@ void draw() {
   water.doorLeave(fire);
   water.xMove(plats, box0);
 
+
+  cheat();
+
   //ending actions
+
   if (fire.winF == true && water.winW == true) {
     screen.displayWin();
+    screen.completed = true;
   }
   if (fire.dead == true || water.dead == true) {
     screen.displayDead();
   }
   if (WIPmessage) {
     screen.WIP();
+  }
+  if (mainMenu) {
+    screen.mainMenu(fire, water);
   }
 }
 
@@ -219,11 +223,21 @@ void mouseClicked() {
   }
 
   //prompt play again 
-  if ((WIPmessage) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 449) && (mouseY <= 505)) {
+  if ((WIPmessage) && (mouseX >= 192) && (mouseX <= 451) && (mouseY >= 407) && (mouseY <= 458)) {
     reset();
     WIPmessage = false;
   }
-  
+
+  if ((WIPmessage) && (mouseX >= 491) && (mouseX <= 668) && (mouseY >= 409) && (mouseY <= 463)) {
+    mainMenu = true;
+    WIPmessage = false;
+  }
+
+  if ((mainMenu) && (mouseX >= 380) && (mouseX <= 535) && (mouseY >= 255) && (mouseY <= 435)) {
+    reset();
+    mainMenu = false;
+  }
+
   //prompt WIP (pressed continue)
   if ((screen.winscreen) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 429) && (mouseY <= 485)) {
     WIPmessage = true;
@@ -232,8 +246,8 @@ void mouseClicked() {
 
   //prompt WIP
   if ((screen.deadScreen) && (mouseX >= 490) && (mouseX <= 670) && (mouseY >= 409) && (mouseY <= 465)) {
-    WIPmessage = true;
     screen.deadScreen = false;
+    mainMenu = true;
   }
 }
 
@@ -243,12 +257,19 @@ void keyReleased() {
 
 void reset() {
   lever.on = false;
-  
-  fire.y = 652;
-  fire.x = 60;
+  fire.mainM = false;
+  water.mainM = false;
 
+  fire.x = 100;
+  fire.y = 652;
+
+  water.x = 100;
   water.y = 550;
-  water.x = 60;
+
+  box0.x1 = 380;
+  box0.y1 = 210;
+  box0.x2 = 420;
+  box0.y2 = 250;
 
   fire.dead = false;
   water.dead = false;
@@ -258,8 +279,31 @@ void reset() {
 
   fire.faceR = true;
   water.faceR = true;
-  
+
   for (Gem g : gems) {
     g.collected = false;
+  }
+}
+
+void cheat() {
+  if (keyboardInput.isPressed(Controller.INSTA_CLEAR)) {
+
+    fire.mainM = false;
+    water.mainM = false;
+
+    fire.x = 100;
+    fire.y = 652;
+
+    water.x = 550;
+    water.y = 100;
+
+    fire.dead = false;
+    water.dead = false;
+
+    fire.winF = false;
+    water.winW = false;
+
+    fire.faceR = true;
+    water.faceR = true;
   }
 }

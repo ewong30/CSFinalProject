@@ -5,11 +5,12 @@ class Controller {
   static final int WATER_LEFT = 3;
   static final int WATER_RIGHT = 4;
   static final int WATER_UP = 5;
+  static final int INSTA_CLEAR = 6;
 
   boolean [] inputs;
 
   public Controller() {
-    inputs = new boolean[6];//6 valid buttons
+    inputs = new boolean[7];//6 valid buttons
   }
 
   /**@param code: a valid constant e.g. FIRE_LEFT
@@ -31,13 +32,15 @@ class Controller {
       inputs[WATER_RIGHT] = true;
     if (code == 'I')
       inputs[WATER_UP] = true;
+    if (code == 'P')
+      inputs[INSTA_CLEAR] = true;
   }
   void release(int code) {
     if (code == 'A')
       inputs[FIRE_LEFT] = false;
     if (code == 'D')
       inputs[FIRE_RIGHT] = false;
-      if (code == 'J')
+    if (code == 'J')
       inputs[WATER_LEFT] = false;
     if (code == 'L')
       inputs[WATER_RIGHT] = false;
@@ -45,5 +48,7 @@ class Controller {
       inputs[FIRE_UP] = false;
     if (code == 'I')
       inputs[WATER_UP] = false;
+    if (code == 'P')
+      inputs[INSTA_CLEAR] = true;
   }
 }
