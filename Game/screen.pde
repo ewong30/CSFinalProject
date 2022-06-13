@@ -19,7 +19,8 @@ public class Screen {
     textSize(55);
     fill(#FFD900);
     noStroke();
-    text("Level Select", width / 2 - 150, y - 250);
+    textAlign(CENTER);
+    text("Level Select", width / 2, y - 250);
     rectMode(CORNERS);
     if (!completed)
       fill(78, 60, 14);
