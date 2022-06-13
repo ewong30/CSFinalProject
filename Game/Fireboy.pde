@@ -1,13 +1,11 @@
 import processing.sound.*;
 public class Fireboy extends Character {
-  boolean doorAct = false;
   boolean winF = false;
   boolean dead = false;
   boolean canMove = true;
   boolean doorPlayed = false;
   boolean mainM = false;
   boolean cheatMove;
-
 
   Fireboy (float x, float y) {
     super(x, y);

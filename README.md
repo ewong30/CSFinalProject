@@ -11,7 +11,7 @@ The Prototype Google Document is linked [here](https://docs.google.com/document/
 
 ## Compile/Run Instructions
 1. Clone the repository into a directory.
-2. Open the Game directory in Processing. Click on the file Game.pde.
+2. Open the Game directory in Processing.
 3. Click run in the top left corner of the Processing window.
 
 ## Development Log
@@ -25,5 +25,14 @@ The Prototype Google Document is linked [here](https://docs.google.com/document/
 | 5/26/22 | I created a basic design for Fireboy. | I created basic move functions for the characters. |
 | 5/27/22 | I changed the background from Processing into a picture. | I fixed merge conflicts. |
 | 5/29/22 | I changed the character designs to more basic shapes and created a jump/up function. |  |
-|5/30/22| I created platforms and a smoother jump function for both characters. I also organized the code outside of the main Game tab and into their respective tabs/classes.|  |
-
+|5/30/22| I created platforms and a smoother jump function for both characters. I also organized the code outside of the main Game tab and into their respective tabs/classes. |  |
+|5/31/22|  | I added basic functions for doors and poison puddles. I also worked on the main menu screen. |
+|6/1/22| I redesigned the characters and doors and created basic functions of Box class. | I started the lever class.  |
+|6/2/22| I worked on the box class and door design. | I worked on lever class. |
+|6/3/22| I worked on additional Box features. | I worked on developing levers and the moving platform class. |
+|6/6/22| I continued to work on the Box. | I fixed errors with levers and moving platforms. |
+|6/7/22| I fixed bugs with lever and began to work on buttons. | I worked on the Box class. |
+|6/8/22| I worked on the pool hitbox, button animations, and created basic gem functions. | I continued to fix Box bugs. |
+|6/9/22| I worked on polishing gems and corresponging levers/buttons to their moving platforms. |  |
+|6/10/22| I edited the ending screens and "reset" settings. | I was able to fix the Box! I also added sound libraries. |
+|6/12/22| I added instructions in-game and worked on finalizing the Prototype. |  |

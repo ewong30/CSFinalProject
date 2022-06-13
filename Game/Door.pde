@@ -23,6 +23,7 @@ class Door {
     rectMode(CORNERS);
     fill(113, 103, 51);
     rect(x - halfWide, y - 70, x + halfWide, y);   
+<<<<<<< HEAD
     if (!fireb.doorAct && !water) {
       fill(0);
       rect(x - 19, y - 59, x + 19, y);
@@ -62,11 +63,22 @@ class Door {
     }
 
     if (fire && fireb.doorAct == false) {
+=======
+
+    rect(x - 19, y - 59, x + 19, y);
+
+
+    if (fire) {
+>>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
       stroke(255, 55, 5);
       circle(x, y - 32, 18);
     }
 
+<<<<<<< HEAD
     if (water && waterg.doorAct == false) {
+=======
+    if (water) {
+>>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
       stroke(49, 191, 255);
       circle(x, y - 32, 18);
     }
@@ -78,10 +90,14 @@ class Door {
     if ((fireboy.x >= x - halfWide && fireboy.x <= x + halfWide) && (fireboy.y <= y + 65 && fireboy.y >= y)) {
       if (fire == true) {
         fireboy.doorAct = true;
+<<<<<<< HEAD
         if (!fireboy.doorPlayed && !door.isPlaying()) {
           door.play();
           fireboy.doorPlayed = true;
         }
+=======
+        //door.play();
+>>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
       }
     } else {
       fireboy.doorPlayed = false;
@@ -96,10 +112,14 @@ class Door {
     if ((watergirl.x  >= x - halfWide && watergirl.x  <= x + halfWide) && (watergirl.y <= y + 65 && watergirl.y >= y)) {
       if (water == true) {
         watergirl.doorAct = true;
+<<<<<<< HEAD
         if (!watergirl.doorPlayed && !door.isPlaying()) {
           door.play();
           watergirl.doorPlayed = true;
         }
+=======
+        //door.play();
+>>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
       }
     } else {
       watergirl.doorAct = false;

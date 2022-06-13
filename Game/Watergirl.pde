@@ -1,6 +1,5 @@
 import processing.sound.*;
 public class Watergirl extends Character {
-  boolean doorAct;
   boolean winW = false;
   boolean dead = false;
   boolean canMove = true;

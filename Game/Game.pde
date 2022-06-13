@@ -1,8 +1,8 @@
 import processing.sound.*;
 PImage background;
 
-Fireboy fire = new Fireboy(100, 652); //og: 100, 652
-Watergirl water = new Watergirl(100, 550); //og: 100, 550
+Fireboy fire = new Fireboy(80, 652); //og: 80, 652
+Watergirl water = new Watergirl(80, 550); //og: 80, 550
 
 boolean WIPmessage;
 boolean mainMenu = true;
@@ -45,7 +45,7 @@ Pool wPool = new Pool(605, 652, 76, true, false);
 Pool fPool = new Pool(450, 652, 76, false, true);
 Pool pPool = new Pool(575, 500, 76, true, true);
 
-Box box0 = new Box(380, 210, 420, 250);
+Box box0 = new Box(395, 210, 435, 250);
 
 ArrayList<Gem> gems = new ArrayList<Gem>();
 Gem wgem0 = new Gem(643, 618, false);
@@ -67,7 +67,11 @@ void setup() {
   diamondS = new SoundFile(this, "Diamond.wav");
   jumpFBS = new SoundFile(this, "Jump_fb.wav");
   jumpWGS = new SoundFile(this, "Jump_wg.wav");
+<<<<<<< HEAD
   door = new SoundFile(this, "Door.wav");
+=======
+  //door = new SoundFile(this, "Door.wav");
+>>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
   // imposter = new SoundFile(this, "Imposter.wav");
 
   plats.add(plat1);
@@ -128,6 +132,11 @@ void draw() {
 
   fire.isOnPlat = fireOnPlat || fireOnMovPlat;
   water.isOnPlat = waterOnPlat || waterOnMovPlat;
+
+  //instructions
+  if (!WIPmessage && !screen.winscreen && !screen.deadScreen) {
+    instruct();
+  }
 
   //lever
   lever.drawLever(223, 453, 244, 423, 194);
@@ -206,7 +215,6 @@ Controller keyboardInput;
 
 void keyPressed() {
   keyboardInput.press(keyCode);
-
   if (key == '`') {
     fire.x = 500;
     fire.y = 100;
@@ -219,15 +227,14 @@ void mouseClicked() {
   //prompt retry
   if ((screen.deadScreen) && (mouseX >= 230) && (mouseX <= 410) && (mouseY >= 409) && (mouseY <= 465)) {
     reset();
-    screen.deadScreen = false;
   }
 
   //prompt play again 
   if ((WIPmessage) && (mouseX >= 192) && (mouseX <= 451) && (mouseY >= 407) && (mouseY <= 458)) {
     reset();
-    WIPmessage = false;
   }
 
+<<<<<<< HEAD
   if ((WIPmessage) && (mouseX >= 491) && (mouseX <= 668) && (mouseY >= 409) && (mouseY <= 463)) {
     mainMenu = true;
     WIPmessage = false;
@@ -238,6 +245,8 @@ void mouseClicked() {
     mainMenu = false;
   }
 
+=======
+>>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
   //prompt WIP (pressed continue)
   if ((screen.winscreen) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 429) && (mouseY <= 485)) {
     WIPmessage = true;
@@ -257,6 +266,7 @@ void keyReleased() {
 
 void reset() {
   lever.on = false;
+<<<<<<< HEAD
   fire.mainM = false;
   water.mainM = false;
 
@@ -271,17 +281,61 @@ void reset() {
   box0.x2 = 420;
   box0.y2 = 250;
 
+=======
+  fire.y = 652;
+  fire.x = 80;
+  water.y = 550;
+  water.x = 80;
+>>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
   fire.dead = false;
   water.dead = false;
-
   fire.winF = false;
   water.winW = false;
-
   fire.faceR = true;
   water.faceR = true;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
   for (Gem g : gems) {
     g.collected = false;
+  }
+
+  WIPmessage = false;
+  screen.deadScreen = false;
+  screen.winscreen = false;
+}
+
+void instruct() {
+  textSize(18);
+  fill(#FFD900);
+  textAlign(LEFT);
+  if ((water.x >= 25 && water.x <= 380 && water.y <= 652 && water.y >= 475) || (fire.x >= 25 && fire.x <= 380 && fire.y <= 652 && fire.y >= 475)) {
+    text("USE J.I.L\nTO MOVE WATERSUS", 140, 505);
+    text("USE W.A.D\nTO MOVE FIRESUS", 140, 607);
+  }
+  if ((water.x > 380 && water.x <= 730 && water.y <= 652 && water.y >= 525) || (fire.x > 380 && fire.x <= 730 && fire.y <= 652 && fire.y >= 525)) {
+    text("NEVER MIX FIRE AND WATER!", 450, 570);
+  }
+  if ((water.x > 730 && water.x <= 900 && water.y <= 585 && water.y >= 372) || (fire.x > 730 && fire.x <= 900 && fire.y <= 585 && fire.y >= 372)) {
+    text("GREEN POISON KILLS THEM BOTH", 550, 438);
+  }
+  if ((water.x > 0 && water.x <= 730 && water.y <= 500 && water.y >= 372) || (fire.x > 0 && fire.x <= 730 && fire.y <= 500 && fire.y >= 372)) {
+    text("LEVERS REMAIN AS YOU LEFT THEM", 150, 410);
+  }
+  if ((water.x > 0 && water.x <= 778 && water.y <= 347 && water.y >= 275) || (fire.x > 0 && fire.x <= 778 && fire.y <= 347 && fire.y >= 275)) {
+    text("BUTTONS HOWEVER...", 400, 298);
+    text("MUST BE HELD", 590, 325);
+  }
+  if ((water.x > 280 && water.x <= 778 && water.y <= 250 && water.y >= 165) || (fire.x > 280 && fire.x <= 778 && fire.y <= 250 && fire.y >= 165)) {
+    text("YOU CAN INTERACT WITH OBJECTS", 455, 200);
+  }
+  if ((water.x > 0 && water.x <= 280 && water.y <= 250 && water.y >= 0) || (fire.x > 0 && fire.x <= 280 && fire.y <= 250 && fire.y >= 0)) {
+    text("DONT FORGET TO\nGRAB SOME DIAMONDS!", 50, 60);
+  }
+  textAlign(RIGHT);
+  if ((water.x > 280 && water.x <= 900 && water.y <= 140 && water.y >= 0) || (fire.x > 280 && fire.x <= 900 && fire.y <= 140 && fire.y >= 0)) {
+    text("OPEN DOORS BY\nSTANDING IN FRONT OF THEM", 665, 60);
   }
 }
 

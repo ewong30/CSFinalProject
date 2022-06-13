@@ -108,12 +108,19 @@ void displayWin() {
 void displayDead() {
   deadScreen = true;
 
+<<<<<<< HEAD
   display();
   textAlign(CENTER);
   textSize(60);
   stroke(0);
   //strokeWeight(3);
   text("GAME OVER!", x, y - 60);
+=======
+    textSize(35);
+    fill(#FFD900);
+    text("CONTINUE", x, y + 132);
+  }
+>>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
 
   textSize(27);
   text("RETRY OR RETURN TO MAIN MENU", x, y);

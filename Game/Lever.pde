@@ -3,7 +3,6 @@
 public class Lever {
   float x, y;
   boolean on = false;
-  boolean hasBeen = false;
   color col;
   
 
@@ -39,30 +38,30 @@ public class Lever {
 
   void toggle(Fireboy fire, Watergirl water) {
     if ((fire.x >= x - 6 && fire.x <= x + 50 + 6) && (fire.y >= y - 20 && fire.y <= y)) {
-      if (!on && !hasBeen && !fire.faceR) {
+      if (!on && !fire.faceR) {
         on = true;
-        hasBeen = true;
+
         leverS.play();
-      } else if (on && !hasBeen && fire.faceR) {
+      } else if (on && fire.faceR) {
         on = false;
-        hasBeen = true;
+
         leverS.play();
       }
     } 
     else if ((water.x >= x - 6 && water.x <= x + 50 + 6) && (water.y >= y - 20 && water.y <= y)) {
-      if (!on && !hasBeen && !water.faceR) {
+      if (!on && !water.faceR) {
         on = true;
-        hasBeen = true;
+
         leverS.play();
       }
-      else if (on && !hasBeen && water.faceR) {
+      else if (on&& water.faceR) {
         on = false;
-        hasBeen = true;
+
         leverS.play();
       }
     }
-    else {
-      hasBeen = false;
-    }
+    //else {
+    //  hasBeen = false;
+    //}
   }
 }
