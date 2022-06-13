@@ -67,11 +67,8 @@ void setup() {
   diamondS = new SoundFile(this, "Diamond.wav");
   jumpFBS = new SoundFile(this, "Jump_fb.wav");
   jumpWGS = new SoundFile(this, "Jump_wg.wav");
-<<<<<<< HEAD
   door = new SoundFile(this, "Door.wav");
-=======
   //door = new SoundFile(this, "Door.wav");
->>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
   // imposter = new SoundFile(this, "Imposter.wav");
 
   plats.add(plat1);
@@ -234,7 +231,6 @@ void mouseClicked() {
     reset();
   }
 
-<<<<<<< HEAD
   if ((WIPmessage) && (mouseX >= 491) && (mouseX <= 668) && (mouseY >= 409) && (mouseY <= 463)) {
     mainMenu = true;
     WIPmessage = false;
@@ -245,8 +241,6 @@ void mouseClicked() {
     mainMenu = false;
   }
 
-=======
->>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
   //prompt WIP (pressed continue)
   if ((screen.winscreen) && (mouseX >= 330) && (mouseX <= 570) && (mouseY >= 429) && (mouseY <= 485)) {
     WIPmessage = true;
@@ -266,7 +260,6 @@ void keyReleased() {
 
 void reset() {
   lever.on = false;
-<<<<<<< HEAD
   fire.mainM = false;
   water.mainM = false;
 
@@ -281,22 +274,18 @@ void reset() {
   box0.x2 = 420;
   box0.y2 = 250;
 
-=======
   fire.y = 652;
   fire.x = 80;
   water.y = 550;
   water.x = 80;
->>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
+
   fire.dead = false;
   water.dead = false;
   fire.winF = false;
   water.winW = false;
   fire.faceR = true;
   water.faceR = true;
-<<<<<<< HEAD
 
-=======
->>>>>>> 5be6f35ebb56f7067bb17973e53b532c50da93af
   for (Gem g : gems) {
     g.collected = false;
   }
