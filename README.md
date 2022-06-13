@@ -11,7 +11,7 @@ The Prototype Google Document is linked [here](https://docs.google.com/document/
 
 ## Compile/Run Instructions
 1. Clone the repository into a directory.
-2. Open the Game directory in Processing. Click on the file Game.pde.
+2. Open the Game directory in Processing.
 3. Click run in the top left corner of the Processing window.
 
 ## Development Log
