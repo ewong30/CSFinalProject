@@ -21,16 +21,16 @@ class Door {
     rectMode(CORNERS);
     fill(113, 103, 51);
     rect(x - halfWide, y - 70, x + halfWide, y);   
-    if(!fireb.doorAct) {
+
     rect(x - 19, y - 59, x + 19, y);
-    }
-    
-    if (fire && fireb.doorAct == false) {
+
+
+    if (fire) {
       stroke(255, 55, 5);
       circle(x, y - 32, 18);
     }
-    
-    if (water && waterg.doorAct == false) {
+
+    if (water) {
       stroke(49, 191, 255);
       circle(x, y - 32, 18);
     }
